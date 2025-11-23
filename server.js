@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/receiver', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'receiver.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Set message endpoint
