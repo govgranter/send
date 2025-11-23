@@ -17,7 +17,7 @@
             const message = messageInput.value.trim();
             
             if (!message) {
-                showStatus('Please enter a message', 'error');
+                alert('Please enter a message', 'error');
                 return;
             }
 
@@ -37,7 +37,7 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    showStatus(`✓ Message sent successfully: "${message}"`, 'success');
+                    alert(`✓ Message sent successfully: "${message}"`, 'success');
                     messageInput.value = '';
                     messageInput.focus();
                 } else {
@@ -45,7 +45,7 @@
                 }
             } catch (error) {
                 console.error('Error sending message:', error);
-                showStatus(`✗ Error: ${error.message}`, 'error');
+                alert(`✗ Error: ${error.message}`, 'error');
             } finally {
                 // Re-enable button
                 sendButton.disabled = false;
