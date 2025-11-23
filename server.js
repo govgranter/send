@@ -4,13 +4,20 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// MIDDLEWARE - This is crucial!
+// MIDDLEWARE - Fix for CORS and JSON parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Add CORS headers
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 // Store the message
-let currentMessage = 'Waiting for a message...';
+let currentMessage = 'No message yet';
 
 // Serve HTML pages
 app.get('/', (req, res) => {
@@ -23,19 +30,39 @@ app.get('/receiver', (req, res) => {
 
 // API endpoint to SET message
 app.post('/set-message', (req, res) => {
-    console.log('Received message:', req.body);
-    currentMessage = req.body.message || 'Empty message';
-    console.log('Message stored:', currentMessage);
-    res.json({ success: true, message: 'Message received!' });
+    console.log('📨 Received POST data:', req.body);
+    
+    if (!req.body.message) {
+        return res.status(400).json({ error: 'No message provided' });
+    }
+    
+    currentMessage = req.body.message;
+    console.log('💾 Message stored:', currentMessage);
+    
+    res.json({ 
+        success: true, 
+        message: 'Message received!',
+        received: currentMessage
+    });
 });
 
 // API endpoint to GET message
 app.get('/get-message', (req, res) => {
-    res.json({ message: currentMessage });
+    console.log('📤 Sending message:', currentMessage);
+    res.json({ 
+        message: currentMessage,
+        timestamp: new Date().toISOString()
+    });
 });
 
-app.listen(PORT, () => {
+// Test endpoint
+app.get('/test', (req, res) => {
+    res.json({ status: 'Server is working!' });
+});
+
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
     console.log(`📤 Sender: http://localhost:${PORT}`);
     console.log(`📥 Receiver: http://localhost:${PORT}/receiver`);
+    console.log(`🧪 Test: http://localhost:${PORT}/test`);
 });
