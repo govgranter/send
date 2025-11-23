@@ -26,7 +26,7 @@
             sendButton.textContent = 'Sending...';
             
             try {
-                const response = await fetch('/api/messages', {
+                const response = await fetch('https://send-39yi.onrender.com/set-message', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
