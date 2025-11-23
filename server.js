@@ -35,7 +35,9 @@ app.post('/set-message', (req, res) => {
     if (!req.body.message) {
         return res.status(400).json({ error: 'No message provided' });
     }
-    
+    if (req.body.text) {
+    text = req.body.text;
+    }
     currentMessage = req.body.message;
     console.log('💾 Message stored:', currentMessage);
     
@@ -51,6 +53,7 @@ app.get('/get-message', (req, res) => {
     console.log('📤 Sending message:', currentMessage);
     res.json({ 
         message: currentMessage,
+        text: text;
         timestamp: new Date().toISOString()
     });
 });
