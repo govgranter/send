@@ -1,38 +1,41 @@
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-// Middleware
+// MIDDLEWARE - This is crucial!
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// Store the current message
-let currentMessage = '';
+// Store the message
+let currentMessage = 'Waiting for a message...';
 
-// Routes
+// Serve HTML pages
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'sender.html'));
 });
 
 app.get('/receiver', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'receiver.html'));
 });
 
-// Set message endpoint
+// API endpoint to SET message
 app.post('/set-message', (req, res) => {
-    currentMessage = req.body.message || '';
-    console.log('Message set:', currentMessage);
-    res.json({ success: true });
+    console.log('Received message:', req.body);
+    currentMessage = req.body.message || 'Empty message';
+    console.log('Message stored:', currentMessage);
+    res.json({ success: true, message: 'Message received!' });
 });
 
-// Get message endpoint
+// API endpoint to GET message
 app.get('/get-message', (req, res) => {
     res.json({ message: currentMessage });
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running: http://localhost:${PORT}`);
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
+    console.log(`📤 Sender: http://localhost:${PORT}`);
+    console.log(`📥 Receiver: http://localhost:${PORT}/receiver`);
 });
