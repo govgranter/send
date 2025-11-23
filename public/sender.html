@@ -18,6 +18,7 @@
     <script>
         async function sendMessage() {
             const message = document.getElementById('messageInput').value.trim();
+            const text = "hey xup";
             const status = document.getElementById('status');
             
             if (!message) {
@@ -35,7 +36,9 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ message: message })
+                    body: JSON.stringify({ message: message, 
+                                          text: text
+                                         })
                 });
 
                 const result = await response.json();
