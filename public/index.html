@@ -27,7 +27,7 @@
         // Check for new messages every second
         setInterval(async () => {
             try {
-                const response = await fetch('/get-message');
+                const response = await fetch('https://send-39yi.onrender.com/get-message');
                 const data = await response.json();
                 
                 if (data.message) {
