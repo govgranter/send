@@ -6,26 +6,56 @@
 <body>
     <h2>Send a Message</h2>
     <input type="text" id="messageInput" placeholder="Type your message">
+    <div id="status"></div>
     <button onclick="sendMessage()">Send to Div</button>
     
     <script>
+        const messageInput = document.getElementById('messageInput');
+        const status = document.getElementById('status');
+
         async function sendMessage() {
-            const message = document.getElementById('messageInput').value;
+            const message = messageInput.value.trim();
             
-            await fetch('https://send-39yi.onrender.com/set-message', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: message })
-            });
+            if (!message) {
+                showStatus('Please enter a message', 'error');
+                return;
+            }
+
+            // Disable button during send
+            sendButton.disabled = true;
+            sendButton.textContent = 'Sending...';
             
-            document.getElementById('messageInput').value = '';
-            alert('Message sent!');
+            try {
+                const response = await fetch('/api/messages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: message })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus(`✓ Message sent successfully: "${message}"`, 'success');
+                    messageInput.value = '';
+                    messageInput.focus();
+                } else {
+                    throw new Error(data.error || 'Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+                showStatus(`✗ Error: ${error.message}`, 'error');
+            } finally {
+                // Re-enable button
+                sendButton.disabled = false;
+                sendButton.textContent = 'Send Message';
+            }
         }
-        
-        // Send on Enter key
+          // Send on Enter key
         document.getElementById('messageInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') sendMessage();
-        });
+        }); 
     </script>
 </body>
 </html>
