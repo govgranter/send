@@ -11,9 +11,9 @@
     
     <script>
         const status = document.getElementById('status');
+        const messageInput = document.getElementById('messageInput');
 
         async function sendMessage() {
-            const messageInput = document.getElementById('messageInput');
             const message = messageInput.value.trim();
             
             if (!message) {
