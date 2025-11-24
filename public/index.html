@@ -19,6 +19,9 @@
 /* Top Ad Styles */
 .top {
   position: fixed;
+	display: flex;
+	background: #fff;
+	justify-content: space-between;
   top: 0;
   left: 0;
   padding: 10px 20px;
@@ -27,46 +30,12 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden; /* Ensures content does not overflow during animation */
 }
-
-.ad-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  left: 0px;
-  position: relative;
+.logo {
 }
-
-.ad-content p {
-  margin: 0;
-  font-size: 1rem;
+.logo i {
 }
-
-.ad-content a {
-  color: white;
-  font-size: 1rem;
+.topBtn{
 }
-
-a {
-  color: #008000;
-  text-decoration: none;
-  text-align: center;
-}
-
-a h2{
-  background-color: blanchedalmond;
-  max-width: 300px;
-  margin: auto;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px #008000;
-  cursor: pointer;
-  line-height: 2rem;
-  padding: 5px;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 /* Header */
 .header {
   text-align: center;
@@ -285,7 +254,7 @@ blockquote {
 <body>
 <!-- Top Page Advertisement -->
   <div class="top">
-    <div id="ad-content" class="ad-content hidden-content">
+    <div class="logo">
       <p><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>Starmart</strong></p>
 	</div>
 	<div class="topBtn">
