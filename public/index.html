@@ -123,6 +123,10 @@ ul {
 .input {
 	margin: 15px auto;
 }
+#response {
+	margin-bottom: 5px;
+	color: red;
+}
 .featured button {
     padding: 10px 20px;
     background: #0066ff;
@@ -306,8 +310,10 @@ codeInput.addEventListener('input', (e) => {
 			} else {
 				const response = document.getElementById('response');
 				response.textContent = 'Invalid code. Please enter a valid.';
+				setTimeout(() => {
+					response.textContent = '';
+				}, 3000);
 			}
-			
 		});
 	</script>
 </html>
