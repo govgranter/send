@@ -306,7 +306,6 @@ codeInput.addEventListener('input', (e) => {
   
 			if (code === expectedCode) { 
 				const submitBtn = document.getElementById('submitBtn');
-				submitBtn.disabled = true;
 				submitBtn.textContent = 'LOADING.....';
 				setTimeout(() => {
 					window.location.href = 'redeem.html';
@@ -314,8 +313,10 @@ codeInput.addEventListener('input', (e) => {
 			} else {
 				const response = document.getElementById('response');
 				response.textContent = 'Invalid code. Please enter a valid code.';
+				submitBtn.disabled = true;
 				setTimeout(() => {
 					response.textContent = '';
+					submitBtn.disabled = false;
 				}, 3000);
 			}
 		});
