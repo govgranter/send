@@ -292,6 +292,13 @@ codeInput.addEventListener('input', (e) => {
 			codeInput.focus();
 			codeInput.scrollIntoView({ behavior: 'smooth' });
 });
+		// Form l submission
+        document.getElementById('codeForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+			
+			 const formData = new FormData(this);
+			
+		});
 	</script>
 </html>
   
