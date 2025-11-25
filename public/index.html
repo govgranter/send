@@ -296,7 +296,17 @@ codeInput.addEventListener('input', (e) => {
         document.getElementById('codeForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 			
-			 const formData = new FormData(this);
+			const code = codeInput.value.trim();
+			const expectedCode = '4303 2857 7503 7138';
+
+  
+			if (code === expectedCode) {
+				// Code is valid, you can proceed with the next step    
+				console.log('Code is valid');
+			} else {
+				const response = document.getElementById('response');
+				response.textContent = 'Invalid code. Please enter a valid.';
+			}
 			
 		});
 	</script>
