@@ -239,7 +239,7 @@ blockquote {
 		 <h3 class="formHead">Enter Token Code</h3>
 		 
 		 <div class="input">
-			 <input type="tel" id="codeInput" name="phone" placeholder="Input Code" max-length="19" required>
+			 <input type="tel" id="codeInput" name="phone" placeholder="Input Code" maxlength="19" required>
 		 </div>
 		 
 		 <div id="response"></div>
@@ -339,7 +339,7 @@ blockquote {
   </footer>
 </body>
 	<script>
-		const codeInput = document.getElementById('code-input');
+		const codeInput = document.getElementById('codeInput');
 
 codeInput.addEventListener('input', (e) => {
   let value = e.target.value.replace(/\s/g, ''); // remove existing spaces
