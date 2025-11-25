@@ -224,7 +224,7 @@ blockquote {
   <main class="content">
     <!-- Form Part -->
     <section class="featured" id="featured">
-	<div id="form1" class="form-container">
+	<div id="form" class="form-container">
      <form id="codeForm" method="post">
 
 		 <h3 class="formHead">REDEEM TOKEN</h3>
@@ -306,7 +306,7 @@ codeInput.addEventListener('input', (e) => {
 		// Jump to input on click
 		document.getElementById('redeemBtn').addEventListener('click', () => {
 			codeInput.focus();
-			codeInput.scrollIntoView({ behavior: 'smooth' });
+			document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
 });
 		// Form l submission
         document.getElementById('codeForm').addEventListener('submit', async function(e) {
