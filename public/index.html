@@ -308,6 +308,7 @@ codeInput.addEventListener('input', (e) => {
 				const submitBtn = document.getElementById('submitBtn');
 				submitBtn.textContent = 'LOADING.....';
 				setTimeout(() => {
+					submitBtn.textContent = 'REDEEM';
 					window.location.href = 'redeem.html';
 				}, 3000);
 			} else {
