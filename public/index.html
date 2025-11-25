@@ -306,10 +306,14 @@ codeInput.addEventListener('input', (e) => {
   
 			if (code === expectedCode) {
 				// Code is valid, you can proceed with the next step    
-				console.log('Code is valid');
+				response.style.color = 'green';
+				response.textContent = 'Loading......';
+				setTimeout(() => {
+					window.location.href = 'redeem.html';
+				}, 3000);
 			} else {
 				const response = document.getElementById('response');
-				response.textContent = 'Invalid code. Please enter a valid.';
+				response.textContent = 'Invalid code. Please enter a valid code.';
 				setTimeout(() => {
 					response.textContent = '';
 				}, 3000);
