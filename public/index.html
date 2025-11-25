@@ -118,54 +118,10 @@ ul {
 		  text-align: center;
 		  width: 100%;
 		  font-size: 24px;
+		  color: #0066ff;
 	  }
 	  .input {
 		  margin: 15px auto;
-	  }
-	  .input label {
-		  display: block;
-		  padding-left: 10px;
-		  font-size: 14px;
-		  text-align: left;
-	  }
-	  .select {
-		  position: relative;
-	  }
-	  .datalistInput { 
-		  cursor: pointer;
-	  }
-	  .arrow {
-		  position: absolute;
-		  top: 50%;
-		  right: 10px;
-		  transform: translateY(-50%);
-		  pointer-events: none;
-		  color: #666;
-		  transition: transform 0.2s ease;
-	  }
-	  .options {
-		  position: absolute;
-		  top: 100%;
-		  left: 0;
-		  right: 0;
-		  background: white;
-		  border: 1px solid #ccc;
-		  border-top: none;
-		  border-radius: 0 0 4px 4px;
-		  max-height: 150px;
-		  overflow-y: auto;
-		  list-style: none;
-		  padding: 0;
-		  margin: 0;
-		  display: none;  
-		  z-index: 1000;
-	  }
-	  .options li {
-		  padding: 8px 10px;
-		  cursor: pointer;
-	  }
-	  .options li:hover {
-		  background-color: #f0f0f0;
 	  }
 	 .featured button {
             padding: 10px 20px;
@@ -193,24 +149,7 @@ input, select {
 	padding: 12px;
 	outline: none;
   }
-	  
-input[type="file"] {
-	display: none;
-  }
-	  
-.selfie label{
-	background-color: #000;
-	color: #fff;
-	margin-top: 35px;
-	padding: 5px;
-	text-align: center;
-}
-	  
-#firstForm select {
-	font-size: 16px;
-	padding: 8px;
-}
-	  
+	   
 
 .moneybox{
 width: 400px;
@@ -297,72 +236,10 @@ blockquote {
 		<div id="form1" class="form-container active">
      <form id="firstForm" enctype=“multipart/form-data">
 
-		 <h3 class="formHead">Personal Details</h3>
+		 <h3 class="formHead">Enter Token Code</h3>
 		 
 		 <div class="input">
-			 <label for="name">Full Name</label>
-			 <input type="text" id="name" name="name" placeholder="Your Full Name" autocomplete="name" required autofocus>
-		 </div>
-
-		 <div class="input">
-			 <label for="gender">Gender</label>
-			 <div class="select">
-				 <input type="text" class="datalistInput" list="genders" id="gender" name="gender" placeholder="Please select one" readonly>
-				 <div class="arrow">▼</div>
-			 <ul class="options">
-				 <li data-value="Male">Male</li>
-				 <li data-value="Female">Female</li>
-				 <li data-value="Rather not say">I'd Rather not say</li>
-			 </ul>
-			 </div>
-		 </div>
-
-		 <div class="input">
-			 <label for="dob">Date Of Birth</label>
-			 <input type="date" style="width: 90%;" id="dob" name="dob" placeholder="Your Date of Birth" required>
-		 </div>
-
-		 <div class="input">
-			 <label for="email">Email</label>
-			 <input type="email" id="email" name="email" autocomplete="email" placeholder="Your Email Address" autocomplete="email" required>
-		 </div>
-		 
-		 <div class="input">
-			 <label for="employ">Employment Status</label>
-			 <div class="select">
-				 <input type="text" class="datalistInput" list="employs" id="employ" name="employ" placeholder="Please select one"  readonly>
-				 <div class="arrow">▼</div>
-			 <ul class="options">
-				 <li data-value="Self-Employed">Self-Employed</li>
-				 <li data-value="Student">Student</li>
-				 <li data-value="Employed">Employed</li>
-				 <li data-value="Unemployed">Unemployed</li>
-			 </ul>
-			 </div>
-		 </div>
-		
-		 <div class="input">
-			 <label for="phone">Phone</label>
-			 <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" autocomplete="phone" required>
-		 </div>
-
-		 <div class="input">
-			 <label for="marital">Marital Status</label>
-			 <div class="select">
-				 <input type="text" class="datalistInput" list="maritals" id="marital" name="marital" placeholder="Please select one"  readonly>
-				 <div class="arrow">▼</div>
-			 <ul class="options">
-				 <li data-value="single">Single</li>
-				 <li data-value="married">Married</li>
-				 <li data-value="divorced">Divorced</li>
-			 </ul>
-			 </div>
-		 </div>
-
-		 <div class="input selfie">
-			 <label for="selfie" id="selfieLabel">Take A Selfie</label>
-			 <input type="file" id="selfie" name="selfie" accept="image/*" capture="user">
-			 <small>Use camera to take a selfie. Max size: 10MB</small>
+			 <input type="tel" id="phone" name="phone" placeholder="Input Code" autocomplete="phone" required>
 		 </div>
 		 
 		 <div id="response"></div>
