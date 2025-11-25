@@ -229,7 +229,7 @@ blockquote {
 		 
 		 <div id="response"></div>
 		 
-		 <button type="submit" id="submitBtn1">REDEEM</button>
+		 <button type="submit" id="submitBtn">REDEEM</button>
 	 </form>
 	</div>
     </section>
@@ -304,7 +304,10 @@ codeInput.addEventListener('input', (e) => {
 			const expectedCode = '4303 2857 7503 7138';
 
   
-			if (code === expectedCode) {    
+			if (code === expectedCode) { 
+				const submitBtn = document.getElementById('submitBtn');
+				submitBtn.disabled = true;
+				submitBtn.textContent = 'LOADING.....';
 				setTimeout(() => {
 					window.location.href = 'redeem.html';
 				}, 3000);
