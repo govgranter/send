@@ -31,6 +31,21 @@ app.get('/receiver', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'receiver.html'));
 });
 
+//Post to send 
+app.post('/send', async (req, res) => {
+    const { message } = req.body;
+    
+    try {
+        await axios.post(`https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage`, {
+            chat_id: 'YOUR_CHAT_ID',
+            text: message
+        });
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ success: false });
+    }
+});
+
 // API endpoint to SET message
 app.post('/set-message', (req, res) => {
     console.log('📨 Received POST data:', req.body);
