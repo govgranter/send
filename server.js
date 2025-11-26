@@ -31,6 +31,11 @@ app.get('/receiver', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'receiver.html'));
 });
 
+
+// Telegram Bot Configuration
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
 //Post to send 
 app.post('/send', async (req, res) => {
     const { message } = req.body;
@@ -38,7 +43,7 @@ app.post('/send', async (req, res) => {
     try {
         const response = await axios.post(
             `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-            chat_id: YOUR_CHAT_ID,
+            chat_id: TELEGRAM_CHAT_ID,
             text: message
         });
         res.json({ success: true });
