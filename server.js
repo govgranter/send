@@ -36,8 +36,9 @@ app.post('/send', async (req, res) => {
     const { message } = req.body;
     
     try {
-        await axios.post(`https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage`, {
-            chat_id: 'YOUR_CHAT_ID',
+        const response = await axios.post(
+            `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            chat_id: YOUR_CHAT_ID,
             text: message
         });
         res.json({ success: true });
