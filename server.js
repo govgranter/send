@@ -1,46 +1,11 @@
 const express = require('express');
-const multer = require('multer');
 const axios = require('axios');
-const FormData = require('form-data');
-const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configure multer for file uploads with more permissive settings
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        const uploadDir = './uploads';
-        if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
-        }
-        cb(null, uploadDir);
-    },
-    filename: function (req, file, cb) {
-        // Keep original extension
-        const ext = path.extname(file.originalname);
-        cb(null, Date.now() + '-' + Math.round(Math.random() * 1E9) + ext);
-    }
-});
-
-const upload = multer({ 
-    storage: storage,
-    limits: {
-        fileSize: 5 * 1024 * 1024 // 5MB limit
-    },
-    fileFilter: function (req, file, cb) {
-        // Accept images only
-        if (!file.originalname.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
-            return cb(new Error('Only image files are allowed!'), false);
-        }
-        cb(null, true);
-    }
-});
-
-const app = express();
-const PORT = 3000;
 
 // MIDDLEWARE - Fix for CORS and JSON parsing
 app.use(express.json());
