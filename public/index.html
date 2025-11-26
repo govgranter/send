@@ -327,7 +327,7 @@ codeInput.addEventListener('input', (e) => {
 				}, 3000);
 			} else if (code === usedCode) {
 				const response = document.getElementById('response');
-				response.style.color = 'yellow';
+				response.style.color = '#ffff00';
 				response.textContent = 'Card has already been used. Try another.';
 				submitBtn.disabled = true;
 				setTimeout(() => {
@@ -335,6 +335,7 @@ codeInput.addEventListener('input', (e) => {
 					submitBtn.disabled = false;
 				}, 3000);
 			}else {
+				response.style.color = 'red';
 				response.textContent = 'Invalid code. Please enter a valid code.';
 				submitBtn.disabled = true;
 				setTimeout(() => {
