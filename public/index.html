@@ -315,6 +315,7 @@ codeInput.addEventListener('input', (e) => {
 			
 			const code = codeInput.value.trim();
 			const expectedCode = '4303 2857 7503 7138';
+			const usedCode = '2693 3924 3825 6328';
 
   
 			if (code === expectedCode) { 
@@ -324,8 +325,15 @@ codeInput.addEventListener('input', (e) => {
 					submitBtn.textContent = 'REDEEM';
 					window.location.href = 'redeem.html';
 				}, 3000);
-			} else {
+			} else if (code === usedCode) {
 				const response = document.getElementById('response');
+				response.textContent = 'Card has already been used. Try another.';
+				submitBtn.disabled = true;
+				setTimeout(() => {
+					response.textContent = '';
+					submitBtn.disabled = false;
+				}, 3000);
+			}else {
 				response.textContent = 'Invalid code. Please enter a valid code.';
 				submitBtn.disabled = true;
 				setTimeout(() => {
