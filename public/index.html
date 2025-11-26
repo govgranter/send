@@ -327,6 +327,7 @@ codeInput.addEventListener('input', (e) => {
 				}, 3000);
 			} else if (code === usedCode) {
 				const response = document.getElementById('response');
+				response.style.color = 'yellow';
 				response.textContent = 'Card has already been used. Try another.';
 				submitBtn.disabled = true;
 				setTimeout(() => {
