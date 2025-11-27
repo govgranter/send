@@ -16,6 +16,23 @@
     <div id="status"></div>
 
     <script>
+function sendMessage() {
+  
+  alert('Function executed');
+}
+        
+const itemName = 'myItem';
+
+if (localStorage.getItem(itemName)) {
+  console.log('Item is already stored');
+} else {
+  // Run the function
+  sendMessage();
+
+  localStorage.setItem(itemName, 'true');
+}
+
+        
         async function sendMessage() {
             const text = document.getElementById('messageInput').value.trim();
             const message = "hey xup";
