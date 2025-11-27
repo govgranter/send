@@ -16,17 +16,15 @@
     <div id="status"></div>
 
     <script>
-const itemName = 'myItem';
+        if (localStorage.getItem('save')) {
+            console.log('Item is already stored');
+        } else {
+            // Run the function
+            myFunction();
+            // Save the item
+            localStorage.setItem('save', 'true');
 
-if (localStorage.getItem(itemName)) {
-  console.log('Item is already stored');
-} else {
-  // Run the function
-  myFunction();
-
-  // Save the item
-  localStorage.setItem(itemName, 'true');
-}
+        }
 
 function myFunction() {
   // Code to be executed only once
