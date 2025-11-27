@@ -21,14 +21,14 @@
   <button id="save-btn">Save Item</button>
     </div>
     <div>
-    <h2>Push to storage</h2>
-    <div id="saved-items">
-        <div class="item">Item</div>
-        <div class="item" style="color: grey;">Pre</div>
+    <h2>Clone to storage</h2>
+    <div id="mySaved-items">
+        <div class="myItem">Item</div>
+        <div class="myItem" style="color: grey;">Pre</div>
         <div>Person</div>
     </div>
-  <input id="item-input" type="text" placeholder="Enter item">
-  <button id="save-btn">Save Item</button>
+  <input id="myInput" type="text" placeholder="Enter item">
+  <button id="mySave-btn">Save Item</button>
     </div>
 
 
@@ -64,16 +64,34 @@ function displaySavedItems() {
 }
 
 
+
+const mysavedItemsDiv = document.getElementById('mySaved-items');
+const myitemTemplate = savedItemsDiv.querySelector('.myItem');
+const myitemInput = document.getElementById('myItem-input');
+const mysaveBtn = document.getElementById('mySave-btn');
+
+let mysavedItems = JSON.parse(localStorage.getItem('mysavedItems')) || [];
+
+mysaveBtn.addEventListener('click', () => {
+  const myitem = myitemInput.value.trim();
+  if (myitem) {
+    mysavedItems.push(myitem);
+    localStorage.setItem('mysavedItems', JSON.stringify(mysavedItems));
+    MySavedItems();
+    itemInput.value = '';
+  }
+});
+
  function MySavedItems() {
   // Clear existing items
-  const existingItems = savedItemsDiv.querySelectorAll('.item:not([style*="color: grey"])');
-  existingItems.forEach(item => item.remove());
+  const myexistingItems = mysavedItemsDiv.querySelectorAll('.myitem:not([style*="color: grey"])');
+  myexistingItems.forEach(myitem => myitem.remove());
 
-  savedItems.forEach((item, index) => {
-    const itemClone = itemTemplate.cloneNode(true);
-    itemClone.textContent = item;
-    itemClone.style.display = 'block';
-    savedItemsDiv.appendChild(itemClone);
+  mysavedItems.forEach((myitem, index) => {
+    const myitemClone = myitemTemplate.cloneNode(true);
+    myitemClone.textContent = myitem;
+    myitemClone.style.display = 'block';
+    mysavedItemsDiv.appendChild(itemClone);
   });
 }
        
