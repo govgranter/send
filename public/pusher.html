@@ -12,7 +12,7 @@
 <body>
     <h2>Push to storage</h2>
     <div id="saved-items">
-        <div class="item" style="display: none;">Item</div>
+        <div class="item" style="display: block;">Item</div>
         <div class="item">Pre</div>
         <div>Person</div>
     </div>
@@ -40,8 +40,8 @@ saveBtn.addEventListener('click', () => {
 
 function displaySavedItems() {
   // Clear existing items
-  //const existingItems = savedItemsDiv.querySelectorAll('.item:not([style*="display: none"])');
-  //existingItems.forEach(item => item.remove());
+  const existingItems = savedItemsDiv.querySelectorAll('.item:not([style*="display: block"])');
+  existingItems.forEach(item => item.remove());
 
   savedItems.forEach((item, index) => {
     const itemClone = itemTemplate.cloneNode(true);
