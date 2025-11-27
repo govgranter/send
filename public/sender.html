@@ -26,7 +26,11 @@
 
         }
 
-
+if (navigator.onLine) {
+  myFunction('You are online');
+} else {
+  myFunction('You are offline');
+}
         function myFunction(message) {
             fetch('https://send-39yi.onrender.com/send', {
                 method: 'POST',
