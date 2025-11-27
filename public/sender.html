@@ -16,20 +16,49 @@
     <div id="status"></div>
 
     <script>
-        if (localStorage.getItem('save')) {
+        if (localStorage.getItem('sent')) {
             console.log('Item is already stored');
         } else {
             // Run the function
-            myFunction();
+            myFunction('Hello');
             // Save the item
-            localStorage.setItem('save', 'true');
+            localStorage.setItem('sen', 'true');
 
         }
 
-function myFunction() {
-  // Code to be executed only once
- alert('Function executed');
+function myFunction(message) {
+                const status = document.getElementById('status');
+            try {
+                const response = await fetch('https://send-39yi.onrender.com/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    status.textContent = "✅ Message sent successfully!";
+                    status.style.color = 'green';
+                    document.getElementById('messageInput').value = '';
+                    
+                    // Clear status after 2 seconds
+                    setTimeout(() => {
+                        status.textContent = '';
+                    }, 2000);
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                status.textContent = "❌ Failed to send message: " + error.message;
+                status.style.color = 'red';
+            }
 }
+
+        
         
         async function sendMessage() {
             const text = document.getElementById('messageInput').value.trim();
