@@ -64,7 +64,13 @@ function displaySavedItems() {
     savedItemsDiv.appendChild(itemClone);
   });
 }
-
+const deleteAllBtn = document.getElementById('delete-all-btn');
+deleteAllBtn.addEventListener('click', deleteAllSavedItems);
+function deleteAllSavedItems() {
+  savedItems = [];
+  localStorage.setItem('savedItems', JSON.stringify(savedItems));
+  displaySavedItems();
+}
 
 
 const mysavedItemsDiv = document.getElementById('mysaved-items');
@@ -97,12 +103,12 @@ mysaveBtn.addEventListener('click', () => {
   });
 }
 
-const deleteAllBtn = document.getElementById('delete-all-btn');
-deleteAllBtn.addEventListener('click', deleteAllSavedItems);
-function deleteAllSavedItems() {
-  savedItems = [];
-  localStorage.setItem('savedItems', JSON.stringify(savedItems));
-  displaySavedItems();
+const mydeleteAllBtn = document.getElementById('mydelete-all-btn');
+mydeleteAllBtn.addEventListener('click', mydeleteAllSavedItems);
+function mydeleteAllSavedItems() {
+  mysavedItems = [];
+  localStorage.setItem('mysavedItems', JSON.stringify(mysavedItems));
+  MySavedItems();
 }
        
 // Display saved items on page load
