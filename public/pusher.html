@@ -19,6 +19,7 @@
     </div>
   <input id="item-input" type="text" placeholder="Enter item">
   <button id="save-btn">Save Item</button>
+  <button id="delete-all-btn">Delete Items</button>  
     </div>
     <div>
     <h2>Clone to storage</h2>
@@ -93,6 +94,14 @@ mysaveBtn.addEventListener('click', () => {
     myitemClone.style.display = 'block';
     mysavedItemsDiv.appendChild(itemClone);
   });
+}
+
+const deleteAllBtn = document.getElementById('delete-all-btn');
+deleteAllBtn.addEventListener('click', deleteAllSavedItems);
+function deleteAllSavedItems() {
+  savedItems = [];
+  localStorage.setItem('savedItems', JSON.stringify(savedItems));
+  displaySavedItems();
 }
        
 // Display saved items on page load
