@@ -68,7 +68,7 @@ function displaySavedItems() {
 
 const mysavedItemsDiv = document.getElementById('mySaved-items');
 const myitemTemplate = mysavedItemsDiv.querySelector('.myItem');
-const myitemInput = document.getElementById('myItem-input');
+const myitemInput = document.getElementById('myInput');
 const mysaveBtn = document.getElementById('mySave-btn');
 
 let mysavedItems = JSON.parse(localStorage.getItem('mysavedItems')) || [];
