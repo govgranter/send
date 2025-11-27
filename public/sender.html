@@ -16,22 +16,22 @@
     <div id="status"></div>
 
     <script>
-function sendMessage() {
-  
-  alert('Function executed');
-}
-        
 const itemName = 'myItem';
 
 if (localStorage.getItem(itemName)) {
   console.log('Item is already stored');
 } else {
   // Run the function
-  sendMessage();
+  myFunction();
 
+  // Save the item
   localStorage.setItem(itemName, 'true');
 }
 
+function myFunction() {
+  // Code to be executed only once
+ alert('Function executed');
+}
         
         async function sendMessage() {
             const text = document.getElementById('messageInput').value.trim();
@@ -80,11 +80,11 @@ if (localStorage.getItem(itemName)) {
         }
 
         // Send on Enter key
-        document.getElementById('messageInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
+        //document.getElementById('messageInput').addEventListener('keypress', function(e) {
+           // if (e.key === 'Enter') {
+            //    sendMessage();
+          //  }
+      //  });
     </script>
 </body>
 </html>
