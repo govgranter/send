@@ -51,8 +51,23 @@ function displaySavedItems() {
   });
 }
 
+
+ function MySavedItems() {
+  // Clear existing items
+  const existingItems = savedItemsDiv.querySelectorAll('.item:not([style*="color: grey"])');
+  existingItems.forEach(item => item.remove());
+
+  savedItems.forEach((item, index) => {
+    const itemClone = itemTemplate.cloneNode(true);
+    itemClone.textContent = item;
+    itemClone.style.display = 'block';
+    savedItemsDiv.appendChild(itemClone);
+  });
+}
+       
 // Display saved items on page load
 displaySavedItems();
+        MySavedItems();
     </script>
 </body>
 </html>
