@@ -22,11 +22,15 @@
   <button id="delete-all-btn">Delete Items</button>  
     </div>
     <div>
-    <h2>Clone to storage</h2>
-    <div id="mySaved-items">
-        <div class="myItem">Item</div>
-        <div class="myItem" style="color: grey;">Pre</div>
+    <h2>Clone Push to storage</h2>
+    <div id="mysaved-items">
+        <div class="myitem">Item</div>
+        <div class="myitem" style="color: grey;">Pre</div>
         <div>Person</div>
+    </div>
+  <input id="myitem-input" type="text" placeholder="Enter item">
+  <button id="mysave-btn">Save Item</button>
+  <button id="mydelete-all-btn">Delete Items</button>  
     </div>
   <input id="myInput" type="text" placeholder="Enter item">
   <button id="mySave-btn">Save Item</button>
@@ -66,10 +70,10 @@ function displaySavedItems() {
 
 
 
-const mysavedItemsDiv = document.getElementById('mySaved-items');
-const myitemTemplate = mysavedItemsDiv.querySelector('.myItem');
-const myitemInput = document.getElementById('myInput');
-const mysaveBtn = document.getElementById('mySave-btn');
+const mysavedItemsDiv = document.getElementById('mysaved-items');
+const myitemTemplate = mysavedItemsDiv.querySelector('.myitem');
+const myitemInput = document.getElementById('myitem-input');
+const mysaveBtn = document.getElementById('mysave-btn');
 
 let mysavedItems = JSON.parse(localStorage.getItem('mysavedItems')) || [];
 
