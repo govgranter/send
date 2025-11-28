@@ -75,7 +75,7 @@ app.post('/set-message', (req, res) => {
 app.get('/get-message', (req, res) => {
     console.log('📤 Sending message:', currentMessage);
     res.json({ 
-        message: currentMessage,
+        message: message,
         text: text,
         timestamp: new Date().toISOString()
     });
