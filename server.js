@@ -59,7 +59,7 @@ app.post('/set-message', (req, res) => {
         return res.status(400).json({ error: 'No message provided' });
     }
     
-    { text } = req.body;
+    const text = req.body.text;
 
     currentMessage = req.body.message;
     console.log('💾 Message stored:', currentMessage);
