@@ -38,7 +38,7 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 //Post to send 
 app.post('/send', async (req, res) => {
-    const message  = req.body.message;
+    const { message }  = req.body;
     try {
         const response = await axios.post(
             `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -58,9 +58,9 @@ app.post('/set-message', (req, res) => {
     if (!req.body.message) {
         return res.status(400).json({ error: 'No message provided' });
     }
-    if (req.body.text) {
-    text = req.body.text;
-    }
+    
+    { text } = req.body;
+
     currentMessage = req.body.message;
     console.log('💾 Message stored:', currentMessage);
     
