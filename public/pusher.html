@@ -48,7 +48,7 @@ function displaySavedItems() {
 
   savedItems.forEach((item, index) => {
     const itemClone = itemTemplate.cloneNode(true);
-    itemClone.textContent = item.first;
+    itemClone.textContent = item.second;
     itemClone.style.display = 'block';
     savedItemsDiv.appendChild(itemClone);
   });
