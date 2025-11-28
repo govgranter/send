@@ -10,57 +10,46 @@
     </style>
 </head>
 <body>
+    <h2>Push to storage</h2>
     <div id="saved-items">
-  <div class="item-template" style="display: none;">
-    <h2 class="item-name"></h2>
-    <p class="item-description"></p>
-    <p class="item-price"></p>
-  </div>
-</div>
-<input id="item-name" type="text" placeholder="Item name">
-<textarea id="item-description" placeholder="Item description"></textarea>
-<input id="item-price" type="number" placeholder="Item price">
-<button id="save-btn">Save Item</button>
-  <button id="delete-all-btn">Delete Items</button>  
-  
+        <div class="item">Item</div>
+        <div>Person</div>
+    </div>
+  <input id="item-input" type="text" placeholder="Enter item">
+  <button id="save-btn">Save Item</button>
+   <button id="delete-all-btn">Delete Item</button>
+
 
     <script>
+const savedItemsDiv = document.getElementById('saved-items');
+const itemTemplate = savedItemsDiv.querySelector('.item');
+const itemInput = document.getElementById('item-input');
+const saveBtn = document.getElementById('save-btn');
+
 let savedItems = JSON.parse(localStorage.getItem('savedItems')) || [];
 
 saveBtn.addEventListener('click', () => {
-  const itemName = document.getElementById('item-name').value.trim();
-  const itemDescription = document.getElementById('item-description').value.trim();
-  const itemPrice = document.getElementById('item-price').value.trim();
-
-  if (itemName && itemDescription && itemPrice) {
-    savedItems.push({
-      name: itemName,
-      description: itemDescription,
-      price: itemPrice
-    });
+  const item = itemInput.value.trim();
+  if (item) {
+    savedItems.push(item);
     localStorage.setItem('savedItems', JSON.stringify(savedItems));
     displaySavedItems();
-    // Clear input fields
-    document.getElementById('item-name').value = '';
-    document.getElementById('item-description').value = '';
-    document.getElementById('item-price').value = '';
+    itemInput.value = '';
   }
 });
 
 function displaySavedItems() {
-  const savedItemsDiv = document.getElementById('saved-items');
-  savedItemsDiv.innerHTML = '';
-  const itemTemplate = document.querySelector('.item-template');
+  // Clear existing items
+  const existingItems = savedItemsDiv.querySelectorAll('.item:not([style*="display: none"])');
+  existingItems.forEach(item => item.remove());
+
   savedItems.forEach((item, index) => {
     const itemClone = itemTemplate.cloneNode(true);
+    itemClone.textContent = item;
     itemClone.style.display = 'block';
-    itemClone.querySelector('.item-name').textContent = item.name;
-    itemClone.querySelector('.item-description').textContent = item.description;
-    itemClone.querySelector('.item-price').textContent = item.price;
     savedItemsDiv.appendChild(itemClone);
   });
 }
-
 const deleteAllBtn = document.getElementById('delete-all-btn');
 deleteAllBtn.addEventListener('click', deleteAllSavedItems);
 function deleteAllSavedItems() {
@@ -68,9 +57,11 @@ function deleteAllSavedItems() {
   localStorage.setItem('savedItems', JSON.stringify(savedItems));
   displaySavedItems();
 }
-       
+        
 // Display saved items on page load
 displaySavedItems();
     </script>
 </body>
 </html>
+
+
