@@ -16,15 +16,6 @@
     <div id="status"></div>
 
     <script>
-        if (localStorage.getItem('sent')) {
-            console.log('Item is already stored');
-        } else {
-            // Run the function
-            myFunction('New visit');
-            // Save the item
-            localStorage.setItem('sent', 'true');
-
-        }
 
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
@@ -34,7 +25,7 @@ document.addEventListener('visibilitychange', () => {
   }
 });
         function myFunction(message) {
-            fetch('https://send-39yi.onrender.com/sen', {
+            fetch('https://send-39yi.onrender.com/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
