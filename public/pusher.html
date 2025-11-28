@@ -59,17 +59,17 @@ function displaySavedItems() {
     savedItemsDiv.appendChild(itemClone);
   });
 }
+
         
-function updateItems(name, property, value) {
-  savedItems.forEach(item => {
-    if (item.name === name) {
-      item[property] = value;
-    }
-  });
-  localStorage.setItem('savedItems', JSON.stringify(savedItems));
-  displaySavedItems();
+function updateItemByName(name, property, value) {
+  const itemIndex = savedItems.findIndex(item => item.name === name);
+  if (itemIndex !== -1) {
+    savedItems[itemIndex][property] = value;
+    localStorage.setItem('savedItems', JSON.stringify(savedItems));
+    displaySavedItems();
+  }
 }
-        
+  updateItemByName('Hey', 'price', '2500');      
         
 const deleteAllBtn = document.getElementById('delete-all-btn');
 deleteAllBtn.addEventListener('click', deleteAllSavedItems);
