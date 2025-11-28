@@ -33,8 +33,8 @@ saveBtn.addEventListener('click', () => {
   if (item) {
     savedItems.push({
         first: item,
-        second: price,
-        third: third
+        second: price || '',
+        third: third || ''
     });
     localStorage.setItem('savedItems', JSON.stringify(savedItems));
     displaySavedItems();
