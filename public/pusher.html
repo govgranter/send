@@ -60,7 +60,7 @@ function displaySavedItems() {
   });
 }
         
-function updateItemsByName(name, property, value) {
+function updateItems(name, property, value) {
   savedItems.forEach(item => {
     if (item.name === name) {
       item[property] = value;
@@ -69,6 +69,8 @@ function updateItemsByName(name, property, value) {
   localStorage.setItem('savedItems', JSON.stringify(savedItems));
   displaySavedItems();
 }
+        
+updateItems('Hey' 'price' '2500');
         
 const deleteAllBtn = document.getElementById('delete-all-btn');
 deleteAllBtn.addEventListener('click', deleteAllSavedItems);
