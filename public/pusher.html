@@ -31,7 +31,10 @@ let savedItems = JSON.parse(localStorage.getItem('savedItems')) || [];
 saveBtn.addEventListener('click', () => {
   const item = itemInput.value.trim();
   if (item) {
-    savedItems.push(item);
+    savedItems.push({
+        first: item,
+        second: 'test'
+    });
     localStorage.setItem('savedItems', JSON.stringify(savedItems));
     displaySavedItems();
     itemInput.value = '';
@@ -45,7 +48,7 @@ function displaySavedItems() {
 
   savedItems.forEach((item, index) => {
     const itemClone = itemTemplate.cloneNode(true);
-    itemClone.textContent = item;
+    itemClone.textContent = item.first;
     itemClone.style.display = 'block';
     savedItemsDiv.appendChild(itemClone);
   });
