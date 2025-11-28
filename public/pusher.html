@@ -52,9 +52,9 @@ function displaySavedItems() {
 
   savedItems.forEach((item, index) => {
     const itemClone = itemTemplate.cloneNode(true);
-    itemClone..querySelector('.name')textContent = item.name;
-    itemClone..querySelector('.description')textContent = item.name;
-    itemClone..querySelector('.price')textContent = item.price;
+    itemClone.querySelector('.name').textContent = item.name;
+    itemClone.querySelector('.description').textContent = item.name;
+    itemClone.querySelector('.price').textContent = item.price;
     itemClone.style.display = 'block';
     savedItemsDiv.appendChild(itemClone);
   });
