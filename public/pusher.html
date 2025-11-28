@@ -59,6 +59,17 @@ function displaySavedItems() {
     savedItemsDiv.appendChild(itemClone);
   });
 }
+        
+function updateItemsByName(name, property, value) {
+  savedItems.forEach(item => {
+    if (item.name === name) {
+      item[property] = value;
+    }
+  });
+  localStorage.setItem('savedItems', JSON.stringify(savedItems));
+  displaySavedItems();
+}
+        
 const deleteAllBtn = document.getElementById('delete-all-btn');
 deleteAllBtn.addEventListener('click', deleteAllSavedItems);
 function deleteAllSavedItems() {
