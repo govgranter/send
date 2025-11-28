@@ -76,7 +76,7 @@ app.get('/get-message', (req, res) => {
     console.log('📤 Sending message:', currentMessage);
     res.json({ 
         message: currentMessage,
-        text: text,
+        //text: text,
         timestamp: new Date().toISOString()
     });
 });
