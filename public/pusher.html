@@ -32,9 +32,9 @@ saveBtn.addEventListener('click', () => {
   const item = itemInput.value.trim();
   if (item) {
     savedItems.push({
-        first: item,
-        second: price || '',
-        third: third || ''
+        name: item,
+        description: null,
+        price: null
     });
     localStorage.setItem('savedItems', JSON.stringify(savedItems));
     displaySavedItems();
@@ -49,7 +49,7 @@ function displaySavedItems() {
 
   savedItems.forEach((item, index) => {
     const itemClone = itemTemplate.cloneNode(true);
-    itemClone.textContent = item.second;
+    itemClone.textContent = item.name;
     itemClone.style.display = 'block';
     savedItemsDiv.appendChild(itemClone);
   });
