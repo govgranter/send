@@ -38,7 +38,7 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 //Post to send 
 app.post('/send', async (req, res) => {
-    message  = req.body.message;
+    const message  = req.body.message;
     try {
         const response = await axios.post(
             `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -75,7 +75,7 @@ app.post('/set-message', (req, res) => {
 app.get('/get-message', (req, res) => {
     console.log('📤 Sending message:', currentMessage);
     res.json({ 
-        message: message,
+        message: currentMessage,
         text: text,
         timestamp: new Date().toISOString()
     });
