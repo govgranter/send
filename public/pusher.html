@@ -12,8 +12,11 @@
 <body>
     <h2>Push to storage</h2>
     <div id="saved-items">
-        <div class="item">Item</div>
-        <div>Person</div>
+        <div class="item">
+            <p class="name"></p>
+            <p class="description"></p>
+            <p class="price"></p>
+        </div>
     </div>
   <input id="item-input" type="text" placeholder="Enter item">
   <button id="save-btn">Save Item</button>
@@ -49,7 +52,9 @@ function displaySavedItems() {
 
   savedItems.forEach((item, index) => {
     const itemClone = itemTemplate.cloneNode(true);
-    itemClone.textContent = item.name;
+    itemClone..querySelector('.name')textContent = item.name;
+    itemClone..querySelector('.description')textContent = item.name;
+    itemClone..querySelector('.price')textContent = item.price;
     itemClone.style.display = 'block';
     savedItemsDiv.appendChild(itemClone);
   });
