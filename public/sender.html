@@ -34,7 +34,8 @@
             });
         }
 
-        const messageto = "hello";
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value.trim();
         const textto = "hey xup";
         
         function send(message, text) {
@@ -49,7 +50,7 @@
             });
         }
 
-        send(textto, messageto);
+        send(message, textto);
         
     
         // Send on Enter key
