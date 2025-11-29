@@ -24,33 +24,44 @@
   //  myFunction('User is not on the page');
 //  }
 //});
-        function myFunction(message) {
-            fetch('https://send-39yi.onrender.com/send', {
+        function myFunction(message, text) {
+            fetch('https://send-39yi.onrender.com/api/messages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: message })
+                body: JSON.stringify({ message: message,
+                                      text: text
+                                     })
             });
         }
 
         const messageInput = document.getElementById('messageInput');
         const messageto = messageInput.value.trim();
         const textto = "hey xup";
-        
-        function send(message, text) {
-            fetch('https://send-39yi.onrender.com/api/messages', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: message,
-                                     user: text
-                                     })
-            });
-        }
 
-        send(messageto, textto);
+        myFunction(messageto, textto);
+        
+            
+         
+                
+
+function generateRandomCode() {
+    const numbers = Array.from({length: 8}, () => Math.floor(Math.random() * 10));
+    const letters = Array.from({length: 2}, () => 
+        String.fromCharCode(65 + Math.floor(Math.random() * 26))
+    );
+    
+    const allChars = [...numbers, ...letters];
+    
+    // Shuffle the array
+    for (let i = allChars.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [allChars[i], allChars[j]] = [allChars[j], allChars[i]];
+    }
+    
+    return allChars.join('');
+}
         
     </script>
 </body>
