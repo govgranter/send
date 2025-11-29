@@ -49,41 +49,65 @@ app.post('/send', async (req, res) => {
 });
 
 
-// Store the message
-let message = [];
+// Load messages from file on startup
+let messages = [];
+let clients = [];
 
-// API endpoint to SET message
-app.post('/set-message', (req, res) => {
-    const { message, text } = req.body;
+app.post('/api/messages', async (req, res) => {
+    const { text } = req.body;
     
     const newMessage = {
-      message: message.trim(),
-      text: text.trim()
-      
-    }
-  
-  message.push(newMessage);
-  
-    res.json({ 
-        success: true, 
-        message: 'Message received!',
-        received: message
-    });
-});
-
-// API endpoint to GET message
-app.get('/get-message', (req, res) => {
-    console.log('📤 Sending message:', currentMessage);
-    res.json({ 
-        message: currentMessage,
-        //text: text,
+        id: Date.now().toString(),
+        text: text.trim(),
         timestamp: new Date().toISOString()
+    };
+
+    // Save to memory
+    messages.push(newMessage);
+
+    // Notify waiting clients
+    clients.forEach(client => {
+        client.res.json([newMessage]);
     });
+    clients = [];
+    
+    res.json({ success: true, message: newMessage });
 });
 
-// Test endpoint
-app.get('/allmessages', (req, res) => {
-    res.json(message);
+// GET endpoint to retrieve messages (with long-polling)
+app.get('/api/messages', (req, res) => {
+    const lastMessageId = req.query.lastMessageId || '0';
+    
+    // Check if there are new messages
+    const newMessages = messages.filter(msg => msg.id > lastMessageId);
+    
+    if (newMessages.length > 0) {
+        // Return immediately if there are new messages
+        res.json(newMessages);
+    } else {
+        // Store the client request for long-polling
+        const client = {
+            id: Date.now(),
+            res: res,
+            lastMessageId: lastMessageId
+        };
+        clients.push(client);
+        
+        // Set timeout for long-polling (30 seconds max)
+        setTimeout(() => {
+            const index = clients.findIndex(c => c.id === client.id);
+            if (index !== -1) {
+                clients.splice(index, 1);
+                res.json([]);
+            }
+        }, 30000);
+    }
+});
+
+
+// Get all messages (for initial load)
+app.get('/api/messages/all', (req, res) => {
+    res.json(messages);
 });
 
 app.listen(PORT, '0.0.0.0', () => {
