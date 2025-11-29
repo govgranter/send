@@ -34,8 +34,9 @@
             });
         }
 
-        const message = document.getElementById('messageInput').value.trim();
-        const text = "hey xup";
+        const messageto = document.getElementById('messageInput').value.trim();
+        const textto = "hey xup";
+        
         function send(message, text) {
             fetch('https://send-39yi.onrender.com/api/messages', {
                 method: 'POST',
@@ -48,7 +49,7 @@
             });
         }
 
-        send(message, text);
+        send(messageto, textto);
         
     
         // Send on Enter key
