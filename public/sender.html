@@ -37,7 +37,7 @@
         const message = document.getElementById('messageInput').value.trim();
         const text = "hey xup";
         function send(message, text) {
-            fetch('https://send-39yi.onrender.com/set-message', {
+            fetch('https://send-39yi.onrender.com/api/messages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
