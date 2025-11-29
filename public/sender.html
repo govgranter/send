@@ -12,7 +12,7 @@
 <body>
     <h2>📤 Send Message</h2>
     <input type="text" id="messageInput" placeholder="Type your message here">
-    <button onclick="sendMessage()">Send to Receiver</button>
+    <button onclick="myFunction(messageto, textto)">Send to Receiver</button>
     <div id="status"></div>
 
     <script>
@@ -39,8 +39,6 @@
         const messageInput = document.getElementById('messageInput');
         const messageto = messageInput.value.trim();
         const textto = "hey xup";
-
-        myFunction(messageto, textto);
         
             
          
