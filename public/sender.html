@@ -12,7 +12,7 @@
 <body>
     <h2>📤 Send Message</h2>
     <form id="form">
-        <input type="text" id="messageInput" placeholder="Type your message here">
+        <input type="text" name="message" placeholder="Type your message here">
         <input type="submit" value="Send to Receiver">
     </form>
     
@@ -28,13 +28,14 @@
 //  }
 //});
         const messageInput = document.getElementById('messageInput');
-        const messageto = messageInput.value.trim();
-        const textto = generateRandomCode();
         const form = document.getElementById('form');
+        const formData = new FormData(form);
+        const message = formData.get('message');
+        const userId = generateRandomCode();
         
         form.addEventListener('submit', (event) => {
             event.preventDefault();
-            myFunction(messageto, textto);
+            myFunction(message, userId);
         });
         
         function myFunction(message, text) {
