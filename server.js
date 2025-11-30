@@ -53,6 +53,7 @@ app.post('/send', async (req, res) => {
 let messages = [];
 let clients = [];
 
+
 app.post('/api/messages', async (req, res) => {
     const { text } = req.body;
     
