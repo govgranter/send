@@ -57,7 +57,7 @@ app.post('/api/messages', async (req, res) => {
     const { text } = req.body;
     
     const newMessage = {
-        id: Date.now().toString(),
+        id: Date.now(),
         text: text.trim(),
         timestamp: new Date().toISOString()
     };
@@ -76,7 +76,7 @@ app.post('/api/messages', async (req, res) => {
 
 // GET endpoint to retrieve messages (with long-polling)
 app.get('/api/messages', (req, res) => {
-    const lastMessageId = req.query.lastMessageId || '0';
+    const lastMessageId = req.query.lastMessageId || 0;
     
     // Check if there are new messages
     const newMessages = messages.filter(msg => msg.id > lastMessageId);
