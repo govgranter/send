@@ -21,6 +21,7 @@
   <input id="item-input" type="text" placeholder="Enter item">
   <button id="save-btn">Save Item</button>
    <button id="delete-all-btn">Delete Item</button>
+    <div id="find"></div>
 
 
     <script>
@@ -45,6 +46,7 @@ saveBtn.addEventListener('click', () => {
   }
 });
 
+        
 function displaySavedItems() {
   // Clear existing items
   const existingItems = savedItemsDiv.querySelectorAll('.item:not([style*="display: none"])');
@@ -59,7 +61,15 @@ function displaySavedItems() {
     savedItemsDiv.appendChild(itemClone);
   });
 }
-
+        
+const find = 'Hey';
+const existing = savedItems.find(item => item.name.toLowerCase() === find.toLowerCase());
+const showfind = document.getElementById('find');
+if (existing) {
+  showfind.textContent = `Item with name "${find}" already exists.` existing;
+} else {
+  showfind.textContent = `Item with name "${find}" does not exist.`;
+}
         
 function updateItemByName(name, property, value) {
   const itemIndex = savedItems.findIndex(item => item.name === name);
