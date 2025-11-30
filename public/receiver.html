@@ -38,7 +38,8 @@
 
                 if (newMessages.length > 0) {
                     displayMessages(newMessages);
-                    // Update last message ID
+                    user = newMessages.user;
+                    message = newMessages.message;
                     lastMessageId = newMessages[newMessages.length - 1].id;
                     localStorage.setItem('LastId', lastMessageId);
                 }
