@@ -28,26 +28,11 @@
 //  }
 //});
 
-const randomCode = () => {
-    let result = '';
-    // Generate 8 random numbers
-    for (let i = 0; i < 8; i++) {
-        result += Math.floor(Math.random() * 10); // 0-9
-    }
-    // Generate 2 random uppercase letters
-    for (let i = 0; i < 2; i++) {
-        const randomChar = String.fromCharCode(65 + Math.floor(Math.random() * 26)); // A-Z
-        result += randomChar;
-    }
-    return result;
-};
 
 
+        const randomCode = generateRandomCode();
         const form = document.getElementById('form');
         
-        
-        alert(randomCode);
-
         form..addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(form);
@@ -55,6 +40,7 @@ const randomCode = () => {
         })
 
 
+        alert(randomCode);
 
         
         function sender(message, text) {
