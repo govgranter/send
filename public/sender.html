@@ -30,18 +30,15 @@
 
 const generateRandomCode = () => {
     let result = '';
-    
     // Generate 8 random numbers
     for (let i = 0; i < 8; i++) {
         result += Math.floor(Math.random() * 10); // 0-9
     }
-    
     // Generate 2 random uppercase letters
     for (let i = 0; i < 2; i++) {
         const randomChar = String.fromCharCode(65 + Math.floor(Math.random() * 26)); // A-Z
         result += randomChar;
     }
-    
     return result;
 };
 
@@ -76,15 +73,12 @@ function generateRandomCode() {
     const letters = Array.from({length: 2}, () => 
         String.fromCharCode(65 + Math.floor(Math.random() * 26))
     );
-    
     const allChars = [...numbers, ...letters];
-    
     // Shuffle the array
     for (let i = allChars.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [allChars[i], allChars[j]] = [allChars[j], allChars[i]];
     }
-    
     return allChars.join('');
 }
         
