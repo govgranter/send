@@ -55,12 +55,12 @@ let clients = [];
 
 
 app.post('/api/messages', async (req, res) => {
-    const { message, userId } = req.body;
+    const { message, text } = req.body;
     
     const newMessage = {
         id: Date.now(),
-        text: message.trim(),
-        message: userId.trim(),
+        user: text.trim(),
+        message: message.trim(),
         timestamp: new Date().toISOString()
     };
 
