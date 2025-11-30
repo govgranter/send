@@ -38,7 +38,7 @@
                 if (newMessages.length > 0) {
                     displayMessages(newMessages);
                     // Update last message ID
-                    const lastMessage = newMessages[newMessages.length - 1].id;
+                    lastMessage = newMessages[newMessages.length - 1].id;
                     localStorage.setItem('LastId', lastMessage);
                 }
             } catch (error) {
