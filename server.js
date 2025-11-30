@@ -103,7 +103,6 @@ app.get('/api/messages', (req, res) => {
                 res.json([]);
             }
         }, 30000);
-        res.json(clients);
     }
 });
 
