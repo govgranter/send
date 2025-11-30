@@ -60,7 +60,7 @@ app.post('/api/messages', async (req, res) => {
     const newMessage = {
         id: Date.now(),
         text: message.trim(),
-        User: userId.trim(),
+        user: userId.trim(),
         timestamp: new Date().toISOString()
     };
 
