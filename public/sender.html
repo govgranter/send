@@ -44,11 +44,18 @@ const randomCode = () => {
 
 
         const form = document.getElementById('form');
-        const formData = new FormData(form);
-        const message = formData.get('message');
+        
         
         alert(randomCode);
-    
+
+        form..addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const message = formData.get('message');
+        })
+
+
+
         
         function sender(message, text) {
             fetch('https://send-39yi.onrender.com/api/messages', {
