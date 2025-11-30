@@ -28,7 +28,7 @@
 //  }
 //});
 
-const generateRandomCode = () => {
+const randomCode = () => {
     let result = '';
     // Generate 8 random numbers
     for (let i = 0; i < 8; i++) {
@@ -47,7 +47,7 @@ const generateRandomCode = () => {
         const form = document.getElementById('form');
         const formData = new FormData(form);
         const message = formData.get('message');
-        const randomCode = generateRandomCode();
+        const randomCode = randomCode();
         
         alert(randomCode);
     
