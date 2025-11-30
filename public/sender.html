@@ -37,11 +37,9 @@
             event.preventDefault();
             const formData = new FormData(form);
             const message = formData.get('message');
-            alert(message);
+            sender(message, randomCode)
         })
 
-
-        alert(randomCode);
 
         
         function sender(message, text) {
