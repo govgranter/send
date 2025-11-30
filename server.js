@@ -79,11 +79,11 @@ app.get('/api/messages', (req, res) => {
     const lastMessageId = req.query.lastMessageId || 0;
     
     // Check if there are new messages
-    const newMessages = messages.filter(msg => +msg.id > 176449727975656);
+    const currentMessages = messages.filter(msg => msg.id > 176449727975656);
     
-    if (newMessages.length > 0) {
-        // Return immediately if there are new messages
-        res.json(newMessages);
+    if (currentMessages.length >= 1) {
+        // Return immediately if there's a new message
+        res.json(currentMessages);
     } else {
         // Store the client request for long-polling
         const client = {
