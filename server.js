@@ -76,7 +76,7 @@ app.post('/api/messages', async (req, res) => {
 
 // GET endpoint to retrieve messages (with long-polling)
 app.get('/api/messages', (req, res) => {
-    const lastMessageId = req.query.lastMessageId || '0';
+    const lastMessageId = req.query.lastMessageId;
     
     // Check if there are new messages
     const newMessages = messages.filter(msg => msg.id > lastMessageId);
