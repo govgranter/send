@@ -83,7 +83,7 @@ app.get('/api/messages', (req, res) => {
     // Check if there are new messages
     const newMessages = messages.filter(msg => msg.id > lastMessageId);
     
-    if (newMessages.length >= 1) {
+    if (newMessages.length > 0) {
         // Return immediately if there's a new message
         res.json(newMessages);
     } else {
