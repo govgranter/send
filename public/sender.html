@@ -11,8 +11,11 @@
 </head>
 <body>
     <h2>📤 Send Message</h2>
-    <input type="text" id="messageInput" placeholder="Type your message here">
-    <button onclick="myFunction(messageto, textto)">Send to Receiver</button>
+    <form id="form">
+        <input type="text" id="messageInput" placeholder="Type your message here">
+        <input type="submit" value="Send to Receiver">
+    </form>
+    
     <div id="status"></div>
 
     <script>
@@ -24,6 +27,16 @@
   //  myFunction('User is not on the page');
 //  }
 //});
+        const messageInput = document.getElementById('messageInput');
+        const messageto = messageInput.value.trim();
+        const textto = generateRandomCode();
+        const form = document.getElementById('form');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            myFunction(messageto, textto);
+        });
+        
         function myFunction(message, text) {
             fetch('https://send-39yi.onrender.com/api/messages', {
                 method: 'POST',
@@ -36,13 +49,9 @@
             });
         }
 
-        const messageInput = document.getElementById('messageInput');
-        const messageto = messageInput.value.trim();
-        const textto = generateRandomCode();
         
             
-         
-                
+                        
 
 function generateRandomCode() {
     const numbers = Array.from({length: 8}, () => Math.floor(Math.random() * 10));
