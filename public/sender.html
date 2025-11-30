@@ -11,7 +11,7 @@
 </head>
 <body>
     <h2>📤 Send Message</h2>
-    <form id="form">
+    <form id="form" method="post">
         <input type="text" name="message" placeholder="Type your message here">
         <input type="submit" value="Send to Receiver">
     </form>
@@ -43,11 +43,9 @@ const randomCode = () => {
 };
 
 
-        const messageInput = document.getElementById('messageInput');
         const form = document.getElementById('form');
         const formData = new FormData(form);
         const message = formData.get('message');
-        const randomCode = randomCode();
         
         alert(randomCode);
     
