@@ -36,12 +36,9 @@
                 const newMessages = await response.json();
 
                 if (newMessages.length > 0) {
-                    //displayMessages(newMessages);
+                    displayMessages(newMessages);
                     // Update last message ID
-                    messageDisplay.innerHTML = `
-                 ${lastMessageId} ${newMessage.text}
-                    <div class="timestamp">Received at: ${time}</div>
-                `;
+                    
                 }
             } catch (error) {
                 console.error('Error fetching messages:', error);
