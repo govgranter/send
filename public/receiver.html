@@ -27,6 +27,7 @@
 
     <script>
         const messageDisplay = document.getElementById('messageDisplay');
+        const lastMessageId = 1764500151293; // || 0;
 
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
@@ -37,7 +38,6 @@
                 if (newMessages.length > 0) {
                     displayMessages(newMessages);
                     // Update last message ID
-                    lastMessageId = 1764499531047; // || 0;
                 }
             } catch (error) {
                 console.error('Error fetching messages:', error);
