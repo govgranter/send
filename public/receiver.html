@@ -52,6 +52,7 @@
                   const message = formData.get('input');
                   updateUserById(user.id, 'account', message);
               })
+              $('.messageDisplay').first().hide();
               messageDisplay.appendChild(usersClone);
           });
         
