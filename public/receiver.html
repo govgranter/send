@@ -22,16 +22,23 @@
         <br><small>Using long-polling for instant updates</small>
     </div>
     <div id="messageDisplay">
-        <div class="status">No messages yet. Send a message from the sender page!</div>
+        <div class="user">
+            <p class="id"></p>
+            <p class="message"></p>
+        </div>
     </div>
 
     <script>
         const messageDisplay = document.getElementById('messageDisplay');
+        const userTemplate = messageDisplay.querySelector('.user');
         let lastMessageId = localStorage.getItem('lastId') || 0;
         let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
 
           savedUsers.forEach((user, index) => {
-              messageDisplay.textContent = user.message;
+              const usersClone = userTemplate.cloneNode(true);
+              usersClone.querySelector('.id').textContent = user.id;
+              usersClone.querySelector('.message').textContent = user.message;
+              messageDisplay.appendChild(usersClone);
           });
         
 
