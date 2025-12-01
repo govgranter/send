@@ -33,7 +33,7 @@
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
             try {
-                const response = await fetch(`https://in-7pdw.onrender.com/api/messages?lastMessageId=${lastMessageId}`);
+                const response = await fetch(`https://send-39yi.onrender.com/api/messages?lastMessageId=${lastMessageId}`);
                 const newMessages = await response.json();
 
                 if (newMessages.length > 0) {
