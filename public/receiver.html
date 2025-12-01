@@ -38,8 +38,7 @@
         const userTemplate = messageDisplay.querySelector('.user');
         let lastMessageId = localStorage.getItem('lastId') || 0;
         let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
-        const firstChild = messageDisplay:first-child;
-        firstChild.style.display = 'none';
+        messageDisplay.children[0].remove();
 
           savedUsers.forEach((user, index) => {
               const usersClone = userTemplate.cloneNode(true);
