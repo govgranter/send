@@ -52,7 +52,6 @@
                   const message = formData.get('input');
                   updateUserById(user.id, 'account', message);
               })
-              userTemplate.first().hide();
               messageDisplay.appendChild(usersClone);
           });
         
