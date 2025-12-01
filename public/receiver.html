@@ -61,15 +61,6 @@
                 `;
                 messageDisplay.appendChild(messageElement);
             });
-
-            // Remove "no messages" placeholder if it exists
-            const placeholder = messageDisplay.querySelector('.status');
-            if (placeholder && messages.length > 0) {
-                placeholder.remove();
-            }
-
-            // Scroll to bottom
-            messageDisplay.scrollTop = messageDisplay.scrollHeight;
         }
         
         // Start polling when page loads
