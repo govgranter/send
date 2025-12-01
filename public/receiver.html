@@ -40,6 +40,7 @@
         let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
         messageDisplay.children[0].remove();
 
+        function displaySavedUsers() {
           savedUsers.forEach((user, index) => {
               const usersClone = userTemplate.cloneNode(true);
               usersClone.querySelector('.id').textContent = user.id;
@@ -55,6 +56,7 @@
               })
               messageDisplay.appendChild(usersClone);
           });
+        }
         
 
         // Function to fetch new messages using long-polling
@@ -83,10 +85,9 @@
                 const newMessage = message.message;
                 const existing = savedUsers.find(user => user.id.toLowerCase() === newUserId.toLowerCase());
                 if (existing) {
-                    alert('user already saved');
                     updateUserById(newUserId, 'message', newMessage);
+                    displaySavedUsers();
                 } else {
-                    alert('new user');
                     savedUsers.push({
                         id: newUserId,
                         message: newMessage,
@@ -94,6 +95,7 @@
                     });
                     localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
                 }
+                displaySavedUsers();
             });
         }
         
