@@ -1,0 +1,21 @@
+{
+  "name": "Starmart Brainbox",
+  "short_name": "Starmart",
+  "description": "Info tracker and responder",
+  "start_url": "brainbox.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#f2f2f3",
+  "icons": [
+    {
+      "src": "starmart.jpeg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "starmartb.jpeg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
