@@ -28,7 +28,8 @@
     <script>
         const messageDisplay = document.getElementById('messageDisplay');
         let lastMessageId = localStorage.getItem('lastId') || 0;
-        messageDisplay.innerHTML = `${lastMessageId}`;
+        let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
+        document.getElementById('messageDisplay').textContent = savedUsers.message || "";
 
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
@@ -54,16 +55,28 @@
             messages.forEach(message => {
                 const newUserId = message.user;
                 const newMessage = message.message;
-                const time = new Date(message.timestamp).toLocaleTimeString();
-                const messageElement = document.createElement('div');
-                messageElement.className = 'message';
-                messageElement.innerHTML = `<div>New message</div>
-                 ${newUserId} ${newMessage}
-                    <div class="timestamp">Received at: ${time}</div>
-                `;
-                messageDisplay.appendChild(messageElement);
+                const existing = savedUsers.find(user => user.id.toLowerCase() === newUserId.toLowerCase());
+                if (existing) {
+                    alert('user already saved');
+                    updateUserById(newUserId, 'message', newMessage);
+                } else {
+                    alert('new user');
+                    savedUsers.push({
+                        id: newUserId,
+                        message: newMessage
+                    });
+                    localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
+                }
             });
         }
+        
+function updateUserById(id, property, value) {
+  const itemIndex = savedUsers.findIndex(user => user.id === id);
+  if (itemIndex !== -1) {
+    savedUsers[itemIndex][property] = value;
+    localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
+  }
+}
         
         // Start polling when page loads
         window.addEventListener('load', () => {
