@@ -38,7 +38,7 @@
         const userTemplate = messageDisplay.querySelector('.user');
         let lastMessageId = localStorage.getItem('lastId') || 0;
         let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
-        const firstChild = document.querySelector('.messageDisplay:first-child');
+        const firstChild = messageDisplay:first-child;
         firstChild.style.display = 'none';
 
           savedUsers.forEach((user, index) => {
