@@ -52,11 +52,13 @@
        
         function extractMessages(messages) {
             messages.forEach(message => {
+                const newUserId = message.user;
+                const newMessage = message.message;
                 const time = new Date(message.timestamp).toLocaleTimeString();
                 const messageElement = document.createElement('div');
                 messageElement.className = 'message';
-                messageElement.innerHTML = `
-                 ${message.user} ${message.message}
+                messageElement.innerHTML = `<div>New message</div>
+                 ${newUserId} ${newMessage}
                     <div class="timestamp">Received at: ${time}</div>
                 `;
                 messageDisplay.appendChild(messageElement);
