@@ -27,7 +27,7 @@
 
     <script>
         const messageDisplay = document.getElementById('messageDisplay');
-        let lastMessageId = localStorage.getItem('lastId');
+        let lastMessageId = localStorage.getItem('lastId') || 0;
         messageDisplay.innerHTML = `${lastMessageId}`;
 
         // Function to fetch new messages using long-polling
