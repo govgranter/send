@@ -29,7 +29,11 @@
         const messageDisplay = document.getElementById('messageDisplay');
         let lastMessageId = localStorage.getItem('lastId') || 0;
         let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
-        document.getElementById('messageDisplay').textContent = savedUsers.message || "";
+
+          savedUsers.forEach((user, index) => {
+              document.getElementById('messageDisplay').textContent = savedUsers.message;
+          });
+        
 
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
