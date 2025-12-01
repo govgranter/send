@@ -25,6 +25,8 @@
         <div class="user">
             <p class="id"></p>
             <p class="message"></p>
+            <p class="account"></p>
+            <input type="text" class="input">
         </div>
     </div>
 
@@ -38,6 +40,9 @@
               const usersClone = userTemplate.cloneNode(true);
               usersClone.querySelector('.id').textContent = user.id;
               usersClone.querySelector('.message').textContent = user.message;
+              usersClone.querySelector('.account').textContent = user.account;
+              const input = usersClone.querySelector('.input');
+            
               messageDisplay.appendChild(usersClone);
           });
         
@@ -74,7 +79,8 @@
                     alert('new user');
                     savedUsers.push({
                         id: newUserId,
-                        message: newMessage
+                        message: newMessage,
+                        account: null
                     });
                     localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
                 }
