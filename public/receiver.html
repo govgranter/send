@@ -31,7 +31,7 @@
         let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
 
           savedUsers.forEach((user, index) => {
-              document.getElementById('messageDisplay').textContent = savedUsers.message;
+              messageDisplay.textContent = savedUsers.id;
           });
         
 
