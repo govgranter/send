@@ -110,28 +110,7 @@ ul {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
 }
-/* Reviews */	  
-.lower {
-  text-align: center;
-  padding: 2rem;
-  background-image: url('public/starmartb.jpeg'); 
-  background-size: 100% 100%; 
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 1rem;
-  color: #fff;
-  background-color: #ccc;
-}
-
-.footer p {
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
-}
 
   </style>
 </head>
@@ -157,23 +136,30 @@ ul {
     <!-- Form Part -->
     <section class="featured" id="redeemed">
 		<div class="container">
-			<h3>Gift Card Redeemed</h3>
-			<p>A gift card has been fully redeemed.</p>
+			<div id="messageDisplay">
+				<div class="user">
+					<div class="status">0</div>
+					
+					<div class="id">NF3582333</div>
+					
+					<div class="account">704285330</div>
+					
+					<div class="name"></div>
+					
+					<div>		
+						<form class="form" method="post">
+							<input type="text" name="input" placeholder="Enter Name">		
+							<input type="submit" value="Submit">					
+						</form>      
+					</div>
+					
+				</div>
+			</div>
+			
 		</div>
     </section>
   </main>
 
-	<!-- Header Section -->
-  <header class="lower">
-    <h1>Starmart</h1>
-    <p>Gift Token Like No Other</p>
-  </header>
-	
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2005 Starmart. All rights reserved.</p>
-	  <small>Starmart®-related trademarks including “Starmart®”, “Token Codes®”, “Starmartakes®”, “StarButton”, “Starup”, “SM” and the Starmart logo are the property of Starmart, LLC; all rights reserved. Other trademarks appearing on this site are property of their respective owners, which do not endorse and are not affiliated with Starmart or its promotions.</small>
-  </footer>
   <script src="sw.js"></script>
 </body>
 </html>
