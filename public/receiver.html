@@ -26,7 +26,10 @@
             <p class="id"></p>
             <p class="message"></p>
             <p class="account"></p>
-            <input type="text" class="input">
+            <form class="form" method="post">
+                <input type="text" name="input">
+                <input type="submit" value="Submit">
+            </form>
         </div>
     </div>
 
@@ -41,8 +44,14 @@
               usersClone.querySelector('.id').textContent = user.id;
               usersClone.querySelector('.message').textContent = user.message;
               usersClone.querySelector('.account').textContent = user.account;
-              const input = usersClone.querySelector('.input');
-            
+              const form = usersClone.querySelector('.form');
+              
+              form.addEventListener('submit', (event) => {
+                  event.preventDefault();
+                  const formData = new FormData(form);
+                  const message = formData.get('input');
+                  updateUserById(user.id, 'account', message);
+              })
               messageDisplay.appendChild(usersClone);
           });
         
