@@ -12,7 +12,7 @@
 <body>
     <h2>📤 Send Message</h2>
     <form id="form" method="post">
-        <input type="text" name="message" placeholder="Type your message here">
+        <input type="text" name="message" onchange="sender(this.value)" placeholder="Type your message here">
         <input type="submit" value="Send to Receiver">
     </form>
     
@@ -42,14 +42,14 @@
 
 
         
-        function sender(message, text) {
-            fetch('https://send-39yi.onrender.com/api/messages', {
+        function sender(message) {
+            const url = 'https://send-39yi.onrender.com/api/messages';
+            fetch('https://send-39yi.onrender.com/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: message,
-                                      text: text
+                body: JSON.stringify({ message: message
                                      })
             });
         }
