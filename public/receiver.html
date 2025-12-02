@@ -41,6 +41,10 @@
         messageDisplay.children[0].remove();
 
         function displaySavedUsers() {
+             // Remove current display Users
+            const existingUsers = messageDisplay.querySelectorAll('.user');
+            existingUsers.forEach(user => user.remove());
+            
           savedUsers.forEach((user, index) => {
               const usersClone = userTemplate.cloneNode(true);
               usersClone.querySelector('.id').textContent = user.id;
