@@ -19,46 +19,6 @@
     <div id="status"></div>
 
     <script>
-
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible') {
-    myFunction('online');
-  } else {
-    myFunction('offline');          
-  }
-});
-
-
-
-        const randomCode = generateRandomCode();
-        const form = document.getElementById('form');
-        
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const message = formData.get('message');
-            sender(message, randomCode)
-        })
-
-
-        
-        function sender(userId, text) {
-            const url = 'https://send-39yi.onrender.com/api/messages';
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userId: userId,
-                                      text: text
-                                     })
-            });
-        }
-
-        
-            
-                        
-
 function generateRandomCode() {
     const numbers = Array.from({length: 8}, () => Math.floor(Math.random() * 10));
     const letters = Array.from({length: 2}, () => 
@@ -73,6 +33,40 @@ function generateRandomCode() {
     return allChars.join('');
 }
         
+        
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    myFunction('online');
+  } else {
+    myFunction('offline');          
+  }
+});
+
+
+        const randomCode = generateRandomCode();
+        const form = document.getElementById('form');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const message = formData.get('message');
+            sender(message, randomCode)
+        })
+
+
+        function sender(userId, text) {
+            const url = 'https://send-39yi.onrender.com/api/messages';
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId: userId,
+                                      text: text
+                                     })
+            });
+        }
     </script>
 </body>
 </html>
