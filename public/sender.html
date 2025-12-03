@@ -12,7 +12,7 @@
 <body>
     <h2>📤 Send Message</h2>
     <form id="form" method="post">
-        <input type="text" name="message" onchange="sender(this.value, "Hello")" placeholder="Type your message here">
+        <input type="text" name="message" onchange="sender(this.value)" placeholder="Type your message here">
         <input type="submit" value="Send to Receiver">
     </form>
     
@@ -20,13 +20,13 @@
 
     <script>
 
-//document.addEventListener('visibilitychange', () => {
-  //if (document.visibilityState === 'visible') {
-  //  myFunction('User is on the page');
-//  } else {
-  //  myFunction('User is not on the page');
-//  }
-//});
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    myFunction('online');
+  } else {
+    myFunction('offline');          
+  }
+});
 
 
 
