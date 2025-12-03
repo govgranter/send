@@ -264,6 +264,7 @@ section {
 
 		
 		function toclear() {
+			localStorage.removeItem('savedUsers');
 			localStorage.clear();
 			const existingUsers = messageDisplay.querySelectorAll('.user');
             existingUsers.forEach(user => user.remove());
