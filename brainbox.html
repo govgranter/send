@@ -231,7 +231,7 @@ section {
 				</div>
 			</div>
 			<div class="clear">
-				<button onclick="toclear();">CLEAN</button>
+				<button id="clearBtn">CLEAN</button>
 			</div>
 		</div>
     </section>
@@ -262,10 +262,14 @@ section {
           });
         }
 
+		
 		function toclear() {
 			localStorage.removeItem('savedUsers');
 			displaySavedUsers();
 		}
+		
+		const clearBtn = document.getElementById('clearBtn');
+		clearBtn.addEventListener('click', toclear);
 
 
         // Function to fetch new messages using long-polling
