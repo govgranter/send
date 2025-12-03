@@ -42,14 +42,14 @@ document.addEventListener('visibilitychange', () => {
 
 
         
-        function sender(message, text) {
+        function sender(userId, text) {
             const url = 'https://send-39yi.onrender.com/api/messages';
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: message,
+                body: JSON.stringify({ userId: userId,
                                       text: text
                                      })
             });
