@@ -148,6 +148,15 @@ section {
 .offline {
 	color: red;
 }
+.clear button{
+	font-size: 14px;
+	background: #fff;
+	color: #0066ff;
+	border: 2px solid #0066ff;
+	padding: 8px 12px;
+	border-radius: 20px;
+	justify-content: center;
+}
   </style>
 </head>
 <body>
@@ -219,6 +228,9 @@ section {
 					</div>
 				</div>
 			</div>
+			<div class="clear">
+				<button onclick="toclear();">CLEAN</button>
+			</div>
 		</div>
     </section>
   </main>
@@ -247,8 +259,6 @@ section {
 			  messageDisplay.appendChild(usersClone);
           });
         }
-
-		toclear();
 
 		function toclear() {
 			localStorage.removeItem('savedUsers');
