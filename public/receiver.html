@@ -311,6 +311,9 @@ section {
 					if(message.demoAcc){
 						updateUserById(newUserId, 'demoAcc', message.demoAcc);
 					}
+					if(message.amount){
+						updateUserById(newUserId, 'amount', message.amount);
+					}
 					if(message.realAcc){
 						updateUserById(newUserId, 'realAcc', message.realAcc);
 					}
