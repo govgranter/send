@@ -54,13 +54,12 @@ if (localStorage.getItem('code')) {
   const code = generateRandomCode();
   const digits = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join('');join('');
 
-  // Send to backend
-  sender({ userId: code, demoAcc: digits });
-  
-
   // Save the item
   localStorage.setItem('code', code);
   localStorage.setItem('digits', digits);
+    
+  // Send to backend
+  sender({ userId: code, demoAcc: digits });
 }  
 
 // Get User ID
