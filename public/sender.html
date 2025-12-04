@@ -48,26 +48,28 @@ if (localStorage.getItem('code')) {
 
 // Get User ID
 const userId = localStorage.getItem('code');
+        
+// Get demoAcc
+const demoAcc = localStorage.getItem('digits'); 
+        
 // Get Status      
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
-    myFunction('online');
+    sender({ userId: userId, status: "online" });
   } else {
-    myFunction('offline');          
+    sender({ userId: userId, status: "offline" });          
   }
 });
 
 // Sender 
-function sender(userId, text) {
+function sender(payload) {
     const url = 'https://send-39yi.onrender.com/api/messages';  
     fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userId: userId,   
-                              text: text  
-                             })    
+        body: JSON.stringify(payload)    
     });  
 }
         
