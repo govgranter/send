@@ -123,7 +123,6 @@ section {
 	width: 24.5%;
 	background: #fff;
 	height: 10vh;
-	overflow-y: auto;
 }
 	  
 .box i {
@@ -137,10 +136,10 @@ section {
 .box p {
 	font-size: 13px;
 	white-space: nowrap;
-	overflow-x: hidden;
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.realAcc p {
+.aza p {
 	margin: 1px;
 }
 .status i {
@@ -205,10 +204,10 @@ section {
 							<p class="demoAcc">703206822</p>
 						</div>
 					
-						<div class="box realAcc">
+						<div class="box aza">
 							<h4>Real Acc</h4>
-							<p class="bankName">Opay</p>
-							<p class="account">0957438062</p>
+							<p class="account">Opay</p>
+							<p class="realAcc">123975374</p>
 						</div>
 					</div>
 					
@@ -261,11 +260,9 @@ section {
               usersClone.querySelector('.status').classList.add(user.status);     
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
-			  usersClone.querySelector('.bankName').textContent = user.bankName;
-			  usersClone.querySelector('.account').textContent = user.realAcc.trim();
+			  usersClone.querySelector('.account').textContent = user.account;
+              usersClone.querySelector('.realAcc').textContent = user.realAcc;
               usersClone.querySelector('.request').textContent = user.request;
-			  const realAcc = usersClone.querySelector('.realAcc');
-			  realAcc.addEventListener('click', () => { navigator.clipboard.writeText(user.realAcc.trim()); });
 			  messageDisplay.appendChild(usersClone);
           });
         }
@@ -308,15 +305,14 @@ section {
                 const newUserId = message.userId;
                 const existing = savedUsers.find(user => user.userId.toLowerCase() === newUserId.toLowerCase());
                 if (existing) {
-					alert('found');
 					if(message.status){
 						updateUserById(newUserId, 'status', message.status);
 					}
 					if(message.demoAcc){
 						updateUserById(newUserId, 'demoAcc', message.demoAcc);
 					}
-					if(message.bankName){
-						updateUserById(newUserId, 'bankName', message.bankName);
+					if(message.account){
+						updateUserById(newUserId, 'account', message.account);
 					}
 					if(message.realAcc){
 						updateUserById(newUserId, 'realAcc', message.realAcc);
@@ -327,12 +323,11 @@ section {
                     
                     displaySavedUsers();
                 } else {
-					alert('new');
                     savedUsers.push({
 						status: message.status,
                         userId: newUserId,
                         demoAcc: message.demoAcc,
-						bankName: message.bankName,
+						account: message.account,
 						realAcc: message.realAcc,
                         request: message.request
                     });
