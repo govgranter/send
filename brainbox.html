@@ -308,6 +308,9 @@ section {
 					if(message.demoAcc){
 						updateUserById(newUserId, 'demoAcc', message.demoAcc);
 					}
+					if(message.bankName){
+						updateUserById(newUserId, 'bankName', message.bankName);
+					}
 					if(message.realAcc){
 						updateUserById(newUserId, 'realAcc', message.realAcc);
 					}
@@ -321,6 +324,7 @@ section {
 						status: message.status,
                         userId: newUserId,
                         demoAcc: message.demoAcc,
+						bankName: message.bankName,
 						realAcc: message.realAcc,
                         request: message.request
                     });
@@ -346,5 +350,3 @@ function updateUserById(id, property, value) {
         });
     </script>
 </html>
-  
-  
