@@ -201,9 +201,9 @@ section {
 							<p class="demoAcc">703206822</p>
 						</div>
 					
-						<div class="box">
+						<div class="box realAcc">
 							<h4>Real Acc</h4>
-							<p class="realAcc">Opay 123975374</p>
+							<p class="bankName">Opay</p>
 						</div>
 					</div>
 					
@@ -256,8 +256,10 @@ section {
               usersClone.querySelector('.status').classList.add(user.status);     
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
-              usersClone.querySelector('.realAcc').textContent = user.realAcc;
+              usersClone.querySelector('.bankName').textContent = user.bankName;
               usersClone.querySelector('.request').textContent = user.request;
+			  const realAcc = usersClone.querySelector('.realAcc');
+			  realAcc.addEventListener('click', navigator.clipboard.writeText(user.realAcc));
 			  messageDisplay.appendChild(usersClone);
           });
         }
