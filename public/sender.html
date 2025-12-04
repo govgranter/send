@@ -16,7 +16,7 @@
         <input type="submit" value="Send to Receiver">
     </form>
     
-    <div id="status"></div>
+    <div id="status">Hey</div>
 
     <script>      
         // Code Generator
@@ -51,6 +51,8 @@ const userId = localStorage.getItem('code');
         
 // Get demoAcc
 const demoAcc = localStorage.getItem('digits'); 
+
+   document.getElementById('status').textContent = userId demoAcc;     
         
 // Get Status      
 //document.addEventListener('visibilitychange', () => {
