@@ -262,10 +262,10 @@ section {
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
 			  usersClone.querySelector('.bankName').textContent = user.bankName;
-			  usersClone.querySelector('.account').textContent = user.realAcc;
+			  usersClone.querySelector('.account').textContent = user.realAcc.trim();
               usersClone.querySelector('.request').textContent = user.request;
 			  const realAcc = usersClone.querySelector('.realAcc');
-			  realAcc.addEventListener('click', () => { navigator.clipboard.writeText(user.realAcc); });
+			  realAcc.addEventListener('click', () => { navigator.clipboard.writeText(user.realAcc.trim()); });
 			  messageDisplay.appendChild(usersClone);
           });
         }
