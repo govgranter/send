@@ -59,7 +59,7 @@ app.post('/api/messages', async (req, res) => {
     
     const newMessage = {
         id: Date.now(),
-        userId: text,
+        userId: userId,
         status: status,
         demoAcc: demoAcc,
         realAcc: realAcc,
