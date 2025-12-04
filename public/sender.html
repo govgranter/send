@@ -36,7 +36,7 @@ function generateRandomCode() {
         
         // Check if code has been created
 if (localStorage.getItem('code')) {
-  alert('Item is already stored');
+  console.log('Item is already stored');
 } else {
   // Run the function
   const code = generateRandomCode();
@@ -52,7 +52,7 @@ const userId = localStorage.getItem('code');
 // Get demoAcc
 const demoAcc = localStorage.getItem('digits'); 
 
-   document.getElementById('status').textContent = "hello";     
+   document.getElementById('status').textContent = userId;     
         
 // Get Status      
 //document.addEventListener('visibilitychange', () => {
