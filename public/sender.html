@@ -57,8 +57,21 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-
+// Sender 
+function sender(userId, text) {
+    const url = 'https://send-39yi.onrender.com/api/messages';  
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId: userId,   
+                              text: text  
+                             })    
+    });  
+}
         
+        // Form submission
         const form = document.getElementById('form');
         
         form.addEventListener('submit', (event) => {
@@ -68,19 +81,6 @@ document.addEventListener('visibilitychange', () => {
             sender(message, randomCode)
         })
 
-
-        function sender(userId, text) {
-            const url = 'https://send-39yi.onrender.com/api/messages';
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userId: userId,
-                                      text: text
-                                     })
-            });
-        }
     </script>
 </body>
 </html>
