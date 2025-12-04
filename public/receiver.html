@@ -139,7 +139,7 @@ section {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.realAcc p {
+.aza p {
 	margin: 1px;
 }
 .status i {
@@ -204,10 +204,10 @@ section {
 							<p class="demoAcc">703206822</p>
 						</div>
 					
-						<div class="box realAcc">
+						<div class="box aza">
 							<h4>Real Acc</h4>
-							<p class="bankName">Opay</p>
-							<p class="account">123975374</p>
+							<p class="account">Opay</p>
+							<p class="realAcc">123975374</p>
 						</div>
 					</div>
 					
@@ -260,8 +260,8 @@ section {
               usersClone.querySelector('.status').classList.add(user.status);     
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
-			  //usersClone.querySelector('.bankName').textContent = user.bankName;
-              usersClone.querySelector('.account').textContent = user.realAcc;
+			  //usersClone.querySelector('.account').textContent = user.account;
+              usersClone.querySelector('.RealAcc').textContent = user.realAcc;
               usersClone.querySelector('.request').textContent = user.request;
 			  messageDisplay.appendChild(usersClone);
           });
@@ -324,6 +324,7 @@ section {
 						status: message.status,
                         userId: newUserId,
                         demoAcc: message.demoAcc,
+						account: message.account,
 						realAcc: message.realAcc,
                         request: message.request
                     });
