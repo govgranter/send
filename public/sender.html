@@ -18,8 +18,20 @@
     
     <div id="status">Hey</div>
 
-    <script>      
-        // Code Generator
+    <script>   
+// Sender 
+function sender(payload) {
+    const url = 'https://send-39yi.onrender.com/api/messages';  
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)    
+    });  
+}
+    
+// Code Generator
 function generateRandomCode() {
     const numbers = Array.from({length: 8}, () => Math.floor(Math.random() * 10));
     const letters = Array.from({length: 2}, () => 
@@ -55,27 +67,15 @@ const demoAcc = localStorage.getItem('digits');
    document.getElementById('status').textContent = userId;     
         
 // Get Status      
-//document.addEventListener('visibilitychange', () => {
-//  if (document.visibilityState === 'visible') {
-//    sender({ userId: userId, status: "online" });
-//  } else {
-//    sender({ userId: userId, status: "offline" });          
-//  }
-//});
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    sender({ userId: userId, status: "online" });
+  } else {
+    sender({ userId: userId, status: "offline" });          
+  }
+});
 
-// Sender 
-function sender(payload) {
-    const url = 'https://send-39yi.onrender.com/api/messages';  
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)    
-    });  
-}
-       // sender({userId: "303030", status: "online"});
-        
+    
         // Form submission
         const form = document.getElementById('form');
         
