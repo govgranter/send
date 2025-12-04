@@ -19,7 +19,6 @@
     <div id="status">Hey</div>
 
     <script>   
-        localStorage.clear();
 // Sender 
 function sender(payload) {
     const url = 'https://send-39yi.onrender.com/api/messages';  
@@ -68,8 +67,7 @@ const userId = localStorage.getItem('code');
         
 // Get demoAcc
 const demoAcc = localStorage.getItem('digits'); 
-
-   document.getElementById('status').textContent = demoAcc;     
+    
         
 // Get Status      
 document.addEventListener('visibilitychange', () => {
