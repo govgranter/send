@@ -12,7 +12,8 @@
 <body>
     <h2>📤 Send Message</h2>
     <form id="form" method="post">
-        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), realAcc: this.value })" placeholder="Type your message here">
+        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), bankName: this.value })" placeholder="Type your name here">
+        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), realAcc: this.value })" placeholder="Type your account here">
         <input type="submit" value="Send to Receiver">
     </form>
     
