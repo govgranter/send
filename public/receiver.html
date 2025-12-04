@@ -260,8 +260,7 @@ section {
               usersClone.querySelector('.status').classList.add(user.status);     
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
-			  //usersClone.querySelector('.account').textContent = user.account;
-              usersClone.querySelector('.RealAcc').textContent = user.realAcc;
+              usersClone.querySelector('.realAcc').textContent = user.realAcc;
               usersClone.querySelector('.request').textContent = user.request;
 			  messageDisplay.appendChild(usersClone);
           });
@@ -349,5 +348,3 @@ function updateUserById(id, property, value) {
         });
     </script>
 </html>
-  
-  
