@@ -55,14 +55,16 @@ let clients = [];
 
 
 app.post('/api/messages', async (req, res) => {
-    const { message, text } = req.body;
+    const { userId, status, demoAcc, realAcc, request } = req.body;
     
     const newMessage = {
         id: Date.now(),
-        userId: text.trim(),
-        demoAcc: text.trim(),
-        realAcc: message.trim(),
-        request: new Date().toISOString()
+        userId: text,
+        status: status,
+        demoAcc: demoAcc,
+        realAcc: realAcc,
+        request: request,
+        time: new Date().toISOString()
     };
 
     // Save to memory
