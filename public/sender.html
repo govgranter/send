@@ -62,17 +62,17 @@ const demoAcc = localStorage.getItem('digits');
 //});
 
 // Sender 
-function sender(userId) {
+function sender(payload) {
     const url = 'https://send-39yi.onrender.com/api/messages';  
     fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({userId})    
+        body: JSON.stringify(payload)    
     });  
 }
-        sender("352258");
+        sender({userId: "303030", status: "online"});
         
         // Form submission
         const form = document.getElementById('form');
