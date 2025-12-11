@@ -138,7 +138,7 @@ app.get('/api/messages', (req, res) => {
 
 
 // GET endpoint to retrieve messages (For Users)
-app.get('/api/messages', (req, res) => {
+app.get('/in/messages', (req, res) => {
     const lastMessageId = req.query.lastMessageId || 0;
     
     // Check if there are new messages
