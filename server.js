@@ -142,6 +142,11 @@ app.get('/api/messages/all', (req, res) => {
     res.json(messages);
 });
 
+// Get all sends (for initial load)
+app.get('/in/messages/all', (req, res) => {
+    res.json(sends);
+});
+
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server running at ${PORT}`);
 });
