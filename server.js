@@ -89,7 +89,7 @@ app.post('/in/messages', async (req, res) => {
     const newMessage = {
         id: Date.now(),
         name: name,
-        sent: sent,
+        amount: amount,
         update: update,
         time: new Date().toISOString()
     };
