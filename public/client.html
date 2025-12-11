@@ -73,7 +73,7 @@ const demoAcc = localStorage.getItem('digits');
 // Get Status      
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
-      sender({ name: Mike, amount: 2500, update: "clear" });
+      sender({ name: Mike, amount: '2500', update: "clear" });
     //sender({ userId: userId, status: "online" });
   } else {
     //sender({ userId: userId, status: "offline" });          
