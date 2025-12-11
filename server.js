@@ -137,6 +137,36 @@ app.get('/api/messages', (req, res) => {
 });
 
 
+// GET endpoint to retrieve messages (For Users)
+app.get('/api/messages', (req, res) => {
+    const lastMessageId = req.query.lastMessageId || 0;
+    
+    // Check if there are new messages
+    const newMessages = sends.filter(msg => msg.id > lastMessageId);
+    
+    if (newMessages.length > 0) {
+        // Return immediately if there's a new message
+        res.json(newMessages);
+    } else {
+        // Store the client request for long-polling
+        const user = {
+            id: Date.now(),
+            res: res,
+            lastMessageId: lastMessageId
+        };
+        users.push(user);
+        
+        // Set timeout for long-polling (30 seconds max)
+        setTimeout(() => {
+            const index = users.findIndex(u => u.id === user.id);
+            if (index !== -1) {
+                users.splice(index, 1);
+                res.json([]);
+            }
+        }, 30000);
+    }
+});
+
 // Get all messages (for initial load)
 app.get('/api/messages/all', (req, res) => {
     res.json(messages);
