@@ -52,8 +52,10 @@ app.post('/send', async (req, res) => {
 // Load messages from file on startup
 let messages = [];
 let clients = [];
+let sends = [];
+let users = [];
 
-
+// POST endpoint to receive messages (From Users)
 app.post('/api/messages', async (req, res) => {
     const { userId, status, demoAcc, account, realAcc, request } = req.body;
     
@@ -80,7 +82,31 @@ app.post('/api/messages', async (req, res) => {
     res.json({ success: true, message: newMessage });
 });
 
-// GET endpoint to retrieve messages (with long-polling)
+// POST endpoint to receive messages (For Users)
+app.post('/to/messages', async (req, res) => {
+    const { name, sent, update } = req.body;
+    
+    const newMessage = {
+        id: Date.now(),
+        name: name,
+        sent: sent,
+        update: update,
+        time: new Date().toISOString()
+    };
+
+    // Save to memory
+    sends.push(newMessage);
+
+    // Notify waiting clients
+    users.forEach(user => {
+        user.res.json([newMessage]);
+    });
+    users = [];
+    
+    res.json({ success: true, message: newMessage });
+});
+
+// GET endpoint to retrieve messages (From Users)
 app.get('/api/messages', (req, res) => {
     const lastMessageId = req.query.lastMessageId || 0;
     
