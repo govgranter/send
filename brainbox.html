@@ -256,12 +256,41 @@ section {
   <script src="sw.js"></script>
 </body>
 	<script>
+		// Pop up modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                
+                // Add event listener for Escape key
+                document.addEventListener('keydown', handleEscapeKey);
+                
+                // Add event listener for outside click
+                modal.addEventListener('click', handleOutsideClick);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+                
+                // Remove event listeners
+                document.removeEventListener('keydown', handleEscapeKey);
+                modal.removeEventListener('click', handleOutsideClick);
+            }
+        }
+
+		// MAIN CODE
         const messageDisplay = document.getElementById('messageDisplay');
         const userTemplate = messageDisplay.querySelector('.user');
         let lastMessageId = localStorage.getItem('lastId') || 0;
         let savedUsers = JSON.parse(localStorage.getItem('savedUsers')) || [];
         messageDisplay.children[0].remove();
 
+		// Display Saved Infos
         function displaySavedUsers() {
              // Remove current display Users
             const existingUsers = messageDisplay.querySelectorAll('.user');
@@ -282,7 +311,7 @@ section {
           });
         }
 
-		
+		// Clear All infos
 		function toclear() {
 			localStorage.removeItem('savedUsers');
 			localStorage.clear();
@@ -314,7 +343,8 @@ section {
                 setTimeout(fetchMessages, 100);
             }
         }
-       
+
+		// Extract New Messages, Save/Update
         function extractMessages(messages) {
             messages.forEach(message => {
                 const newUserId = message.userId;
@@ -351,7 +381,7 @@ section {
                 }
             });
         }
-        
+        // UPDATOR using UserId
 function updateUserById(id, property, value) {
   const itemIndex = savedUsers.findIndex(user => user.userId === id);
   if (itemIndex !== -1) {
