@@ -238,7 +238,7 @@ section {
     <section class="featured" id="redeemed">
 		<div class="container">
 			<div class="starmart">
-				<button>Name</button>
+				<button onclick="openModal('deposit')">Name</button>
 				<button>Amount</button>
 				<button>Update</button>
 			</div>
@@ -295,6 +295,11 @@ section {
 			</div>
 		</div>
     </section>
+	<div id="deposit" class="modal">
+		<div class="xclose">
+			<button onclick="closeModal('deposit')">&times;</button>
+        </div>  
+	</div>
   </main>
 
   <script src="sw.js"></script>
