@@ -169,6 +169,50 @@ section {
 	padding: 8px 12px;
 	border-radius: 20px;
 }
+
+.modal{
+    background: #fff;
+    position: fixed;
+    box-shadow: 0 -5px 8px rgba(0,0,0,0.2);
+    bottom: 0;
+    padding: 0 15px 15px;
+    height: 97%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    width: 100%;
+    z-index: 2000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+	  
+.modal::-webkit-scrollbar {
+	display: none
+}
+	  
+.modal.active{
+    opacity: 1;
+    visibility: visible;
+}
+	  
+.xclose{
+    margin: 0;
+    padding: 10px 0 5px;		
+	position: fixed;
+	z-index: 2000;
+	background: #fff;
+	width: 100%;
+}
+	  
+.xclose button{
+	background: transparent;
+	font-size: 2rem;
+	color: #000;
+}
+
   </style>
 </head>
 <body>
