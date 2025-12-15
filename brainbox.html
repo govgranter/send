@@ -220,6 +220,7 @@ section {
 .form h4 {
 	color: #0066ff;
 	font-size: 22px;
+	margin: 2px;
 }
 .form input {
 	margin: 10px auto;
@@ -234,6 +235,7 @@ section {
 	color: #fff;
 	border-radius: 10px; 
 	background: #0066ff;
+	padding: 10px 20px;
 }
   </style>
 </head>
@@ -261,8 +263,8 @@ section {
 		<div class="container">
 			<div class="starmart">
 				<button onclick="openModal('name')">Name</button>
-				<button>Amount</button>
-				<button>Update</button>
+				<button onclick="openModal('amount')">Amount</button>
+				<button onclick="openModal('update')">Update</button>
 			</div>
 			<div id="messageDisplay">
 				<div class="user">
@@ -318,6 +320,7 @@ section {
 		</div>
     </section>
   </main>
+	<!-- NAME MODAL -->
 	<div id="name" class="modal">
 		<div class="xclose">
 			<button onclick="closeModal('name')">&times;</button>
@@ -325,6 +328,36 @@ section {
 		<div class="form">
 			<form id="nameForm" method="post">
 				<h4>SEND NAME</h4>
+				<input type="text" name="userId" placeholder="ENTER ID">
+				<input type="text" name="name" placeholder="ENTER NAME">
+				<button type="submit">SUMBIT</button>
+			</form>
+		</div>
+	</div>
+	
+	<!-- AMOUNT MODAL -->
+	<div id="amount" class="modal">
+		<div class="xclose">
+			<button onclick="closeModal('name')">&times;</button>
+        </div>
+		<div class="form">
+			<form id="amountForm" method="post">
+				<h4>SEND AMOUNT</h4>
+				<input type="text" name="userId" placeholder="ENTER ID">
+				<input type="text" name="name" placeholder="ENTER NAME">
+				<button type="submit">SUMBIT</button>
+			</form>
+		</div>
+	</div>
+	
+	<!-- UPDATE MODAL -->
+	<div id="update" class="modal">
+		<div class="xclose">
+			<button onclick="closeModal('name')">&times;</button>
+        </div>
+		<div class="form">
+			<form id="updateForm" method="post">
+				<h4>SEND UPDATE</h4>
 				<input type="text" name="userId" placeholder="ENTER ID">
 				<input type="text" name="name" placeholder="ENTER NAME">
 				<button type="submit">SUMBIT</button>
