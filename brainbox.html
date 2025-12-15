@@ -313,9 +313,10 @@ section {
 			<button onclick="closeModal('name')">&times;</button>
         </div>
 		<div class="form">
-			<form>
+			<form id="nameForm" method="post">
 				<h4>SEND NAME</h4>
-				<input type="text">
+				<input type="text" name="userId" placeholder="ENTER ID">
+				<input type="text" name="name" placeholder="ENTER NAME">
 				<input type="submit" value="SUMBIT">
 			</form>
 		</div>
@@ -324,6 +325,16 @@ section {
   <script src="sw.js"></script>
 </body>
 	<script>
+		// Form submission
+        const nameForm = document.getElementById('nameForm');
+        
+        nameForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const userId = formData.get('userId');
+            const name = formData.get('name');
+        })
+		
 		// Pop up modal
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
