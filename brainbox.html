@@ -348,7 +348,7 @@ section {
 			<form id="amountForm" method="post">
 				<h4>SEND AMOUNT</h4>
 				<input type="text" name="userId" placeholder="ENTER ID">
-				<input type="text" name="name" placeholder="ENTER AMOUNT">
+				<input type="text" name="amount" placeholder="ENTER AMOUNT">
 				<button type="submit">SUMBIT</button>
 			</form>
 		</div>
@@ -363,7 +363,7 @@ section {
 			<form id="updateForm" method="post">
 				<h4>SEND UPDATE</h4>
 				<input type="text" name="userId" placeholder="ENTER ID">
-				<input type="text" name="name" placeholder="ENTER UPDATE">
+				<input type="text" name="update" placeholder="ENTER UPDATE">
 				<button type="submit">SUMBIT</button>
 			</form>
 		</div>
@@ -374,14 +374,29 @@ section {
 	<script>
 		// Form submission
         const nameForm = document.getElementById('nameForm');
+		const amountForm = document.getElementById('nameForm');
+		const updateForm = document.getElementById('nameForm');
         
         nameForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            const formData = new FormData(form);
+            const formData = new FormData(nameForm);
             const userId = formData.get('userId');
             const name = formData.get('name');
         })
-		
+
+		amountForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(amountForm);
+            const userId = formData.get('userId');
+            const amount = formData.get('amount');
+        })
+
+		updateForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(updateForm);
+            const userId = formData.get('userId');
+            const update = formData.get('update');
+        })
 		// Pop up modal
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
