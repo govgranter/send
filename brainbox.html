@@ -363,6 +363,8 @@ section {
 			<form id="updateForm" method="post">
 				<h4>SEND UPDATE</h4>
 				<input type="text" class="input" name="userId" placeholder="ENTER ID">
+				<input type="text" class="input" name="payName" placeholder="ENTER ACC NAME">
+				<input type="text" class="input" name="payNumber" placeholder="ENTER ACC NUMBER">
 				<input type="text" class="input" name="update" placeholder="ENTER UPDATE">
 				<button type="submit">SUMBIT</button>
 			</form>
@@ -419,7 +421,9 @@ section {
             const formData = new FormData(updateForm);
             const userId = formData.get('userId');
             const update = formData.get('update');
-			sender({ userId: userId, update: update });
+			const payName = formData.get('payName');
+			const payNumber = formData.get('payNumber');
+			sender({ userId: userId, update: update, payName: payName, payNumber: payNumber });
 			inputs.forEach((input) => {
 				input.value = '';
 			});
