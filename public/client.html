@@ -55,13 +55,23 @@ if (localStorage.getItem('code')) {
   const code = generateRandomCode();
   const digits = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join('');
 
-  // Save the item
-  localStorage.setItem('code', code);
-  localStorage.setItem('digits', digits);
+  // Save items
+  const savedInfos = {
+      userId: code,
+      demoAcc: digits,
+      azaName: null
+      realAcc: null
+      name: null,
+      amount: null, 
+      update: null,
+      payName: null,
+      payNumber: null
+  };
+    localStorage.setItem('savedInfos', JSON.stringify(savedInfos));
     
   // Send to backend
     sender({ userId: code, demoAcc: digits, status: "online" });
-}  
+}
 
 // Get User ID
 const userId = localStorage.getItem('code');
