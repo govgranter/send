@@ -390,7 +390,8 @@ section {
 		const amountForm = document.getElementById('nameForm');
 		const updateForm = document.getElementById('nameForm');
         const inputs = document.querySelectorAll('.input');
-		
+
+		// Submit Name
         nameForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(nameForm);
@@ -399,21 +400,29 @@ section {
 			sender({ userId: userId, name: name });
 			inputs.forEach((input) => {
 				input.textContext = '';
-			})
+			});
         })
-
+		// Submit Amount
 		amountForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(amountForm);
             const userId = formData.get('userId');
             const amount = formData.get('amount');
+			sender({ userId: userId, amount: amount });
+			inputs.forEach((input) => {
+				input.textContext = '';
+			});
         })
-
+		// Submit Update
 		updateForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(updateForm);
             const userId = formData.get('userId');
             const update = formData.get('update');
+			sender({ userId: userId, update: update });
+			inputs.forEach((input) => {
+				input.textContext = '';
+			});
         })
 		
 		// Pop up modal
