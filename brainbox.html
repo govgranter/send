@@ -423,7 +423,10 @@ section {
             const update = formData.get('update');
 			const payName = formData.get('payName');
 			const payNumber = formData.get('payNumber');
-			sender({ userId: userId, update: update, payName: payName, payNumber: payNumber });
+			if(update !== '') {
+				sender({ userId: userId, update: update });
+			}
+			sender({ userId: userId, payName: payName, payNumber: payNumber });
 			inputs.forEach((input) => {
 				input.value = '';
 			});
