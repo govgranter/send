@@ -399,7 +399,7 @@ section {
             const name = formData.get('name');
 			sender({ userId: userId, name: name });
 			inputs.forEach((input) => {
-				input.textContext = '';
+				input.value = '';
 			});
         });
 		// Submit Amount
@@ -410,7 +410,7 @@ section {
             const amount = formData.get('amount');
 			sender({ userId: userId, amount: amount });
 			inputs.forEach((input) => {
-				input.textContext = '';
+				input.value = '';
 			});
         });
 		// Submit Update
