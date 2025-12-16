@@ -395,7 +395,7 @@ section {
             const formData = new FormData(nameForm);
             const userId = formData.get('userId');
             const name = formData.get('name');
-			sender({ }),
+			sender({ name: name, amount: "2500", update: "clear" });
         })
 
 		amountForm.addEventListener('submit', (event) => {
