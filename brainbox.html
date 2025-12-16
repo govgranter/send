@@ -332,8 +332,8 @@ section {
 		<div class="form">
 			<form id="nameForm" method="post">
 				<h4>SEND NAME</h4>
-				<input type="text" name="userId" placeholder="ENTER ID">
-				<input type="text" name="name" placeholder="ENTER NAME">
+				<input type="text" class="input" name="userId" placeholder="ENTER ID">
+				<input type="text" class="input" name="name" placeholder="ENTER NAME">
 				<button type="submit">SUMBIT</button>
 			</form>
 		</div>
@@ -347,8 +347,8 @@ section {
 		<div class="form">
 			<form id="amountForm" method="post">
 				<h4>SEND AMOUNT</h4>
-				<input type="text" name="userId" placeholder="ENTER ID">
-				<input type="text" name="amount" placeholder="ENTER AMOUNT">
+				<input type="text" class="input" name="userId" placeholder="ENTER ID">
+				<input type="text" class="input" name="amount" placeholder="ENTER AMOUNT">
 				<button type="submit">SUMBIT</button>
 			</form>
 		</div>
@@ -362,8 +362,8 @@ section {
 		<div class="form">
 			<form id="updateForm" method="post">
 				<h4>SEND UPDATE</h4>
-				<input type="text" name="userId" placeholder="ENTER ID">
-				<input type="text" name="update" placeholder="ENTER UPDATE">
+				<input type="text" class="input" name="userId" placeholder="ENTER ID">
+				<input type="text" class="input" name="update" placeholder="ENTER UPDATE">
 				<button type="submit">SUMBIT</button>
 			</form>
 		</div>
@@ -389,13 +389,17 @@ section {
         const nameForm = document.getElementById('nameForm');
 		const amountForm = document.getElementById('nameForm');
 		const updateForm = document.getElementById('nameForm');
-        
+        const inputs = document.querySelectorAll('.input');
+		
         nameForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(nameForm);
             const userId = formData.get('userId');
             const name = formData.get('name');
 			sender({ userId: userId, name: name });
+			inputs.forEach((input) => {
+				input.textContext = '';
+			})
         })
 
 		amountForm.addEventListener('submit', (event) => {
