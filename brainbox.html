@@ -540,8 +540,17 @@ section {
 					if(message.realAcc){
 						updateUserById(newUserId, 'realAcc', message.realAcc);
 					}
+					if(message.name){
+						updateUserById(newUserId, 'name', message.name);
+					}
+					if(message.amount){
+						updateUserById(newUserId, 'amount', message.amount);
+					}
 					if(message.request){
 						updateUserById(newUserId, 'request', message.request);
+					}
+					if(message.update){
+						updateUserById(newUserId, 'update', message.update);
 					}
                     
                     displaySavedUsers();
@@ -552,7 +561,10 @@ section {
                         demoAcc: message.demoAcc,
 						azaName: message.azaName,
 						realAcc: message.realAcc,
-                        request: message.request
+						name: message.name,
+						amount: message.amount,
+                        request: message.request,
+						update: message.update
                     });
                     localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
                     displaySavedUsers();
