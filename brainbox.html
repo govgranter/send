@@ -401,7 +401,7 @@ section {
 			inputs.forEach((input) => {
 				input.textContext = '';
 			});
-        })
+        });
 		// Submit Amount
 		amountForm.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -412,7 +412,7 @@ section {
 			inputs.forEach((input) => {
 				input.textContext = '';
 			});
-        })
+        });
 		// Submit Update
 		updateForm.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -420,9 +420,7 @@ section {
             const userId = formData.get('userId');
             const update = formData.get('update');
 			sender({ userId: userId, update: update });
-			inputs.forEach((input) => {
-				input.textContext = '';
-			});
+			updateForm.reset();
         })
 		
 		// Pop up modal
