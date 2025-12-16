@@ -23,6 +23,7 @@
        let savedInfos =  JSON.parse(localStorage.getItem('savedInfos')) || [];
 
         // Sender
+function sender(payload) {
     const url = 'https://send-39yi.onrender.com/api/messages';  
     fetch(url, {
         method: 'POST',
