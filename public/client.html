@@ -57,7 +57,7 @@ if (localStorage.getItem('code')) {
   const digits = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join('');
 
   // Save items
-  savedInfos = {
+    const savedInfos = {
       userId: code,
       demoAcc: digits,
       azaName: null,
@@ -69,7 +69,7 @@ if (localStorage.getItem('code')) {
       payNumber: null
   };
     localStorage.setItem('savedInfos', JSON.stringify(savedInfos));
-
+ 
   // Send to backend
     sender({ userId: code, demoAcc: digits, status: "online" });
 }
