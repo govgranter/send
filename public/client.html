@@ -69,8 +69,7 @@ if (localStorage.getItem('code')) {
       payNumber: null
   };
     localStorage.setItem('savedInfos', JSON.stringify(savedInfos));
-    localStorage.setItem('code', code);
-    localStorage.setItem('digits');
+
   // Send to backend
     sender({ userId: code, demoAcc: digits, status: "online" });
 }
