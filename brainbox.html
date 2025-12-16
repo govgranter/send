@@ -420,8 +420,10 @@ section {
             const userId = formData.get('userId');
             const update = formData.get('update');
 			sender({ userId: userId, update: update });
-			updateForm.reset();
-        })
+			inputs.forEach((input) => {
+				input.value = '';
+			});
+        });
 		
 		// Pop up modal
         function openModal(modalId) {
