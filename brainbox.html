@@ -372,6 +372,19 @@ section {
   <script src="sw.js"></script>
 </body>
 	<script>
+		// Sender 
+		function sender(payload) {
+			const url = 'https://send-39yi.onrender.com/in/messages';  
+			fetch(url, {  
+				method: 'POST',
+				headers: { 
+					'Content-Type': 'application/json',      
+				},
+				body: JSON.stringify(payload)      
+			});  
+		}
+    
+    
 		// Form submission
         const nameForm = document.getElementById('nameForm');
 		const amountForm = document.getElementById('nameForm');
@@ -382,6 +395,7 @@ section {
             const formData = new FormData(nameForm);
             const userId = formData.get('userId');
             const name = formData.get('name');
+			sender({ }),
         })
 
 		amountForm.addEventListener('submit', (event) => {
