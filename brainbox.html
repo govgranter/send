@@ -290,7 +290,7 @@ section {
 					
 						<div class="box aza">
 							<h4>Real Acc</h4>
-							<p class="account">Opay</p>
+							<p class="azaName">Opay</p>
 							<p class="realAcc">123975374</p>
 						</div>
 					</div>
@@ -479,7 +479,7 @@ section {
               usersClone.querySelector('.status').classList.add(user.status);     
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
-			  usersClone.querySelector('.account').textContent = user.account;
+			  usersClone.querySelector('.azaName').textContent = user.azaName;
               usersClone.querySelector('.realAcc').textContent = user.realAcc;
 			  usersClone.querySelector('.name').textContent = user.name;
               usersClone.querySelector('.amount').textContent = user.amount;
@@ -534,8 +534,8 @@ section {
 					if(message.demoAcc){
 						updateUserById(newUserId, 'demoAcc', message.demoAcc);
 					}
-					if(message.account){
-						updateUserById(newUserId, 'account', message.account);
+					if(message.azaName){
+						updateUserById(newUserId, 'azaName', message.azaName);
 					}
 					if(message.realAcc){
 						updateUserById(newUserId, 'realAcc', message.realAcc);
@@ -550,7 +550,7 @@ section {
 						status: message.status,
                         userId: newUserId,
                         demoAcc: message.demoAcc,
-						account: message.account,
+						azaName: message.azaName,
 						realAcc: message.realAcc,
                         request: message.request
                     });
