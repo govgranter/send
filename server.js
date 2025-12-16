@@ -84,10 +84,11 @@ app.post('/api/messages', async (req, res) => {
 
 // POST endpoint to receive messages (For Users)
 app.post('/in/messages', async (req, res) => {
-    const { name, amount, update } = req.body;
+    const { userId, name, amount, update } = req.body;
     
     const newMessage = {
         id: Date.now(),
+        userId: userId,
         name: name,
         amount: amount,
         update: update,
