@@ -64,7 +64,7 @@ app.post('/api/messages', async (req, res) => {
         userId: userId,
         status: status,
         demoAcc: demoAcc,
-        account: account,
+        azaName: azaName,
         realAcc: realAcc,
         request: request,
         time: new Date().toISOString()
