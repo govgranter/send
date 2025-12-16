@@ -57,7 +57,7 @@ let users = [];
 
 // POST endpoint to receive messages (From Users)
 app.post('/api/messages', async (req, res) => {
-    const { userId, status, demoAcc, account, realAcc, request } = req.body;
+    const { userId, status, demoAcc, azaName, realAcc, request } = req.body;
     
     const newMessage = {
         id: Date.now(),
