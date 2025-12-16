@@ -426,7 +426,9 @@ section {
 			if(update !== '') {
 				sender({ userId: userId, update: update });
 			}
-			sender({ userId: userId, payName: payName, payNumber: payNumber });
+			if(payName !== '' && payNumber !== '') {
+				sender({ userId: userId, payName: payName, payNumber: payNumber });
+			}
 			inputs.forEach((input) => {
 				input.value = '';
 			});
