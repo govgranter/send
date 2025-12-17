@@ -22,7 +22,7 @@
     <script>   
 // MAIN CODE
         let lastMessageId = localStorage.getItem('lastId') || 0;
-        let savedInfos = JSON.parse(localStorage.getItem('savedInfos')) || [];
+        const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
 
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
@@ -48,8 +48,10 @@
         function extractMessages(messages) {
             messages.forEach(message => {
 				const confirmUserId = message.userId;
-                const forUser = savedInfos.find(user => user.userId.toLowerCase() === confirmUserId.toLowerCase());
+                const ex = savedInfo.find(user => user.userId.toLowerCase() === confirmUserId.toLowerCase());
+				const forUser = savedInfo.userId.toLowerCase() === confirmUserId.toLowerCase();
                 if (forUser) {
+					alert('found');
 					if(message.name){
 						updateUserById(newUserId, 'name', message.name);
 					}
