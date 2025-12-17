@@ -56,19 +56,20 @@
 				if(savedInfo.userId.toLowerCase() === message.userId.toLowerCase()){
 					console.log('For User');
 					if(message.name){
-						updateUserById(newUserId, 'name', message.name);
+						savedInfo.name = message.name;
+						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 					}
 					if(message.amount){
-						updateUserById(newUserId, 'amount', message.amount);
+						savedInfo.amount = message.amount;
 					}
 					if(message.update){
-						updateUserById(newUserId, 'update', message.update);
+						savedInfo.update = message.update;
 					}
 					if(message.payName){
-						updateUserById(newUserId, 'payName', message.payName);
+						savedInfo.payName = message.payName;
 					}
 					if(message.payNumber){
-						updateUserById(newUserId, 'payNumber', message.payNumber);
+						savedInfo.payNumber = message.payNumber;
 					}
               
                 } else {
@@ -76,14 +77,7 @@
                 }
             });
         }
-        // UPDATOR using UserId
-function updateUserById(id, property, value) {
-  const itemIndex = savedInfos.findIndex(user => user.userId === id);
-  if (itemIndex !== -1) {
-    savedInfos[itemIndex][property] = value;
-    localStorage.setItem('savedInfos', JSON.stringify(savedInfos));
-  }
-}
+    
         
         // Start polling when page loads
         window.addEventListener('load', () => {
