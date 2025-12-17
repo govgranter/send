@@ -11,12 +11,14 @@
 </head>
 <body>
     <h2>📤 Send Message</h2>
-    <div id="userId"></div>
-    <div id="name"></div>
-    <div id="amount"></div>
-    <div id="update"></div>
-    <div id="payName"></div>
-    <div id="payNumber"></div>
+	<div id="parent">    
+		<div class="info" id="userId"></div>    
+		<div class="info" id="name"></div>
+		<div class="info" id="amount"></div>
+		<div class="info" id="update"></div>
+		<div class="info" id="payName"></div>
+		<div class="info" id="payNumber"></div>
+	</div>
 
     <script>   
 
@@ -25,10 +27,15 @@
         const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
 
 		// Display
-		
-		document.getElementById('userId').textContent = savedInfo.userId;
-		document.getElementById('name').textContent = savedInfo.name;
-		document.getElementById('amount').textContent = savedInfo.amount;
+		function displaySavedInfo() {
+			document.querySelectorAll('.info');
+			document.getElementById('userId').textContent = savedInfo.userId;
+			document.getElementById('name').textContent = savedInfo.name;
+			document.getElementById('amount').textContent = savedInfo.amount;
+			document.getElementById('update').textContent = savedInfo.update;
+			document.getElementById('payName').textContent = savedInfo.payName;	
+			document.getElementById('payNumber').textContent = savedInfo.payNumber;
+			}
 
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
