@@ -84,10 +84,12 @@
 					if(message.amount){
 						savedInfo.amount = message.amount;
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
+						sender({ userId: savedInfo.userId, amount: savedInfo.amount });
 					}
 					if(message.update){
 						savedInfo.update = message.update;
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
+						sender({ userId: savedInfo.userId, update: savedInfo.update });
 					}
 					if(message.payName){
 						savedInfo.payName = message.payName;
@@ -96,6 +98,7 @@
 					if(message.payNumber){
 						savedInfo.payNumber = message.payNumber;
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
+						sender({ userId: savedInfo.userId, update: `${savedInfo.payName}\n${savedInfo.payNumber}` });
 					}
 					displaySavedInfo()
                 } else {
