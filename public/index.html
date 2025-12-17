@@ -543,7 +543,7 @@ function sender(payload) {
 }
 if (localStorage.getItem('firstTime')) {       
 	console.log('Not firstTime, already stored');     
-} else if (window.matchMedia('(display-mode: standalone)').matches) {
+} else if (window.matchMedia('(display-mode: standalone)').matches && localStorage.getItem('firstTime') === null) {
 	sender({message: "APP INSTALLED💃🕺"});
 } else {         
 	sender({message: "GOT A FIRST TIMER❤️"});
