@@ -47,9 +47,7 @@
 		// Extract New Messages, Save/Update
         function extractMessages(messages) {
             messages.forEach(message => {
-				const confirmUserId = message.userId;
-                const forUser = savedInfo.find(user => user.userId.toLowerCase() === confirmUserId.toLowerCase());
-                if (forUser) {
+				if(savedInfo.userId.toLowerCase() === message.userId.toLowerCase()){
 					alert('found');
 					if(message.name){
 						updateUserById(newUserId, 'name', message.name);
