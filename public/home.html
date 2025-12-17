@@ -11,18 +11,24 @@
 </head>
 <body>
     <h2>📤 Send Message</h2>
-    <form id="form" method="post">
-        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), azaName: this.value })" placeholder="Type your bank name here">
-        <input type="text" name="message" onchange="sender({ userId: localStorage.getItem('code'), realAcc: this.value })" placeholder="Type your account here">
-        <input type="submit" value="Send to Receiver">
-    </form>
-    
-    <div id="status">Hey</div>
+    <div id="userId"></div>
+    <div id="name"></div>
+    <div id="amount"></div>
+    <div id="update"></div>
+    <div id="payName"></div>
+    <div id="payNumber"></div>
 
     <script>   
-// MAIN CODE
+
+		// MAIN CODE
         let lastMessageId = localStorage.getItem('latestId') || 0;
         const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
+
+		// Display
+		
+		document.getElementById('userId').textContent = savedInfo.userId;
+		document.getElementById('name').textContent = savedInfo.name;
+		document.getElementById('amount').textContent = savedInfo.amount;
 
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
