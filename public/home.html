@@ -61,15 +61,19 @@
 					}
 					if(message.amount){
 						savedInfo.amount = message.amount;
+						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 					}
 					if(message.update){
 						savedInfo.update = message.update;
+						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 					}
 					if(message.payName){
 						savedInfo.payName = message.payName;
+						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 					}
 					if(message.payNumber){
 						savedInfo.payNumber = message.payNumber;
+						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 					}
               
                 } else {
