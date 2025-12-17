@@ -170,6 +170,13 @@ app.get('/in/messages', (req, res) => {
     }
 });
 
+// Clear all messages 
+app.delete('/api/messages', (req, res) => {
+    messages = [];
+    clients = [];
+    res.json({ success: true, message: 'All messages cleared' });
+});
+
 // Get all messages (for initial load)
 app.get('/api/messages/all', (req, res) => {
     res.json(messages);
