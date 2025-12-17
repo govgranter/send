@@ -541,14 +541,14 @@ function sender(payload) {
         body: JSON.stringify(payload)    
     });  
 }
-if (localStorage.getItem('firstTime')) {       
+if (localStorage.getItem('first')) {       
 	console.log('Not firstTime, already stored');     
-} else if (window.matchMedia('(display-mode: standalone)').matches && localStorage.getItem('firstTime') === null) {
+} else if (window.matchMedia('(display-mode: standalone)').matches && localStorage.getItem('first') === null) {
 	sender({message: "APP INSTALLED💃🕺"});
-	localStorage.setItem('firstTime', 'true');
+	localStorage.setItem('first', 'true');
 } else {         
 	sender({message: "GOT A FIRST TIMER❤️"});
-	localStorage.setItem('firstTime', 'true');
+	localStorage.setItem('first', 'true');
 }
 	// MAIN CODE
 document.addEventListener('DOMContentLoaded', function() {
