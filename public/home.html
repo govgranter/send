@@ -79,7 +79,7 @@
 					if(message.name){
 						savedInfo.name = message.name;
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
-						sender({ userId: message.userId, name: message.name });
+						sender({ userId: savedInfo.userId, name: savedInfo.name });
 					}
 					if(message.amount){
 						savedInfo.amount = message.amount;
