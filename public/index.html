@@ -541,8 +541,13 @@ function sender(payload) {
         body: JSON.stringify(payload)    
     });  
 }
-sender({ message: "Someone On WebPage❤️🤣" });
-		
+if (localStorage.getItem('firstTime')) {       
+	console.log('Not firstTime, already stored');     
+} else {         
+	sender({message: "GOT A FIRST TIMER❤️"});
+	localStorage.setItem('firstTime', 'true');
+}
+	// MAIN CODE
 document.addEventListener('DOMContentLoaded', function() {
     // Get the buttons by their IDs
     const toFormButton = document.getElementById('toform');
