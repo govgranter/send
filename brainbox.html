@@ -491,11 +491,17 @@ section {
 
 		// Clear All infos
 		function toclear() {
+			const url = 'https://send-39yi.onrender.com/api/messages';  
+			fetch(url, {  
+				method: 'DELETE',
+				headers: { 
+					'Content-Type': 'application/json',      
+				}     
+			});  
 			localStorage.removeItem('savedUsers');
-			localStorage.clear();
 			const existingUsers = messageDisplay.querySelectorAll('.user');
             existingUsers.forEach(user => user.remove());
-			window.location.reload();
+			//window.location.reload();
 		}
 		
 		const clearBtn = document.getElementById('clearBtn');
