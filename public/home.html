@@ -48,7 +48,7 @@
         function extractMessages(messages) {
             messages.forEach(message => {
 				if(savedInfo.userId.toLowerCase() === message.userId.toLowerCase()){
-					alert('found');
+					console.log('For User');
 					if(message.name){
 						updateUserById(newUserId, 'name', message.name);
 					}
@@ -66,7 +66,7 @@
 					}
               
                 } else {
-                    alert('Not For User');
+                    console.log('Not For User');
                 }
             });
         }
