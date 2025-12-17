@@ -12,7 +12,7 @@
 <body>
     <h2>📤 Send Message</h2>
 	<div id="parent">    
-		<div class="info" id="userId"></div>    
+		<div class="info" id="demoAcc"></div>    
 		<div class="info" id="name"></div>
 		<div class="info" id="amount"></div>
 		<div class="info" id="update"></div>
@@ -31,7 +31,7 @@
 			const existingInfo = document.querySelectorAll('.info');
 			existingInfo.forEach(info => info.textContent = '');
 			
-			document.getElementById('userId').textContent = savedInfo.userId;
+			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
 			document.getElementById('name').textContent = savedInfo.name;
 			document.getElementById('amount').textContent = savedInfo.amount;
 			document.getElementById('update').textContent = savedInfo.update;
