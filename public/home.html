@@ -48,8 +48,7 @@
         function extractMessages(messages) {
             messages.forEach(message => {
 				const confirmUserId = message.userId;
-                const ex = savedInfo.find(user => user.userId.toLowerCase() === confirmUserId.toLowerCase());
-				const forUser = savedInfo.userId.toLowerCase() === confirmUserId.toLowerCase();
+                const forUser = savedInfo.find(user => user.userId.toLowerCase() === confirmUserId.toLowerCase());
                 if (forUser) {
 					alert('found');
 					if(message.name){
