@@ -23,6 +23,7 @@
 // MAIN CODE
         let lastMessageId = localStorage.getItem('lastId') || 0;
         const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
+		alert(savedInfo.userId);
 
         // Function to fetch new messages using long-polling
         async function fetchMessages() {
