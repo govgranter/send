@@ -98,7 +98,7 @@
 					if(message.payNumber){
 						savedInfo.payNumber = message.payNumber;
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
-						sender({ userId: savedInfo.userId, update: `${savedInfo.payName}\n${savedInfo.payNumber}` });
+						sender({ userId: savedInfo.userId, update: `${savedInfo.payName} ${savedInfo.payNumber}` });
 					}
 					displaySavedInfo()
                 } else {
