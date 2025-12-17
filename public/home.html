@@ -28,7 +28,9 @@
 
 		// Display
 		function displaySavedInfo() {
-			document.querySelectorAll('.info');
+			const existingInfo = document.querySelectorAll('.info');
+			existingInfo.forEach(info => info.textContent = '');
+			
 			document.getElementById('userId').textContent = savedInfo.userId;
 			document.getElementById('name').textContent = savedInfo.name;
 			document.getElementById('amount').textContent = savedInfo.amount;
@@ -82,7 +84,7 @@
 						savedInfo.payNumber = message.payNumber;
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 					}
-              
+					displaySavedInfo()
                 } else {
                     console.log('Not For User');
                 }
@@ -93,6 +95,7 @@
         // Start polling when page loads
         window.addEventListener('load', () => {
             fetchMessages(); 
+			displaySavedInfo()
         });
     </script>
 </body>
