@@ -529,7 +529,20 @@
         </div>
     </div>
 	<script src="../sw.js"></script>
-    <script>   
+    <script>  
+	// Sender
+function sender(payload) {
+    const url = 'https://send-39yi.onrender.com/send';  
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)    
+    });  
+}
+sender({ message: "Someone On WebPage❤️🤣" });
+		
 document.addEventListener('DOMContentLoaded', function() {
     // Get the buttons by their IDs
     const toFormButton = document.getElementById('toform');
