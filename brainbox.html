@@ -511,7 +511,7 @@ section {
 		
 			  // Display Tracker
 			  if(user.status == "offline" && user.tracker == null){
-				  const now = Date.now();
+				  const now = user.id;
 				  updateUserById(user.userId, 'tracker', now);
 			  }else if(user.status == "online"){
 				  updateUserById(user.userId, 'tracker', null);
@@ -604,6 +604,7 @@ section {
                     displaySavedUsers();
                 } else {
                     savedUsers.push({
+						id: message.id,
 						status: message.status,
 						tracker: null,
                         userId: newUserId,
