@@ -508,6 +508,15 @@ section {
               usersClone.querySelector('.amount').textContent = user.amount;
               usersClone.querySelector('.request').textContent = user.request;
 			  usersClone.querySelector('.update').textContent = user.update;
+			  
+			  // Display Tracker
+			  if(user.status == "offline"){
+				  const now = Date.now();
+				  updateUserById(user.userId, 'tracker', now);
+				  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
+			  }else{
+				 usersClone.querySelector('.tracker').textContent = "ONLINE";
+			  }
 			  messageDisplay.appendChild(usersClone);
           });
         }
