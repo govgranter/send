@@ -500,6 +500,7 @@ section {
           savedUsers.forEach((user, index) => {
               const usersClone = userTemplate.cloneNode(true);
               usersClone.querySelector('.status').classList.add(user.status);     
+			  usersClone.querySelector('.tracker').textContent = "just now";
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
 			  usersClone.querySelector('.azaName').textContent = user.azaName;
