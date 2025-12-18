@@ -513,6 +513,7 @@ section {
 			  if(user.status == "offline"){
 				  const now = Date.now();
 				  updateUserById(user.userId, 'tracker', now);
+				  const timestamp = user.tracker;
 				  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
 			  }else{
 				 usersClone.querySelector('.tracker').textContent = "ONLINE";
