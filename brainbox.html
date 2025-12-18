@@ -514,9 +514,7 @@ section {
 				  const now = Date.now();
 				  updateUserById(user.userId, 'tracker', now);
 				  const timestamp = user.tracker;
-				  setInterval(() => {
-					  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
-				  }, 10000);
+				  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
 			  }else if(user.status == "online"){
 				  usersClone.querySelector('.tracker').textContent = "Online";
 				  updateUserById(user.userId, 'tracker', null);
