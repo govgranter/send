@@ -501,8 +501,15 @@ section {
             
           savedUsers.forEach((user, index) => {
               const usersClone = userTemplate.cloneNode(true);
-              usersClone.querySelector('.status').classList.add(user.status);     
-			  usersClone.querySelector('.tracker').textContent = "just now";
+              usersClone.querySelector('.status').classList.add(user.status);
+			  
+			  // Update tracker when user is offline
+			  if(user.status == "offline") {
+				  usersClone.querySelector('.tracker').textContent = "just now";
+			  }else{
+				  usersClone.querySelector('.tracker').textContent = "Online";
+			  }
+	
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
 			  usersClone.querySelector('.azaName').textContent = user.azaName;
