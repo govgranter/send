@@ -576,6 +576,9 @@ section {
                 const newUserId = message.userId;
                 const existing = savedUsers.find(user => user.userId.toLowerCase() === newUserId.toLowerCase());
                 if (existing) {
+					if(message.id){
+						updateUserById(newUserId, 'id', message.id);
+					}
 					if(message.status){
 						updateUserById(newUserId, 'status', message.status);
 					}
