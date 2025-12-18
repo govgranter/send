@@ -126,8 +126,7 @@ section {
 }
 	  
 .box i {
-	border: 1px solid green;
-	margin: 0;
+	border: 1px solid blue;
 } 
 
 .box h4 {
@@ -501,7 +500,6 @@ section {
           savedUsers.forEach((user, index) => {
               const usersClone = userTemplate.cloneNode(true);
               usersClone.querySelector('.status').classList.add(user.status);
-			  usersClone.querySelector('.tracker').textContent = "Online";
 			  usersClone.querySelector('.userId').textContent = user.userId;
               usersClone.querySelector('.demoAcc').textContent = user.demoAcc;
 			  usersClone.querySelector('.azaName').textContent = user.azaName;
