@@ -508,17 +508,19 @@ section {
               usersClone.querySelector('.amount').textContent = user.amount;
               usersClone.querySelector('.request').textContent = user.request;
 			  usersClone.querySelector('.update').textContent = user.update;
-			  
+		
 			  // Display Tracker
 			  if(user.status == "offline" && user.tracker == null){
 				  const now = Date.now();
 				  updateUserById(user.userId, 'tracker', now);
-				  const timestamp = user.tracker;
-				  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
 			  }else if(user.status == "online"){
 				  usersClone.querySelector('.tracker').textContent = "Online";
 				  updateUserById(user.userId, 'tracker', null);
 			  }
+			  const timestamp = user.tracker;
+			  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
+			  
+			  // Push New Users Down
 			  messageDisplay.appendChild(usersClone);
           });
         }
