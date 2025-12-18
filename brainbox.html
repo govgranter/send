@@ -466,7 +466,7 @@ section {
    
 		// Format milliseconds into "X minutes ago", etc.
 		function formatTimeAgo(timestamp) {
-			if (!timestamp) return 'never';
+			if (!timestamp) return 'Online';
    
 			const seconds = Math.floor((Date.now() - timestamp) / 1000);
 
@@ -514,11 +514,17 @@ section {
 				  const now = Date.now();
 				  updateUserById(user.userId, 'tracker', now);
 			  }else if(user.status == "online"){
-				  usersClone.querySelector('.tracker').textContent = "Online";
 				  updateUserById(user.userId, 'tracker', null);
 			  }
-			  const timestamp = user.tracker;
-			  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
+			  function showTracking() { 
+				  const timestamp = user.tracker;
+				  usersClone.querySelector('.tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
+			  }
+			  showTracking();
+			  setInterval(showTracking, 30000);
+			  document.addEventListener('visibilitychange', () => {
+				  if (!document.hidden) showTracking();
+			  });
 			  
 			  // Push New Users Down
 			  messageDisplay.appendChild(usersClone);
