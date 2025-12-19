@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>fetch('https://send-39yi.onrender.com/api/messages');</script>
+    <script>
+        fetch('https://send-39yi.onrender.com/api/messages');
+        
+    </script>
     <title>Message Sender</title>
     <style>
         body { font-family: Arial; margin: 40px; }
@@ -49,7 +52,7 @@ function generateRandomCode() {
 }
         
 // Check if UserId has been created
-if (localStorage.getItem('code')) {
+if (JSON.parse(localStorage.getItem('savedInfos'))) {
   console.log('UserId is already stored');
 } else {
   // Run the function
