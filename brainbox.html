@@ -537,14 +537,9 @@ section {
 				  }
 				  
 				  timer = setTimeout(() => {
-					  if (clickCount === 1) {
-						  alert('Single click!');
-					  } else if (clickCount === 2) {  
-						  alert('Double click!');
-					  } else if (clickCount === 3) {
+					  if (clickCount === 3) {
 						  alert('Triple click!');
-					  }
-
+					  } 
 					  clickCount = 0;
 				  }, 500); 
 			  });
