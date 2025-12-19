@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="theme-color" content="#99ccff" media="(prefers-color-scheme: light)" /> 
-    <meta name="theme-color" content="#0066ff" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0066ff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#003380">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="light">
     <script>
@@ -11,16 +11,34 @@
     </script>
     <title>Message Sender</title>
     <style>
-  body {
-    margin: 0;
-    min-height: 100dvh;
-    background: linear-gradient(#00C853 0px, #00C853 130px, #d9ded8 130px);
-    font-family: system-ui;
-    padding-top: env(safe-area-inset-top);
-  }
-  @media (prefers-color-scheme: dark) {
-    body { background: #0066ff; }
-  }
+  html, body {
+      margin: 0;
+      height: 100dvh;           /* full viewport height including status bar */
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      /* Light mode: bright blue bleeding down from status bar */
+      background: linear-gradient(to bottom,
+        #0066ff 0px,
+        #0066ff 140px,          /* tall blue area that merges with status bar */
+        #e6f0ff 140px,          /* very light blue-gray page background */
+        #ffffff 300px);         /* fade to white */
+      color: #1a1a1a;
+      padding-top: env(safe-area-inset-top);  /* respects notch/status bar */
+    }
+
+    /* Dark mode – dramatically different and obvious */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(to bottom,
+          #003380 0px,
+          #003380 140px,          /* deep navy bleeding down */
+          #0a1a33 140px,          /* almost-black blue */
+          #0d1f3d 300px);
+        color: #e6ecff;
+      }
+    }
         body { font-family: Arial; margin: 40px; }
         input { padding: 10px; width: 300px; font-size: 16px; }
         button { padding: 10px 20px; font-size: 16px; background: #007bff; color: white; border: none; cursor: pointer; }
