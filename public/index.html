@@ -47,7 +47,7 @@
             align-items: center;	
             width: 100%;
             padding: 10px 20px; 
-            z-index: 1000;  
+            z-index: 1001;  
             border-bottom: 2px solid #fff;  
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
@@ -91,12 +91,15 @@
         }
  
 		.header {
+			position: fixed;
+			top: 0;
+			z-index: 1001; 
 			text-align: center;
 			padding: 2rem;
 			background-image: url('starmart.jpeg'); 
 			background-position: bottom; 
 			background-size: cover;
-			min-height: 290px;   
+			min-height: 300px;   
 		}
 		
         .app-content {
