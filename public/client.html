@@ -11,33 +11,25 @@
     </script>
     <title>Message Sender</title>
     <style>
-  html, body {
-      margin: 0;
-      height: 100dvh;           /* full viewport height including status bar */
-      font-family: system-ui, sans-serif;
-    }
+  body{margin:0;min-height:100dvh;
+         background:
+           /* Right-to-left dramatic sweep + tall bleed */
+           linear-gradient(135deg,
+             #0066ff 0%,      /* starts bright blue on the right */
+             #0044cc 30%,
+             transparent 70%),
+           linear-gradient(to bottom,
+             #0066ff 0px,
+             #0066ff 160px,   /* thick bleed that merges with status bar */
+             #f0f4ff 160px);  /* soft landing background */
+         padding-top:env(safe-area-inset-top);
+         color:#111;}
 
-    body {
-      /* Light mode: bright blue bleeding down from status bar */
-      background: linear-gradient(to bottom,
-        #0066ff 0px,
-        #0066ff 140px,          /* tall blue area that merges with status bar */
-        #e6f0ff 140px,          /* very light blue-gray page background */
-        #ffffff 300px);         /* fade to white */
-      color: #1a1a1a;
-      padding-top: env(safe-area-inset-top);  /* respects notch/status bar */
-    }
-
-    /* Dark mode – dramatically different and obvious */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: linear-gradient(to bottom,
-          #003380 0px,
-          #003380 140px,          /* deep navy bleeding down */
-          #0a1a33 140px,          /* almost-black blue */
-          #0d1f3d 300px);
-        color: #e6ecff;
-      }
+    @media (prefers-color-scheme:dark){
+      body{background:
+           linear-gradient(135deg,#003380 0%,#001f66 40%,transparent 75%),
+           linear-gradient(to bottom,#003380 0px,#003380 160px,#0d1b33 160px);
+           color:#ddd;}
     }
         body { font-family: Arial; margin: 40px; }
         input { padding: 10px; width: 300px; font-size: 16px; }
