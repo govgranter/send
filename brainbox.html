@@ -534,19 +534,20 @@ section {
 				  if (timer) {
 					  clearTimeout(timer);
 				  }
-				  if (clickCount === 1) {
-					  usersClone.querySelector('.status').style.color = 'blue';
+				  if (clickCount === 1) {	
+					  usersClone.querySelector('.status').style.color = 'blue'; 
 				  } else if (clickCount === 2) {		  
 					  usersClone.querySelector('.status').style.color = 'grey';  
 				  } 
 				  timer = setTimeout(() => {
-					  if (clickCount === 3) {
+					  else if (clickCount === 3) {
 						  updatedUsers = savedUsers.filter(all => all.userId !== user.userId);
 						  localStorage.setItem('savedUsers', JSON.stringify(updatedUsers));
 						  usersClone.remove();
 					  }
 					  clickCount = 0;
 				  }, 500); 
+				  usersClone.querySelector('.status').classList.add(user.status);
 			  });
 
 			  
