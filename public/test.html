@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Right-to-Left Blue Sweep</title>
+
+  <!-- Android status bar color (light & dark) -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0066ff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#003380">
+
+  <style>
+    body{margin:0;min-height:100dvh;
+         background:
+           /* Right-to-left dramatic sweep + tall bleed */
+           linear-gradient(135deg,
+             #0066ff 0%,      /* starts bright blue on the right */
+             #0044cc 30%,
+             transparent 70%),
+           linear-gradient(to bottom,
+             #0066ff 0px,
+             #0066ff 160px,   /* thick bleed that merges with status bar */
+             #f0f4ff 160px);  /* soft landing background */
+         padding-top:env(safe-area-inset-top);
+         color:#111;}
+
+    @media (prefers-color-scheme:dark){
+      body{background:
+           linear-gradient(135deg,#003380 0%,#001f66 40%,transparent 75%),
+           linear-gradient(to bottom,#003380 0px,#003380 160px,#0d1b33 160px);
+           color:#ddd;}
+    }
+  </style>
+</head>
+<body>
+  <h1 style="margin:40px">Right-to-left blue sweep – ultra obvious</h1>
+</body>
+</html>
