@@ -540,6 +540,7 @@ section {
 						  updatedUsers = savedUsers.filter(all => all.userId !== user.userId);
 						  localStorage.setItem('savedUsers', JSON.stringify(updatedUsers));
 						  e.target.closest('.user').remove();
+						  //usersClone.remove();
 					  } 
 					  clickCount = 0;
 				  }, 500); 
