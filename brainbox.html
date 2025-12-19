@@ -531,14 +531,15 @@ section {
 			  let timer;
 			  usersClone.querySelector('.status i').addEventListener('click', () => {
 				  clickCount++;
- 
 				  if (timer) {
 					  clearTimeout(timer);
 				  }
 				  
 				  timer = setTimeout(() => {
 					  if (clickCount === 3) {
-						  alert('Triple click!');
+						  updatedUsers = savedUsers.filter(all => all.userId !== user.userId);
+						  localStorage.setItem('savedUsers', JSON.stringify(updatedUsers));
+						  displaySavedUsers();
 					  } 
 					  clickCount = 0;
 				  }, 500); 
