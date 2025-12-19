@@ -527,10 +527,27 @@ section {
 			  });
 
 			  // Remove a Domant User
-			  //usersClone.querySelector('.status i').addEventListener('click', (event) => {
-				 // if (event.detail === 3) {
-				//	  alert('Double triple!');
-				//  }
+			  let clickCount = 0;
+			  let timer;
+			  usersClone.querySelector('.status i').addEventListener('click', () => {
+				  clickCount++;
+ 
+				  if (timer) {
+					  clearTimeout(timer);
+				  }
+				  
+				  timer = setTimeout(() => {
+					  if (clickCount === 1) {
+						  alert('Single click!');
+					  } else if (clickCount === 2) {  
+						  alert('Double click!');
+					  } else if (clickCount === 3) {
+						  alert('Triple click!');
+					  }
+
+					  clickCount = 0;
+				  }, 500); 
+			  });
 
 			  
 			  // Push New Users Down
