@@ -26,23 +26,13 @@
 
     body {
       /* Light mode: bright blue bleeding down from status bar */
-      background: linear-gradient(to bottom,
-        #0066ff 0px,
-        #0066ff 140px,          /* tall blue area that merges with status bar */
-        #e6f0ff 140px,          /* very light blue-gray page background */
-        #ffffff 300px);         /* fade to white */
-      color: #1a1a1a;
-      padding-top: env(safe-area-inset-top);  /* respects notch/status bar */
+      background: linear-gradient(to bottom, #0066ff 0px, #0066ff 140px, #e6f0ff 140px, #ffffff 300px);
+      padding-top: env(safe-area-inset-top); 
     }
 
-    /* Dark mode – dramatically different and obvious */
     @media (prefers-color-scheme: dark) {
       body {
-        background: linear-gradient(to bottom,
-          #003380 0px,
-          #003380 140px,          /* deep navy bleeding down */
-          #0a1a33 140px,          /* almost-black blue */
-          #0d1f3d 300px);
+        background: linear-gradient(to bottom #003380 0px, #003380 140px, #0a1a33 140px, #0d1f3d 300px);
         color: #e6ecff;
       }
     }
