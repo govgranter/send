@@ -547,7 +547,8 @@ section {
 				  } 
 				  timer = setTimeout(() => {
 					  if (clickCount === 3) {
-						  updatedUsers = savedUsers.filter(all => all.userId !== user.userId);
+						  reUsers = JSON.parse(localStorage.getItem('savedUsers'));
+						  updatedUsers = reUsers.filter(all => all.userId !== user.userId);
 						  localStorage.setItem('savedUsers', JSON.stringify(updatedUsers));
 						  usersClone.remove();
 					  }
