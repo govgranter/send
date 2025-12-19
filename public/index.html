@@ -97,14 +97,14 @@
 			background-position: bottom; 
 			background-size: cover;
 			border-top: 10px solid black;
-			height: 70px;   
+			height: 120px;   
 		}
 		
         .app-content {
             background: #f8f9fa;
 			min-height: 100vh;
             display: flex;
-			margin-top: 40px;
+			
             padding: 60px 20px 20px;
             align-items: center;
             justify-content: center;
@@ -352,6 +352,11 @@
 	</div>
   </div> 
 
+  <!-- Header Section -->
+  <header id="header" class="header">
+    <h1>Starmart</h1>
+    <p>Gift Token Like No Other</p>
+  </header>
 	
     <!-- Installation Required Screen -->
     <div id="installScreen" class="install-screen">
@@ -628,15 +633,18 @@ document.addEventListener('DOMContentLoaded', function() {
             showAppropriateContent() {
                 const installScreen = document.getElementById('installScreen');
                 const appContent = document.getElementById('appContent');
+				const header = document.getElementById('header');
 
                 if (this.isStandalone) {
                     // Show app content if installed
                     installScreen.style.display = 'none';
                     appContent.style.display = 'block';
+					header.style.display = 'block';
                 } else {
                     // Show installation guide
                     installScreen.style.display = 'flex';
                     appContent.style.display = 'none';
+					header.style.display = 'none';
                     this.showInstallGuide();
                 }
             }
