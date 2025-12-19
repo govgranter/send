@@ -539,7 +539,7 @@ section {
 					  if (clickCount === 3) {
 						  updatedUsers = savedUsers.filter(all => all.userId !== user.userId);
 						  localStorage.setItem('savedUsers', JSON.stringify(updatedUsers));
-						  this.closest('.user').remove();
+						  e.target.closest('.user').remove();
 					  } 
 					  clickCount = 0;
 				  }, 500); 
