@@ -540,7 +540,7 @@ section {
 					  usersClone.querySelector('.status').style.color = 'grey';  
 				  } 
 				  timer = setTimeout(() => {
-					  else if (clickCount === 3) {
+					  if (clickCount === 3) {
 						  updatedUsers = savedUsers.filter(all => all.userId !== user.userId);
 						  localStorage.setItem('savedUsers', JSON.stringify(updatedUsers));
 						  usersClone.remove();
