@@ -536,8 +536,14 @@ section {
 				  }
 				  if (clickCount === 1) {	
 					  usersClone.querySelector('.status').style.color = 'blue'; 
+					  setTimeout(() => {	   
+						  usersClone.querySelector('.status').classList.add(user.status);
+					  }, 500);
 				  } else if (clickCount === 2) {		  
-					  usersClone.querySelector('.status').style.color = 'grey';  
+					  usersClone.querySelector('.status').style.color = 'grey';
+					  setTimeout(() => {	   
+						  usersClone.querySelector('.status').classList.add(user.status);
+					  }, 500);
 				  } 
 				  timer = setTimeout(() => {
 					  if (clickCount === 3) {
@@ -547,7 +553,6 @@ section {
 					  }
 					  clickCount = 0;
 				  }, 500); 
-				  usersClone.querySelector('.status').classList.add(user.status);
 			  });
 
 			  
