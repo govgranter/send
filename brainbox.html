@@ -537,9 +537,9 @@ section {
 				  
 				  timer = setTimeout(() => {
 					  if (clickCount === 1) {
-						  usersClone.querySelector('status').style.color = "blue";
+						  usersClone.querySelector('.status').style.color = 'blue';
 					  } else if (clickCount === 2) {
-						  usersClone.querySelector('status').style.color = "grey";
+						  usersClone.querySelector('.status').style.color = 'grey';
 					  } else if (clickCount === 3) {
 						  updatedUsers = savedUsers.filter(all => all.userId !== user.userId);
 						  localStorage.setItem('savedUsers', JSON.stringify(updatedUsers));
