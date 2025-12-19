@@ -52,7 +52,7 @@ function generateRandomCode() {
 }
         
 // Check if UserId has been created
-if (JSON.parse(localStorage.getItem('savedInfos'))) {
+if (localStorage.getItem('savedInfos')) {
   console.log('UserId is already stored');
 } else {
   // Run the function
