@@ -537,12 +537,12 @@ section {
 				  if (clickCount === 1) {	
 					  usersClone.querySelector('.status').style.color = 'blue'; 
 					  setTimeout(() => {	   
-						  usersClone.querySelector('.status').classList.add(user.status);
+						  usersClone.querySelector('.status').style.color = '';
 					  }, 500);
 				  } else if (clickCount === 2) {		  
-					  usersClone.querySelector('.status').style.color = 'black';
+					  usersClone.querySelector('.status').style.color = 'grey';
 					  setTimeout(() => {	   
-						  usersClone.querySelector('.status').classList.add(user.status);
+						  usersClone.querySelector('.status').style.color = '';
 					  }, 500);
 				  } 
 				  timer = setTimeout(() => {
