@@ -592,7 +592,7 @@ section {
                 const newMessages = await response.json();
 
                 if (newMessages.length > 0) {
-					console.log('New Message');
+					alert('New Message');
                     extractMessages(newMessages);
 					alert('messageUpdated');
                     // Update last message ID
