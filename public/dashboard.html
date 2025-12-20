@@ -257,17 +257,26 @@ body {
 		// Show Toggle Button
 		const toggleBalance = document.getElementById('toggleBalance');
 		const balance = document.getElementById('balance');
-		
+		const balanceHidden = localStorage.getItem('balanceHidden') === 'true';
+
+		if(balanceHidden){
+			balance.style.filter = 'blur(6px)'; 
+			icon.classList.add('fa-eye-slash');
+			icon.classList.remove('fa-eye');
+		}
+			
 		toggleBalance.addEventListener('click', () => {
 			const icon = toggleBalance.querySelector('i');
 			if(balance.style.filter == 'blur(6px)') {
 				balance.style.filter = ''; 
 				icon.classList.remove('fa-eye-slash');
                 icon.classList.add('fa-eye');
+				localStorage.setItem('balanceHidden', 'false');
 			}else {
 				balance.style.filter = 'blur(6px)'; 
 				icon.classList.add('fa-eye-slash');
                 icon.classList.remove('fa-eye');
+				localStorage.setItem('balanceHidden', 'true');
 			}
 		});
 		// MAIN CODE
