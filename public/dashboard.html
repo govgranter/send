@@ -78,6 +78,12 @@ body {
 	color: #333;
 	font-weight: 600; 
 }
+.wrap {
+	width: 50%;
+	white-space: nowrap;  
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .navTwo h4 {
 	color: #fff;
 	margin: 0;
@@ -176,13 +182,13 @@ body {
 	  <div class="navTwo">
 		  <div class="greetings">
 			  <p id="updateHour"></p>
-			  <h4 class="info" id="name"></h4>
+			  <h4 class="wrap" id="name"></h4>
 		  </div>
 		  <div class="demoAcc">
 			  <p>Your Account Number</p>
 			  <div class="accountCopy" onclick="copy(savedInfo.demoAcc, this)">
 				  <i class="material-icons">file_copy</i>
-				  <h4 class="info" id="demoAcc"></h4>
+				  <h4 id="demoAcc"></h4>
 			  </div>
 		  </div>
 	  </div>
@@ -262,10 +268,7 @@ body {
 			}, 2000);
 		}
 		// Display
-		function displaySavedInfo() {
-			const existingInfo = document.querySelectorAll('.info');
-			existingInfo.forEach(info => info.textContent = '');	
-			
+		function displaySavedInfo() {	
 			// Fill Name and Avatar
 			const name = savedInfo.name;
 			const words = name.split(' ');
