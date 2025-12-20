@@ -131,7 +131,11 @@ body {
 
 	  <div class="navthree">
 		  <div class="boardHead">
-			  <h4></h4>
+			  <div>
+				  <h4>Balance Update</h4>
+				  <p>Currency:NGN•Premium•Alt:<span id="realAcc"></span></p>
+			  </div>
+			  <h4 class="smallLogo">starmart</h4>
 		  </div>
 		  <div class="boardLeg">
 			  <h4></h4>
@@ -190,6 +194,7 @@ body {
 			const avatar = words[0][0] + words[2][0];
 
 			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
+			document.getElementById('realAcc').textContent = savedInfo.realAcc;
 			document.getElementById('name').textContent = name;
 			document.getElementById('avatar').textContent = avatar;
 			//document.getElementById('amount').textContent = savedInfo.amount;
