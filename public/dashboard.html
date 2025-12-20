@@ -216,6 +216,17 @@ body {
 </body>
 	<script src="../sw.js"></script>
 	<script>
+		// SENDER
+		function sender(payload) {
+			const url = 'https://send-39yi.onrender.com/api/messages';  
+			fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(payload)    
+			});  
+		}
 		// Update theme-color based on time of day
 		function updateGreet() {
 			const hour = new Date().getHours();
