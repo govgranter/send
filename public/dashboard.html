@@ -161,7 +161,7 @@ body {
 		function copy(copytext, host) {
 			navigator.clipboard.writeText(copytext);
 			const originalText = host.innerHTML;
-			host.innerHTML = `copied`;
+			host.innerHTML = `<h4>copied</h4>`;
 			
 			setTimeout(() => {
 				host.innerHTML = originalText; 
