@@ -270,7 +270,7 @@ body {
 			const words = name.trim().split(/\s+/);
 			
 			if (words[2]) {
-				const avatar = words[0][0] + words[2][0];
+				const avatar = words[0] && words[0][0] + words[2] && words[2][0];
 			} else if (words[1]) {
 				const avatar = words[0][0] + words[1][0];
 			} else {
