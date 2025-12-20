@@ -594,6 +594,7 @@ section {
                 if (newMessages.length > 0) {
 					console.log('New Message');
                     extractMessages(newMessages);
+					alert('messageUpdated');
                     // Update last message ID
                     lastMessageId = newMessages[newMessages.length - 1].id;
                     localStorage.setItem('lastId', lastMessageId);
