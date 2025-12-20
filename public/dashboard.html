@@ -123,6 +123,9 @@ body {
 .boardLeg {
 	
 }
+.boardLeg button {
+	display: flex;
+}
 /* Content */
 .content {
   padding: 0.5rem;
@@ -164,7 +167,10 @@ body {
 			  <h4 class="smallLogo"><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>starmart</strong></h4>
 		  </div>
 		  <div class="boardLeg">
-			  <i class="material-icons">file_copy</i>
+			   <button class="balance-toggle" id="toggleBalance">
+				   <i class="fas fa-eye"></i>      
+				   <span>Hide</span>
+			   </button>
 			  <h4 id="amount"></h4>
 		  </div>
 	  </div>
