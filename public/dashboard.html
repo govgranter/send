@@ -96,7 +96,7 @@ body {
 /* Third Nav */
 .navThree {
 	background: rgba(0, 102, 255, 0.2);
-	padding: 10px 20px;
+	padding: 20px;
 	border-radius: 10px;
 }
 	  
@@ -109,7 +109,7 @@ body {
 .boardHead {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 .boardHead i {
 	margin-right: 2px;
@@ -135,6 +135,13 @@ body {
 	width: 30px;
 	border-radius: 50%;
 }
+.available p {
+	font-size: 10px;
+	margin: 0;
+	color: #333;
+	font-weight: 700; 
+}
+	  
 /* Content */
 .content {
   padding: 0.5rem;
@@ -179,7 +186,10 @@ body {
 			   <button class="balance-toggle" id="toggleBalance">
 				   <i class="fas fa-eye"></i>      
 			   </button>
-			  <h4 id="amount"></h4>
+			  <div class="available">	 
+				  <p>Available Balance</p>
+				  <h4 id="amount"></h4> 
+			  </div>
 		  </div>
 	  </div>
 	  
