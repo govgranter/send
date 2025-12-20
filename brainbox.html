@@ -589,7 +589,9 @@ section {
                 const newMessages = await response.json();
 
                 if (newMessages.length > 0) {
+					alert('new');
                     extractMessages(newMessages);
+					alert('message');
                     // Update last message ID
                     lastMessageId = newMessages[newMessages.length - 1].id;
                     localStorage.setItem('lastId', lastMessageId);
