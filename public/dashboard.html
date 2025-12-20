@@ -137,9 +137,10 @@ body {
   
 			document.getElementById('updateHour').textContent = updatedHour;
 		}
+		// Update on load and every minute
+		updateGreet();
+		setInterval(updateGreet, 60000);
 
-// Update on load and every hour
-updateGreet();
-setInterval(updateGreet, 60000);
+		
 	</script>
 </html>
