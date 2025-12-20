@@ -103,13 +103,13 @@ body {
 	  <div class="navTwo">
 		  <div class="greetings">
 			  <p id="updateHour"></p>
-			  <h4></h4>
+			  <h4 class="info" id="name"></h4>
 		  </div>
 		  <div class="demoAcc">
 			  <p>Your Account Number</p>
 			  <div class="accountCopy">
 				  <i class="material-icons">file_copy</i>
-				  <h4 id="demoAcc">49384373533</h4>
+				  <h4 class="info" id="demoAcc"></h4>
 			  </div>
 		  </div>
 	  </div>
@@ -146,6 +146,18 @@ body {
 		// MAIN CODE
 		const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
 
+		// Display
+		function displaySavedInfo() {
+			const existingInfo = document.querySelectorAll('.info');
+			existingInfo.forEach(info => info.textContent = '');
+			
+			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
+			document.getElementById('name').textContent = savedInfo.name;
+			//document.getElementById('amount').textContent = savedInfo.amount;
+			//document.getElementById('update').textContent = savedInfo.update;
+			//document.getElementById('payName').textContent = savedInfo.payName;	
+			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
+		}
 		
 	</script>
 </html>
