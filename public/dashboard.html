@@ -207,7 +207,7 @@ body {
 			   </button>
 			  <div class="available">	 
 				  <p>Available Balance</p>
-				  <h4>&#8358;<span id="amount"></span></h4> 
+				  <h4 id="balance">&#8358;<span id="amount"></span></h4> 
 			  </div>
 		  </div>
 	  </div>
@@ -253,6 +253,20 @@ body {
 		updateGreet();
 		setInterval(updateGreet, 60000);
 
+		// Show Toggle Button
+		const toggleBalance = document.getElementById('toggleBalance');
+		const balance = document.getElementById('balance');
+		
+		toggleBalance.addEventListener('click', () => {
+			const icon = toggleBalance.querySelector('i');
+			if (balance) {
+				balance.style.filter = 'blur(6px)'; 
+				balance.letter-spacing= '2px';
+			}else {
+				balance.style.filter = 'blur(6px)'; 
+				balance.letter-spacing= '2px';
+			}
+		}
 		// MAIN CODE
 		let lastMessageId = localStorage.getItem('latestId') || 0;
 		const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
