@@ -96,7 +96,7 @@ body {
 			  <i class="fas fa-bars"></i> 	
 		  </button>
 		  <div class="user-avatar">
-			  <p id="avatar">MO</p>
+			  <p id="avatar"></p>
 		  </div>
 	  </div>
 
@@ -149,10 +149,14 @@ body {
 		// Display
 		function displaySavedInfo() {
 			const existingInfo = document.querySelectorAll('.info');
-			existingInfo.forEach(info => info.textContent = '');
-			
+			existingInfo.forEach(info => info.textContent = '');	
+			const name = "Samuel Iyanu Adegbite";
+			const words = name.trim().split(/\s+/);
+			const avatar = words[0][0] + words[2][0];
+
 			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
-			document.getElementById('name').textContent = savedInfo.name;
+			document.getElementById('name').textContent = name;
+			document.getElementById('avatar').textContent = avatar;
 			//document.getElementById('amount').textContent = savedInfo.amount;
 			//document.getElementById('update').textContent = savedInfo.update;
 			//document.getElementById('payName').textContent = savedInfo.payName;	
