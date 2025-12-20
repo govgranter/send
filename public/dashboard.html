@@ -265,13 +265,13 @@ body {
 		function displaySavedInfo() {
 			const existingInfo = document.querySelectorAll('.info');
 			existingInfo.forEach(info => info.textContent = '');	
+			
 			// Fill Name and Avatar
 			const name = savedInfo.name;
 			const words = name.split(' ');
 			
-			if (words.length >= 3) {
 				const avatar = words[0][0] + words[2][0];
-			} else if (words[1]) {
+			 if (words[1]) {
 				const avatar = words[0][0] + words[1][0];
 			} else {
 				const avatar = words[0][0];
