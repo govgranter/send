@@ -89,9 +89,12 @@ body {
 	margin: 0;
 	justify-content: right;
 	color: #fff;
+	transform: scale(1);
 	transition: color 0.4s ease, transform 0.4s ease;
 }
-.card:focus {
+.card:focus,
+.card:hover,
+.card:active{
 	color: brown;
 	transform: scale(1.1);
 }
