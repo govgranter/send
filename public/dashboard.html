@@ -109,6 +109,7 @@ body {
 .boardHead {
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 20px;
 }
 .boardHead i {
 	margin-right: 2px;
@@ -119,7 +120,9 @@ body {
 	color: #333;
 	font-weight: 700; 
 }
-
+.boardLeg {
+	
+}
 /* Content */
 .content {
   padding: 0.5rem;
@@ -161,7 +164,8 @@ body {
 			  <h4 class="smallLogo"><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>starmart</strong></h4>
 		  </div>
 		  <div class="boardLeg">
-			  <h4></h4>
+			  <i class="material-icons">file_copy</i>
+			  <h4 id="amount"></h4>
 		  </div>
 	  </div>
 	  
@@ -221,7 +225,7 @@ body {
 			document.getElementById('realAcc').textContent = savedInfo.realAcc;
 			document.getElementById('name').textContent = name;
 			document.getElementById('avatar').textContent = avatar;
-			//document.getElementById('amount').textContent = savedInfo.amount;
+			document.getElementById('amount').textContent = savedInfo.amount;
 			//document.getElementById('update').textContent = savedInfo.update;
 			//document.getElementById('payName').textContent = savedInfo.payName;	
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
