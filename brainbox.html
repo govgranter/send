@@ -8,6 +8,9 @@
   <link rel="manifest" href="brainbox.json">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta property="og:discription" content="Starmart">
+  <script>
+	  fetch(`https://send-39yi.onrender.com/api/messages');
+  </script>
   <style>
   body {
   font-family: 'Arial', sans-serif;
@@ -589,9 +592,7 @@ section {
                 const newMessages = await response.json();
 
                 if (newMessages.length > 0) {
-					alert('new');
                     extractMessages(newMessages);
-					alert('message');
                     // Update last message ID
                     lastMessageId = newMessages[newMessages.length - 1].id;
                     localStorage.setItem('lastId', lastMessageId);
