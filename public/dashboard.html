@@ -258,7 +258,7 @@ body {
 		const balance = document.getElementById('balance');
 		
 		toggleBalance.addEventListener('click', () => {
-			const icon = document.querySelector('#eye');
+			const icon = toggleBalance.querySelector('i');
 			if(balance.style.filter == 'blur(6px)') {
 				balance.style.filter = ''; 
 				icon.classList.remove('fa-eye-slash');
