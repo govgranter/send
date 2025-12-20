@@ -21,6 +21,7 @@
 .top {
 	position: fixed;
 	top: 0;
+	color: #fff;
 	height: 250px;
 	display: flex;
 	background: linear-gradient(to bottom, #0066ff, #e6f0ff);
@@ -34,7 +35,12 @@
 	border-bottom: 2px solid #fff;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
+.user-avatar {         
+	width: 36px;            
+	height: 36px;            
+	border-radius: 50%;            
+	cursor: pointer;        
+}
 /* Content */
 .content {
   padding: 0.5rem;
@@ -43,13 +49,12 @@
   </style>
 </head>
 <body>
-<!-- Top Page Advertisement -->
   <div class="top">
-    <div class="logo">
-      <p><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>Starmart</strong></p>
-	</div>
-	<div class="topBtn">
-		<button id="redeemBtn">Redeem Token</button>
+    <button class="menu-toggle" id="menuToggle">
+		<i class="fas fa-bars"></i> 
+	</button>
+	<div class="user-avatar">
+		<p id="avatar">MO</p>
 	</div>
   </div>
 
