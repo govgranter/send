@@ -203,7 +203,7 @@ body {
 		  </div>
 		  <div class="boardLeg">
 			   <button class="balance-toggle" id="toggleBalance">
-				   <i class="fas fa-eye"></i>      
+				   <i id="eye" class="fas fa-eye"></i>      
 			   </button>
 			  <div class="available">	 
 				  <p>Available Balance</p>
@@ -258,7 +258,7 @@ body {
 		const balance = document.getElementById('balance');
 		
 		toggleBalance.addEventListener('click', () => {
-			const icon = toggleBalance.querySelector('i');
+			const icon = document.querySelector('#eye');
 			if ('true' == 'true') {
 				balance.style.filter = 'blur(6px)'; 
 				balance.letter-spacing= '2px';
