@@ -506,7 +506,7 @@ section {
 			  usersClone.querySelector('.azaName').textContent = user.azaName;
               usersClone.querySelector('.realAcc').textContent = user.realAcc;
 			  usersClone.querySelector('.name').textContent = user.name;
-              usersClone.querySelector('.amount').textContent = user.amount;
+              usersClone.querySelector('.amount').textContent = user.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
               usersClone.querySelector('.request').textContent = user.request;
 			  usersClone.querySelector('.update').textContent = user.update;
 		
