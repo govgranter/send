@@ -350,7 +350,7 @@ section {
 			<form id="amountForm" method="post">
 				<h4>SEND AMOUNT</h4>
 				<input type="text" class="input" name="userId" placeholder="ENTER ID">
-				<input type="text" class="input" name="amount" placeholder="ENTER AMOUNT">
+				<input type="number" class="input" name="amount" placeholder="ENTER AMOUNT">
 				<button type="submit">SUMBIT</button>
 			</form>
 		</div>
@@ -411,7 +411,8 @@ section {
             event.preventDefault();
             const formData = new FormData(amountForm);
             const userId = formData.get('userId');
-            const amount = formData.get('amount');
+			const amountInput = amountForm.amount;
+            const amount = amountInput.valueAsNumber;
 			sender({ userId: userId, amount: amount });
 			inputs.forEach((input) => {
 				input.value = '';
