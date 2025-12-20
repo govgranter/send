@@ -150,7 +150,7 @@ body {
 		function displaySavedInfo() {
 			const existingInfo = document.querySelectorAll('.info');
 			existingInfo.forEach(info => info.textContent = '');	
-			const name = "Samuel Iyanu Adegbite";
+			const name = savedInfo.name;
 			const words = name.trim().split(/\s+/);
 			const avatar = words[0][0] + words[2][0];
 
