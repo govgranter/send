@@ -26,15 +26,20 @@
 	display: flex;
 	background: linear-gradient(to bottom, #0066ff, #e6f0ff);
 	margin: 0;
-	justify-content: space-between;
 	box-sizing: border-box;
-	align-items: center;
 	width: 100%;
 	padding: 10px 20px;
 	z-index: 1000;
 	border-bottom: 2px solid #fff;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+	  
+.nav {
+	display: flex;
+	justify-content: space-between;	
+	align-items: center;
+}
+	  
 .user-avatar {         
 	width: 36px;            
 	height: 36px;            
@@ -52,12 +57,14 @@
 </head>
 <body>
   <div class="top">
-    <button class="menu-toggle" id="menuToggle">
-		<i class="fas fa-bars"></i> 
-	</button>
-	<div class="user-avatar">
-		<p id="avatar">MO</p>
-	</div>
+	  <div class="nav">
+		  <button class="menu-toggle" id="menuToggle">	
+			  <i class="fas fa-bars"></i> 	
+		  </button>
+		  <div class="user-avatar">
+			  <p id="avatar">MO</p>
+		  </div>
+	  </div>
   </div>
 
 
