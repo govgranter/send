@@ -160,11 +160,11 @@ body {
 		// To Copy demoAcc
 		function copy(copytext, host) {
 			navigator.clipboard.writeText(copytext);
-			const originalText = host.textContent;
-			host.textContent = "copied";
+			const originalText = host.innerHTML;
+			host.innerHTML = `copied`;
 			
 			setTimeout(() => {
-				host.textContent = originalText; 
+				host.innerHTML = originalText; 
 			}, 2000);
 		}
 		// Display
