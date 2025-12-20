@@ -269,9 +269,10 @@ body {
 			// Fill Name and Avatar
 			const name = savedInfo.name;
 			const words = name.split(' ');
-			
+
+			if(words.length >= 3) {
 				const avatar = words[0][0] + words[2][0];
-			 if (words[1]) {
+			} else if (words.length >= 2) {
 				const avatar = words[0][0] + words[1][0];
 			} else {
 				const avatar = words[0][0];
