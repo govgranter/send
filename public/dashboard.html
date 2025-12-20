@@ -91,7 +91,7 @@ body {
 	color: #fff;
 	transition: color 0.4s ease, transform 0.4s ease;
 }
-.accountCopy:active {
+.card:focus {
 	color: brown;
 	transform: scale(1.1);
 }
@@ -121,7 +121,7 @@ body {
 		  </div>
 		  <div class="demoAcc">
 			  <p>Your Account Number</p>
-			  <div class="accountCopy" onclick="navigator.clipboard.writeText(savedInfo.demoAcc)">
+			  <div class="card" tabindex="0" onclick="navigator.clipboard.writeText(savedInfo.demoAcc)">
 				  <i class="material-icons">file_copy</i>
 				  <h4 class="info" id="demoAcc"></h4>
 			  </div>
