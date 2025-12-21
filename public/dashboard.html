@@ -51,7 +51,6 @@ body {
 	font-size: 22px;
 	font-weight: 800;
 	border: 2px solid #fff;
-	z-index: 1001;
 	left: 0;
     transition: left 0.3s ease;
 }  
@@ -196,6 +195,16 @@ body {
 .sidebar h2 {
 	margin-bottom: 30px;
 }
+.innerToggle {
+	position: fixed;
+	top: 10px;
+	left: 100px;
+	background: transparent;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 800;
+	border: 2px solid #fff;
+}
 .sidebar ul {
     list-style: none;
 	padding: 0;
@@ -288,6 +297,9 @@ body {
 		
  <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
+	<button onclick="toggleSidebar()" class="innertoggle">	  
+		<i class="fas fa-bars"></i> 			 	  
+	</button>
     <h2><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>starmart</strong></h2>
     <ul>
       <li><a href="#">Home</a></li>
