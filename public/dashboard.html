@@ -20,6 +20,18 @@ body {
   padding: 0;
   line-height: 1.4;
 }
+	  
+.menu-toggle {
+	position: fixed;
+	top: 0;
+	background: transparent;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 800;
+	border: 2px solid #fff;
+	left: 0;
+    transition: left 0.3s ease;
+}  
 
 /* Top Ad Styles */
 .top {
@@ -38,23 +50,11 @@ body {
 .nav {
 	display: flex;
 	width: 100%;
-	justify-content: space-between;	
+	justify-content: right;	
 	align-items: center;
 	margin-bottom: 20px;
 }
-.menu-toggle {
-	position: relative;
-	background: transparent;
-	color: #fff;
-	font-size: 22px;
-	font-weight: 800;
-	border: 2px solid #fff;
-	left: 0;
-	transform: translateZ(0);  
-	isolation: isolate;
-	z-index: 2147483647;
-    transition: left 0.3s ease;
-}
+
 .user-avatar {         
 	width: 36px;            
 	height: 36px;            
@@ -236,12 +236,12 @@ body {
 
   </style>
 </head>
-<body>
+<body>	
+  <button onclick="toggleSidebar()" class="menu-toggle" id="menuToggle">	
+	  <i class="fas fa-bars"></i> 			 
+  </button>
   <div class="top">
 	  <div class="nav">
-		  <button onclick="toggleSidebar()" class="menu-toggle" id="menuToggle">	
-			  <i class="fas fa-bars"></i> 	
-		  </button>
 		  <div class="user-avatar">
 			  <p id="avatar"></p>
 		  </div>
