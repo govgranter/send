@@ -43,6 +43,7 @@ body {
 	margin-bottom: 20px;
 }
 .menu-toggle {
+	position: relative;
 	background: transparent;
 	color: #fff;
 	font-size: 22px;
@@ -182,6 +183,10 @@ body {
 /* When sidebar has "open" class → slide in */
 .sidebar.open {
     left: 0;    
+}
+.menu-toggle.active{
+	left: 100px;
+	z-index: 1001;
 }
 .sidebar h2 {
 	margin-bottom: 30px;
@@ -330,6 +335,7 @@ body {
 		function toggleSidebar() {
 			document.getElementById("sidebar").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("active");	
+			document.getElementById("menuToggle").classList.toggle("active");
 		}
 		
 		// Toggle show Button
