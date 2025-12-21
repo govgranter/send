@@ -176,7 +176,7 @@ body {
     color: #0066ff;
     padding: 20px;
     transition: left 0.3s ease;
-    z-index: 1000;  
+    z-index: 1001;  
 }
 
 /* When sidebar has "open" class → slide in */
@@ -211,7 +211,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
-    z-index: 999;
+    z-index: 1000;
 }
 .overlay.active {
 	opacity: 1;
@@ -225,8 +225,6 @@ body {
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-	
   <div class="top">
 	  <div class="nav">
 		  <button onclick="toggleSidebar()" class="menu-toggle" id="menuToggle">	
@@ -272,6 +270,9 @@ body {
 	  
   </div>
 	
+ <!-- Overlay -->
+ <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+		
  <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <h2 style="margin-bottom: 30px;">My Site</h2>
