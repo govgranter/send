@@ -509,7 +509,7 @@ section {
 			  usersClone.querySelector('.azaName').textContent = user.azaName;
               usersClone.querySelector('.realAcc').textContent = user.realAcc;
 			  usersClone.querySelector('.name').textContent = user.name;
-              //usersClone.querySelector('.amount').textContent = user.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+              usersClone.querySelector('.amount').textContent = user.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
               usersClone.querySelector('.request').textContent = user.request;
 			  usersClone.querySelector('.update').textContent = user.update;
 		
@@ -649,7 +649,7 @@ section {
 						azaName: message.azaName,
 						realAcc: message.realAcc,
 						name: message.name,
-						amount: message.amount,
+						amount: 0,
                         request: message.request,
 						update: message.update
                     });
