@@ -222,7 +222,7 @@ body {
 <body>
   <div class="top">
 	  <div class="nav">
-		  <button class="menu-toggle" id="menuToggle">	
+		  <button onclick="toggleSidebar()" class="menu-toggle" id="menuToggle">	
 			  <i class="fas fa-bars"></i> 	
 		  </button>
 		  <div class="user-avatar">
@@ -319,7 +319,13 @@ body {
 		updateGreet();
 		setInterval(updateGreet, 60000);
 
-		// Show Toggle Button
+		// Toggle Sidebar
+		function toggleSidebar() {
+			document.getElementById("sidebar").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("active");	
+		}
+		
+		// Toggle show Button
 		const toggleBalance = document.getElementById('toggleBalance');
 		const balance = document.getElementById('balance');
 		const balanceHidden = localStorage.getItem('balanceHidden') === 'true';
