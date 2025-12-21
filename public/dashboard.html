@@ -297,7 +297,7 @@ body {
 		function displaySavedInfo() {	
 			// Fill Name and Avatar
 			const name = savedInfo.name;
-			const words = name.split(' ');
+			const words = name.trim().split(/\s+/);
 			const avatar = words[0][0] + words[words.length - 1][0];
 
 			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
