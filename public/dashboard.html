@@ -248,7 +248,12 @@ body {
 }
 
 .floatDiv {
-	
+	position: relative;
+	top: -40px;
+}
+.floatItems {
+	display: flex;
+	justify-content: space-between;
 }
   </style>
 </head>
@@ -319,11 +324,10 @@ body {
   <!-- Main Content -->
   <main class="content">
 	  <div class="floatDiv">
-		  <div class="floatTop">
-			  <h4></h4>
-		  </div>
-		  <div class="floatBottom">
-			  
+		  <div class="floatItems">
+			  <button>Sign up</button>
+			  <button>Deposit</button>
+			  <button>Withdraw</button>
 		  </div>
 	  </div>
   </main>
