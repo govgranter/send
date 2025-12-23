@@ -143,6 +143,7 @@
             const walletName = JSON.parse(localStorage.getItem('savedInfos')).demoAcc;
             
             if (walletCreated && walletName) {
+				alert('found');
                 // Wallet exists - show wallet exists UI
                 document.getElementById('checkingWallet').classList.add('hidden');
                 document.getElementById('walletExists').classList.remove('hidden'); 
