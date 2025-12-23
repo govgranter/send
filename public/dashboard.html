@@ -253,15 +253,14 @@ body {
 	border: 0.5px solid #ccc;
 	border-radius: 20px;
 	margin: auto;
-	padding: 0;
 	top: -60px;
 	z-index: 1001;
 	background: #fff;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-	display: grid;
-	grid-template-columns: 5fr 5fr;
-}
+	
 .floatItems {
+	display: flex;
+	margin: 0;
 	border: 0.5px solid #ccc;
 }
 .floatItems button {
@@ -349,11 +348,13 @@ body {
 		  <div class="floatItems">
 			  <button>Sign up</button>
 			  <button>Deposit</button>
-			  <button>Deposit</button>
 		  </div>
 		  <div class="floatItems">
 			  <button>More</button>
 			  <button>Deposit</button>
+		  </div>
+		  <div class="floatItems">
+			  <button>More</button>
 			  <button>Deposit</button>
 		  </div>
 	  </div>
