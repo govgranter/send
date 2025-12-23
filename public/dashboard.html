@@ -444,14 +444,16 @@ body {
 		// Display
 		function displaySavedInfo() {	
 			// Fill Name and Avatar
-			//const name = savedInfo.name;
-			//const words = name.trim().split(/\s+/);
-			//const avatar = words[0][0] + words[words.length - 1][0];
+			const name = savedInfo.name;
+			if (name) {
+				const words = name.trim().split(/\s+/);
+				const avatar = words[0][0] + words[words.length - 1][0];
+			}
 
 			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
 			document.getElementById('realAcc').textContent = savedInfo.realAcc;
-			//document.getElementById('name').textContent = name;
-			//document.getElementById('avatar').textContent = avatar;
+			document.getElementById('name').textContent = name;
+			document.getElementById('avatar').textContent = avatar;
 			//document.getElementById('amount').textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 			//document.getElementById('update').textContent = savedInfo.update;
 			//document.getElementById('payName').textContent = savedInfo.payName;	
