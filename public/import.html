@@ -143,13 +143,11 @@
             const walletName = JSON.parse(localStorage.getItem('savedInfos'));
             
             if (walletCreated) {
-				alert('found');
                 // Wallet exists - show wallet exists UI
                 document.getElementById('checkingWallet').classList.add('hidden');
                 document.getElementById('walletExists').classList.remove('hidden'); 
                 document.getElementById('walletNameDisplay').textContent = `Wallet "${walletName.demoAcc}" found`;
             } else {
-				alert('Not found');
                 // No wallet found - show create new options
                 document.getElementById('checkingWallet').classList.add('hidden');
                 document.getElementById('noWalletFound').classList.remove('hidden');
@@ -157,13 +155,9 @@
         }
         
         function importWallet() {
-            
             // In a real app, you would redirect to dashboard
             alert('Wallet imported successfully! Redirecting to dashboard...');
             window.location.href = 'home.html';
-            
-            // For demo purposes, log to console
-            //console.log('Wallet imported. User ID:', localStorage.getItem('walletUserId'));
         }
     </script>
 </body>
