@@ -446,7 +446,7 @@ body {
 			// Fill Name and Avatar
 			const name = savedInfo.name;
 			const words = name.trim().split(/\s+/);
-			const avatar = words.length ? (words[0][0] || '') + (words[words.length - 1][0] || '') : '';
+			const avatar = words.length ? (words[0][0] || '💬') + (words[words.length - 1][0] || '') : '💬';
 
 			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
 			document.getElementById('realAcc').textContent = savedInfo.realAcc;
