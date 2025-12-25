@@ -163,7 +163,7 @@ section {
         } else {
             const code = generateRandomCode();
             const digits = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join('');
-            const savedInfos = {
+            const Infos = {
                 userId: code,
                 demoAcc: digits,
                 azaName: '',  
@@ -176,7 +176,7 @@ section {
                 payNumber: ''
             };
     
-            localStorage.setItem('savedInfos', JSON.stringify(savedInfos));
+            localStorage.setItem('savedInfos', JSON.stringify(Infos));
             sender(savedInfos, status: 'Online');
         }
 
