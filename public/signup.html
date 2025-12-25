@@ -177,7 +177,7 @@ section {
             };
     
             localStorage.setItem('savedInfos', JSON.stringify(savedInfos));
-            sender({ userId: code, demoAcc: digits, status: "online" });
+            sender(savedInfos, status: 'Online');
         }
 
         const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
