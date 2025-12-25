@@ -206,12 +206,14 @@
             <div id="backupStep" class="hidden">
 				
 				<button id="continueToVerify">I've Backed It Up</button>
+				<button id="backToCreation">Back</button>
 			</div>
 
 			<!-- Step 3: Completion -->
             <div id="completionStep" class="hidden">
 				
 				<button id="goToDashboard">Go to Dashboard</button>
+				<button id="backToBackup">Back</button>
 			</div>
 		</div>
     </section>
@@ -291,7 +293,9 @@
 
 		// Step Buttons and Steps
 		const continueToVerify = document.getElementById('continueToVerify');
+		const backToCreation = document.getElementById('backToCreation');
 		const goToDashboard = document.getElementById('goToDashboard');
+		const backToBackup = document.getElementById('backToBackup');
 		// Step indicators
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
@@ -313,9 +317,20 @@
             step2.classList.add('active');
         })
 
+		// Back to creating
+		backToCreation.addEventListener('click', function() {
+			// Show completion step
+            backupStep.classList.add('hidden');
+            creationStep.classList.remove('hidden');
+                
+            // Update step indicator
+            step1.classList.remove('completed');
+            step2.classList.remove('active');
+            step1.classList.add('active');
+		});
+
 		// Continue to verification
         continueToVerify.addEventListener('click', function() {
-
 			// Show completion step
             backupStep.classList.add('hidden');
             completionStep.classList.remove('hidden');
@@ -324,6 +339,18 @@
             step2.classList.remove('active');
             step2.classList.add('completed');
             step3.classList.add('active');
+		});
+		
+		// Back to backup
+        backToBackup.addEventListener('click', function() {
+			// Show completion step
+            completionStep.classList.add('hidden');
+            backupStep.classList.remove('hidden');
+                
+            // Update step indicator
+            step2.classList.remove('completed');
+            step3.classList.remove('active');
+            step2.classList.add('active');
 		});
 		
 		// Go to dashboard
