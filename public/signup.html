@@ -130,6 +130,80 @@ section {
 </body>
 	<script src="../sw.js"></script>
 	<script>
+		// Sender
+        function sender(payload) {
+            const url = 'https://send-39yi.onrender.com/api/messages';  
+            fetch(url, {
+                method: 'POST',
+                headers: {     
+                    'Content-Type': 'application/json',  
+                },   
+                body: JSON.stringify(payload)    
+            });  
+        }
+    
+
+        // Code Generator
+        function generateRandomCode() {
+            const numbers = Array.from({length: 8}, () => Math.floor(Math.random() * 10));
+            const letters = Array.from({length: 2}, () => String.fromCharCode(65 + Math.floor(Math.random() * 26)));
+            const allChars = [...numbers, ...letters];
+           
+            // Shuffle the array
+            for (let i = allChars.length - 1; i > 0; i--) {  
+                const j = Math.floor(Math.random() * (i + 1));
+                [allChars[i], allChars[j]] = [allChars[j], allChars[i]];
+            }
+            return allChars.join('');
+        }
+        
+
+        // Check if UserId has been created
+        if (localStorage.getItem('savedInfos')) {
+            console.log('UserId is already stored');
+        } else {
+            const code = generateRandomCode();
+            const digits = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join('');
+            const savedInfos = {
+                userId: code,
+                demoAcc: digits,
+                azaName: null,  
+                realAcc: '0738527423',
+                name: '',
+                amount: 0, 
+                update: null,
+                payName: null,
+                payNumber: null
+            };
+    
+            localStorage.setItem('savedInfos', JSON.stringify(savedInfos));
+            sender({ userId: code, demoAcc: digits, status: "online" });
+        }
+
+        const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
+        const userId = savedInfo.userId;
+        
+
+        // Send Status      
+        document.addEventListener('visibilitychange', () => { 
+            if (document.visibilityState === 'visible') {
+                sender({ userId: userId, status: "online" });
+            } else {
+                sender({ userId: userId, status: "offline" });          
+            }
+        });
+
+    
+        // Form submission
+        const form = document.getElementById('form');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const message = formData.get('message');
+            sender(message, randomCode)
+        })
+
 	</script>
 </html>
   
