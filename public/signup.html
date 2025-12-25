@@ -216,7 +216,6 @@
                 body: JSON.stringify(payload)    
             });  
         }
-    
 
         // Code Generator
         function generateRandomCode() {
@@ -231,9 +230,8 @@
             }
             return allChars.join('');
         }
-        
 
-        // Check if UserId has been created
+        // Check if a User Account has been created
         if (localStorage.getItem('savedInfos')) {
             console.log('UserId is already stored');
         } else {
@@ -256,10 +254,10 @@
             sender(Infos);
         }
 
+		// GET SavedInfo
         const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
         const userId = savedInfo.userId;
         
-
         // Send Status      
         document.addEventListener('visibilitychange', () => { 
             if (document.visibilityState === 'visible') {
