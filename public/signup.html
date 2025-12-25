@@ -313,6 +313,25 @@
             step2.classList.add('active');
         })
 
+		// Continue to verification
+        continueToVerify.addEventListener('click', function() {
+
+			// Show completion step
+            backupStep.classList.add('hidden');
+            completionStep.classList.remove('hidden');
+                
+            // Update step indicator
+            step2.classList.remove('active');
+            step2.classList.add('completed');
+            step3.classList.add('active');
+		});
+		
+		// Go to dashboard
+        goToDashboard.addEventListener('click', function() {
+            window.location.href = 'dashboard.html';
+            //localStorage.setItem('rogged', 'true');
+        });
+		
 		
         // MAIN CODE FETCH AND EXTRACTION
 		let lastMessageId = localStorage.getItem('latestId') || 0;
