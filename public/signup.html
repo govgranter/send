@@ -202,6 +202,17 @@
 				</form>
 			</div>
 			
+			<!-- Step 2: Backup Mnemonic -->
+            <div id="backupStep" class="hidden">
+				
+				<button id="continueToVerify">I've Backed It Up</button>
+			</div>
+
+			<!-- Step 3: Completion -->
+            <div id="completionStep" class="hidden">
+				
+				<button id="goToDashboard">Go to Dashboard</button>
+			</div>
 		</div>
     </section>
   </main>
@@ -274,6 +285,17 @@
     
         // HANDLE NEW WALLET CREATION
         const form = document.getElementById('form');
+		const creationStep = document.getElementById('creationStep');
+		const backupStep = document.getElementById('backupStep');
+        const completionStep = document.getElementById('completionStep');
+
+		// Step Buttons and Steps
+		const continueToVerify = document.getElementById('continueToVerify');
+		const goToDashboard = document.getElementById('goToDashboard');
+		// Step indicators
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const step3 = document.getElementById('step3');
 		
         form.addEventListener('submit', (event) => {
             event.preventDefault();
