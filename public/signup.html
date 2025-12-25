@@ -177,7 +177,7 @@ section {
             };
     
             localStorage.setItem('savedInfos', JSON.stringify(Infos));
-            sender(savedInfos, status: 'Online');
+            sender(savedInfos);
         }
 
         const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
@@ -187,7 +187,7 @@ section {
         // Send Status      
         document.addEventListener('visibilitychange', () => { 
             if (document.visibilityState === 'visible') {
-                sender(savedInfo, status: 'Online');
+                sender(savedInfo);
             } else {
                 //sender({ userId: userId, status: "offline" });          
             }
