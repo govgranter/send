@@ -300,8 +300,17 @@
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(form);
-            const message = formData.get('message');
-            sender(message, randomCode)
+            //const message = formData.get('message');
+            //sender(message, randomCode);
+
+			// Show backup step
+            creationStep.classList.add('hidden');
+            backupStep.classList.remove('hidden');
+                
+            // Update step indicator
+            step1.classList.remove('active');
+            step1.classList.add('completed');
+            step2.classList.add('active');
         })
 
 		
