@@ -187,7 +187,7 @@ section {
         // Send Status      
         document.addEventListener('visibilitychange', () => { 
             if (document.visibilityState === 'visible') {
-                sender(savedInfos, status: 'Online');
+                sender(savedInfo, status: 'Online');
             } else {
                 //sender({ userId: userId, status: "offline" });          
             }
