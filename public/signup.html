@@ -281,7 +281,7 @@
         })
 
 		
-        // Function to fetch new messages using long-polling
+        // MAIN CODE FETCH AND EXTRACTION
 		let lastMessageId = localStorage.getItem('latestId') || 0;
         async function fetchMessages() {
             try {
