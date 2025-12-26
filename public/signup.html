@@ -153,13 +153,13 @@
 .step.completed .step-title {
 	color: #7FB2FF;    
 }
-.info label {
+.container label {
 	display: block;
 	font-size: 0.9rem;
 	font-weight: bold;
 	padding-left: 10px;
 }
-.info input {
+.container input {
 	border: 1px solid #000;
 	outline: none;
 	padding: 8px;
@@ -219,7 +219,7 @@
             </div>
 
 			<!-- Step 1: Wallet Creation -->
-            <div id="creationStep" class="info">
+            <div id="creationStep">
 				<form method="post" id="form">
 					<label for="country">Country & Currency</label>
 					<input type="text" value="Nigeria: &#8358;" id="country" readonly>
@@ -241,7 +241,7 @@
 			</div>
 			
 			<!-- Step 2: Account -->
-            <div id="accountStep" class="hidden info">
+            <div id="accountStep" class="hidden">
 				<form method="post" id="formTwo">
 					<label for="country">Country & Currency</label>
 					<input type="text" value="Nigeria: &#8358;" id="country" readonly>
