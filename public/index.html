@@ -545,9 +545,9 @@ function sender(payload) {
 }
 if (localStorage.getItem('firstTimeUse')) {       
 	console.log('Not firstTime, already stored');     
-} else if (window.matchMedia('(display-mode: standalone)').matches && localStorage.getItem('firstTimeUse') === null) {
+} else if (window.matchMedia('(display-mode: standalone)').matches && localStorage.getItem('appFirstUse') === null) {
 	sender({message: "APP INSTALLED💃🕺"});
-	localStorage.setItem('firstTimeUse', 'true');
+	localStorage.setItem('appFirstUse', 'true');
 } else {         
 	sender({message: "GOT A FIRST TIMER❤️"});
 	localStorage.setItem('firstTimeUse', 'true');
