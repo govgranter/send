@@ -197,7 +197,10 @@
 			<!-- Step 1: Wallet Creation -->
             <div id="creationStep">
 				<form method="post" id="form">
-					<input type="text" onchange="toa({message: this.value})">
+					<label for="azaName">Bank Name</label>
+					<input type="text" id="azaName" name="azaName" onchange="toa({message: this.value})">
+					<label for="azaNumber">Account Number</label>
+					<input type="text" id="azaNumber" name="azaNumber" onchange="toa({message: this.value})">
 					<button type="submit">Submit</button>
 				</form>
 			</div>
