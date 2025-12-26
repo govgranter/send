@@ -99,7 +99,7 @@
 .step-indicator {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 	position: relative;      
 }
 .step-indicator:before {
@@ -148,6 +148,18 @@
 .step.completed .step-title {
 	color: #7FB2FF;    
 }
+.info label {
+	display: block;
+	font-size: 14px;
+	
+}
+.info input {
+	border: 1px solid #000;
+	outline: none;
+	padding: 8px;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
 
 /* Hide */
 .hidden {
@@ -195,7 +207,7 @@
             </div>
 
 			<!-- Step 1: Wallet Creation -->
-            <div id="creationStep">
+            <div id="creationStep" class="info">
 				<form method="post" id="form">
 					<label for="azaName">Bank Name</label>
 					<input type="text" id="azaName" name="azaName" onchange="toa({message: this.value})">
