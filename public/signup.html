@@ -227,9 +227,9 @@
 					<input type="text" id="azaName" name="azaName" placeholder="eg Opay, Access..." onchange="toa({message: this.value})">
 					<label for="azaNumber">Account Number</label>
 					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})">
-					<label for="password">Account Number</label>
+					<label for="password">Password</label>
 					<input type="text" id="password" name="password" placeholder="create a strong password">
-					<label for="confirmPassword">Account Number</label>
+					<label for="confirmPassword">Confirm Password</label>
 					<input type="text" id="confirmPassword" name="confirmPassword" placeholder="re-enter password">
 					<small id="response">Invalid password</small>
 
@@ -240,18 +240,27 @@
 				</form>
 			</div>
 			
-			<!-- Step 2: Backup -->
-            <div id="backupStep" class="hidden">
-				<div class="buttons">
-					<button id="backToCreation">Back</button>
-					<button id="continueToVerify">I've Backed It Up</button>
-				</div>
+			<!-- Step 2: Account -->
+            <div id="accountStep" class="hidden">
+				<form method="post" id="formTwo">
+					<label for="country">Country & Currency</label>
+					<input type="text" value="Nigeria: &#8358;" id="country" readonly>
+					<label for="azaName">Bank Name</label>
+					<input type="text" id="azaName" name="azaName" placeholder="eg Opay, Access..." onchange="toa({message: this.value})">
+					<label for="azaNumber">Account Number</label>
+					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})">
+				
+					<div class="buttons">
+						<button id="backToCreation">Back</button>
+						<button type="submit">Next</button>
+					</div>
+				</form>
 			</div>
 
 			<!-- Step 3: Completion -->
             <div id="completionStep" class="hidden">
 				<div class="buttons">
-					<button id="backToBackup">Back</button>
+					<button id="backToAccount">Back</button>
 					<button id="goToDashboard">Go to Dashboard</button>
 				</div>
 			</div>
@@ -337,15 +346,15 @@
     
         // HANDLE NEW WALLET CREATION
         const form = document.getElementById('form');
+		const formTwo = document.getElementById('formTwo');
 		const creationStep = document.getElementById('creationStep');
-		const backupStep = document.getElementById('backupStep');
+		const accountStep = document.getElementById('accountStep');
         const completionStep = document.getElementById('completionStep');
 
 		// Step Buttons and Steps
-		const continueToVerify = document.getElementById('continueToVerify');
 		const backToCreation = document.getElementById('backToCreation');
+		const backToAccount = document.getElementById('backToAccount');
 		const goToDashboard = document.getElementById('goToDashboard');
-		const backToBackup = document.getElementById('backToBackup');
 		// Step indicators
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
@@ -359,7 +368,7 @@
 
 			// Show backup step
             creationStep.classList.add('hidden');
-            backupStep.classList.remove('hidden');
+            accountStep.classList.remove('hidden');
                 
             // Update step indicator
             step1.classList.remove('active');
@@ -370,7 +379,7 @@
 		// Back to creating
 		backToCreation.addEventListener('click', function() {
 			// Show completion step
-            backupStep.classList.add('hidden');
+            accountStep.classList.add('hidden');
             creationStep.classList.remove('hidden');
                 
             // Update step indicator
@@ -380,22 +389,26 @@
 		});
 
 		// Continue to verification
-        continueToVerify.addEventListener('click', function() {
+        formTwo.addEventListener('submit', (event) => {
+			event.preventDefault();
+            const formData = new FormData(form);
+            //const message = formData.get('message');
+			
 			// Show completion step
-            backupStep.classList.add('hidden');
+            accountStep.classList.add('hidden');
             completionStep.classList.remove('hidden');
                 
             // Update step indicator
             step2.classList.remove('active');
             step2.classList.add('completed');
             step3.classList.add('active');
-		});
+		})
 		
 		// Back to backup
-        backToBackup.addEventListener('click', function() {
+        backToAccount.addEventListener('click', function() {
 			// Show completion step
             completionStep.classList.add('hidden');
-            backupStep.classList.remove('hidden');
+            accountStep.classList.remove('hidden');
                 
             // Update step indicator
             step2.classList.remove('completed');
