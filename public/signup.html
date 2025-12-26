@@ -214,22 +214,26 @@
 					<input type="text" id="azaName" name="azaName" onchange="toa({message: this.value})">
 					<label for="azaNumber">Account Number</label>
 					<input type="text" id="azaNumber" name="azaNumber" onchange="toa({message: this.value})">
-					<button type="submit">Submit</button>
+					<div class="buttons">
+						<button type="submit">Submit</button>
+					</div>
 				</form>
 			</div>
 			
 			<!-- Step 2: Backup -->
             <div id="backupStep" class="hidden">
-				
-				<button id="backToCreation">Back</button>
-				<button id="continueToVerify">I've Backed It Up</button>
+				<div class="buttons">
+					<button id="backToCreation">Back</button>
+					<button id="continueToVerify">I've Backed It Up</button>
+				</div>
 			</div>
 
 			<!-- Step 3: Completion -->
             <div id="completionStep" class="hidden">
-				
-				<button id="backToBackup">Back</button>
-				<button id="goToDashboard">Go to Dashboard</button>
+				<div class="buttons">
+					<button id="backToBackup">Back</button>
+					<button id="goToDashboard">Go to Dashboard</button>
+				</div>
 			</div>
 		</div>
     </section>
