@@ -431,6 +431,7 @@
             if (password !== confirmPassword) {
 				response.style.color = 'red';
                 response.textContent = 'Passwords do not match!';
+				return;
 				setTimeout(() => {
 					response.style.color = '';
 					response.textContent = ''; 
