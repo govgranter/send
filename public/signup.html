@@ -167,7 +167,16 @@
 	margin-bottom: 15px;
 	width: 90%;
 }
-
+.password {
+	margin: 0;
+	position: relative;
+}
+.password i {
+	text-align: right;
+	position: absolute;
+	top: 50%;
+}
+	  
 #response {
 	font-weight: bold;
 	padding: 0px 10px 20px;
@@ -237,9 +246,10 @@
 					<label for="azaNumber">Account Number</label>
 					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})">
 
-					<div>
+					<div class="password">
 						<label for="password">Password</label>
 						<input type="password" id="password" name="password" placeholder="create a strong password">
+						<i id="eye" class="fas fa-eye"></i>
 					</div>
 					
 					<label for="confirmPassword">Confirm Password</label>
