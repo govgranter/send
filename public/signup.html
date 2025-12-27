@@ -520,8 +520,10 @@
 		
 		// COMPLETE FORM
         goToDashboard.addEventListener('click', function() {
-            window.location.href = 'dashboard.html';
+			setTimeOut(() => {
+				window.location.href = 'dashboard.html';
             //localStorage.setItem('login', 'true');
+			}, 3000);
         });
 		
 		
