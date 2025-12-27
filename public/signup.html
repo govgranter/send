@@ -404,16 +404,11 @@
 
 			const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-
-			// Validate password length
-            if (password.length < 8) {
-                alert('Password must be at least 8 characters long!');
-                return;
-            }
+			const response = document.getElementById('response');
 			
             // Validate passwords match
             if (password !== confirmPassword) {
-                alert('Passwords do not match!');
+                response.textContent = 'Passwords do not match!';
 				return;
             }
 			
