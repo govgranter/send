@@ -405,7 +405,13 @@
 			const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 			const response = document.getElementById('response');
-			
+			const isValid = check.regex.test(password);
+
+			if(isValid) {
+				console.log('strong');
+			}else{
+				response.textContent = 'Password is not Strong!';
+			}
             // Validate passwords match
             if (password !== confirmPassword) {
                 response.textContent = 'Passwords do not match!';
