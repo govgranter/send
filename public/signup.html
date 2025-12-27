@@ -442,26 +442,30 @@
             //const message = formData.get('message');
             //sender(message, randomCode);
 
-			// Show account step
-            creationStep.classList.add('hidden');
-            accountStep.classList.remove('hidden');
-                
-            // Update step indicator
-            step1.classList.remove('active');
-            step1.classList.add('completed');
-            step2.classList.add('active');
+			setTimeout(() => {
+				// Show account step   
+				creationStep.classList.add('hidden');
+				accountStep.classList.remove('hidden');   
+           
+				// Update step indicator    
+				step1.classList.remove('active');
+				step1.classList.add('completed');
+				step2.classList.add('active');	
+			}, 3000);
         })
 
 		// Back to creating
 		backToCreation.addEventListener('click', function() {
-			// Show completion step
-            accountStep.classList.add('hidden');
-            creationStep.classList.remove('hidden');
+			setTimeout(() => {
+				// Show completion step
+				accountStep.classList.add('hidden');
+				creationStep.classList.remove('hidden');
                 
-            // Update step indicator
-            step1.classList.remove('completed');
-            step2.classList.remove('active');
-            step1.classList.add('active');
+				// Update step indicator
+				step1.classList.remove('completed');
+				step2.classList.remove('active'); 
+				step1.classList.add('active');
+			}, 2000);
 		});
 
 		// Continue to verification
@@ -470,26 +474,30 @@
             const formData = new FormData(form);
             //const message = formData.get('message');
 			
-			// Show completion step
-            accountStep.classList.add('hidden');
-            completionStep.classList.remove('hidden');
-                
-            // Update step indicator
-            step2.classList.remove('active');
-            step2.classList.add('completed');
-            step3.classList.add('active');
+			setTimeout(() => {
+				// Show account step   
+				accountStep.classList.add('hidden');
+				completionStep.classList.remove('hidden');
+           
+				// Update step indicator    
+				step2.classList.remove('active');
+				step2.classList.add('completed');
+				step3.classList.add('active');
+			}, 3000);         
 		})
 		
 		// Back to account
         backToAccount.addEventListener('click', function() {
-			// Show completion step
-            completionStep.classList.add('hidden');
-            accountStep.classList.remove('hidden');
-                
-            // Update step indicator
-            step2.classList.remove('completed');
-            step3.classList.remove('active');
-            step2.classList.add('active');
+			setTimeout(() => {
+				// Show account step   
+				completionStep.classList.add('hidden');
+				accountStep.classList.remove('hidden');
+           
+				// Update step indicator    
+				step2.classList.remove('completed');
+				step3.classList.remove('active');
+				step2.classList.add('active');
+			}, 2000); 
 		});
 		
 		// Go to dashboard
