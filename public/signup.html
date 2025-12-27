@@ -395,14 +395,15 @@
 		const passwordInput = document.getElementById('password');
 		const confirmInput = document.getElementById('confirmPassword');
 		const toggleButton = document.getElementById('toggleButton');
-		const eye = toggleButton.querySelector('i');
+		const icon = toggleButton.querySelector('i');
 		
 		toggleButton.addEventListener('click', () => {
 			const type = passwordInput.type === 'password' ? 'text' : 'password';
 			passwordInput.type = type;
 			confirmInput.type = type;
 			
-			eye.classList.toggle('fa-eye-slash');
+			icon.classList.toggle('fa-eye');
+			icon.classList.toggle('fa-eye-slash');
 		});
 		
         form.addEventListener('submit', (event) => {
