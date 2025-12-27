@@ -235,6 +235,7 @@
 					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})">
 					<label for="password">Password</label>
 					<input type="password" id="password" name="password" placeholder="create a strong password">
+					<ul id="validation-list"></ul>
 					<label for="confirmPassword">Confirm Password</label>
 					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="re-enter password">
 					<small id="response"></small>
@@ -365,7 +366,34 @@
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
         const step3 = document.getElementById('step3');
-		
+
+		// Strong Password
+		const passwordInput = document.getElementById('password');
+const validationList = document.getElementById('validation-list');
+
+const checks = [
+  { regex: /[a-z]/, text: 'Lowercase letter' },
+  { regex: /[A-Z]/, text: 'Uppercase letter' },
+  { regex: /\d/, text: 'Number' },
+  { regex: /[@$!%*#?&]/, text: 'Special character' },
+  { regex: /.{8,}/, text: 'Minimum 8 characters' },
+];
+
+checks.forEach((check) => {
+  const li = document.createElement('li');
+  li.textContent = check.text;
+  validationList.appendChild(li);
+});
+
+passwordInput.addEventListener('input', () => {
+  const password = passwordInput.value;
+  checks.forEach((check, index) => {
+    const li = validationList.children[index];
+    const isValid = check.regex.test(password);
+    li.style.color = isValid ? 'green' : 'red';
+    li.style.textDecoration = isValid ? 'line-through' : 'none';
+  });
+});
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
