@@ -191,18 +191,23 @@
 }
 .buttons {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	width: 80%;
 	text-align: center;
 	margin: 20px auto 10px;	
 }
+	  
+.buttons:has(button:nth-child(2)) {
+  justify-content: space-between;
+}
+
 .buttons button {
 	border: 1px solid #0066ff;
 	background: none;
 	color: #0066ff;
 	padding: 8px 25px;
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: 600;
 	border-radius: 10px;
 }
 /* Hide */
