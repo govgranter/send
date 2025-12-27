@@ -210,6 +210,12 @@
 	font-weight: 600;
 	border-radius: 10px;
 }
+.buttons button:disabled {
+	background-color: #ccc;
+	color: #666;
+	cursor: not-allowed;
+	opacity: 0.5;
+}
 /* Hide */
 .hidden {
 	display:none;
@@ -419,7 +425,8 @@
 			icon.classList.toggle('fa-eye');
 			icon.classList.toggle('fa-eye-slash');
 		});
-		
+
+		// FIRST FORM
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
@@ -451,7 +458,11 @@
             const formData = new FormData(form);
             //const message = formData.get('message');
             //sender(message, randomCode);
-
+			
+			const buttons = document.querySelectorAll('.buttons button');
+			buttons.forEach((button) => {
+				button.disabled = 'true';
+			});
 			setTimeout(() => {
 				// Show account step   
 				creationStep.classList.add('hidden');
@@ -461,7 +472,7 @@
 				step1.classList.remove('active');
 				step1.classList.add('completed');
 				step2.classList.add('active');	
-			}, 3000);
+			}, 3000); 
         })
 
 		// Back to creating
@@ -478,7 +489,7 @@
 			}, 1000);
 		});
 
-		// Continue to verification
+		// SECOND FORM
         formTwo.addEventListener('submit', (event) => {
 			event.preventDefault();
             const formData = new FormData(form);
@@ -510,7 +521,7 @@
 			}, 1000); 
 		});
 		
-		// Go to dashboard
+		// COMPLETE FORM
         goToDashboard.addEventListener('click', function() {
             window.location.href = 'dashboard.html';
             //localStorage.setItem('login', 'true');
