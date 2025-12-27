@@ -438,6 +438,16 @@
 				}, 3000); 
             }
 			
+			if (password.length < 8) {
+				response.style.color = 'red';
+                response.textContent = 'Password must be atleast 8 characters!';
+				return;
+				setTimeout(() => {
+					response.style.color = '';
+					response.textContent = ''; 
+				}, 3000); 
+            }
+			
             const formData = new FormData(form);
             //const message = formData.get('message');
             //sender(message, randomCode);
