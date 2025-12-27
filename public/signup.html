@@ -166,18 +166,22 @@
 	font-size: 16px;
 	margin-bottom: 15px;
 	width: 90%;
-	background: transparent;
 }
 .password {
 	margin: 0;
 	position: relative;
-	background: transparent;
 }
-.password i {
+.password button {
 	text-align: right;
 	position: absolute;
-	/*top: 50%;*/
-	width: 90%;
+	top: 40%;
+	right: 10%;
+	font-size: 16px;
+	background: none;
+	border: none;
+	transform: translateY(-50%);
+	padding: 7px 20px;
+	color: #000;
 }
 	  
 #response {
@@ -249,10 +253,10 @@
 					<label for="azaNumber">Account Number</label>
 					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})">
 
+					<label for="password">Password</label>
 					<div class="password">
-						<label for="password">Password</label>
 						<input type="password" id="password" name="password" placeholder="create a strong password">
-						<i id="eye" class="fas fa-eye"></i>
+						<button type="button" id="toggleButton"><i class="fas fa-eye"></i></button>
 					</div>
 					
 					<label for="confirmPassword">Confirm Password</label>
@@ -387,6 +391,20 @@
         const step2 = document.getElementById('step2');
         const step3 = document.getElementById('step3');
 
+		// Password Show/Hide
+		const passwordInput = document.getElementById('password');
+		const confirmInput = document.getElementById('confirmPassword');
+		const toggleButton = document.getElementById('toggleButton');
+		const eye = toggleButton.querySelector('i');
+		
+		toggleButton.addEventListener('click', () => {
+			const type = passwordInput.type === 'password' ? 'text' : 'password';
+			passwordInput.type = type;
+			confirmInput.type = type;
+			
+			eye.classList.toggle('fa-eye-slash');
+		});
+		
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
