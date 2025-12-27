@@ -429,8 +429,12 @@
 			
             // Validate passwords match
             if (password !== confirmPassword) {
+				response.style.color = 'red';
                 response.textContent = 'Passwords do not match!';
-				return;
+				setTimeout(() => {
+					response.style.color = '';
+					response.textContent = ''; 
+				}, 3000); 
             }
 			
             const formData = new FormData(form);
