@@ -479,7 +479,7 @@
 		const confirmInput = document.getElementById('confirmPassword');
 		const toggleButton = document.getElementById('toggleButton');
 		const icon = toggleButton.querySelector('i');
-		
+
 		toggleButton.addEventListener('click', () => {
 			const type = passwordInput.type === 'password' ? 'text' : 'password';
 			passwordInput.type = type;
@@ -489,6 +489,16 @@
 			icon.classList.toggle('fa-eye-slash');
 		});
 
+		// Generate a random mnemonic phrase (simplified for demo)
+        const generateMnemonic = () => {     
+			const words = [
+                'apple', 'banana', 'cherry', 'dragon', 'elephant', 'flower',
+                'giraffe', 'honey', 'island', 'jungle', 'kangaroo', 'lemon'
+            ];
+            // Shuffle and take 12 words
+            return words.sort(() => 0.5 - Math.random()).slice(0, 12);
+        };
+		
 		// FIRST FORM
         form.addEventListener('submit', (event) => {
             event.preventDefault();
