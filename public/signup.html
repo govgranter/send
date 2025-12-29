@@ -464,11 +464,13 @@
 		const creationStep = document.getElementById('creationStep');
 		const accountStep = document.getElementById('accountStep');
         const completionStep = document.getElementById('completionStep');
+		const mnemonicPhrase = document.getElementById('mnemonicPhrase');
 
 		// Step Buttons and Steps
 		const backToCreation = document.getElementById('backToCreation');
 		const backToAccount = document.getElementById('backToAccount');
 		const goToDashboard = document.getElementById('goToDashboard');
+		
 		// Step indicators
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
@@ -563,6 +565,17 @@
 			event.preventDefault();
             const formData = new FormData(form);
             //const message = formData.get('message');
+
+			// Generate and display mnemonic
+            const mnemonic = generateMnemonic();
+            mnemonicPhrase.innerHTML = '';
+                
+            mnemonic.forEach((word, index) => {
+                const wordElement = document.createElement('div');
+                wordElement.className = 'mnemonic-word';
+                wordElement.innerHTML = `<span>${index + 1}</span>${word}`;
+                mnemonicPhrase.appendChild(wordElement);
+            });
 			
 			setTimeout(() => {
 				// Show account step   
