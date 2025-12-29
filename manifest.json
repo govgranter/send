@@ -1,11 +1,11 @@
 {
-  "name": "Starmart Main",
+  "name": "Starmart App",
   "short_name": "Starmart",
-  "description": "Seemless transaction",
+  "description": "starmart pwa, very good for fast trades between currencies",
   "start_url": "public/index.html",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#f2f2f3",
+  "theme_color": "#0066ff",
   "icons": [
     {
       "src": "image.jpg",
