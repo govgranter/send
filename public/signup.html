@@ -217,6 +217,48 @@
 	cursor: not-allowed;
 	opacity: 0.5;
 }
+
+/* Third Step */
+.mnemonic-container {       
+	background: #f5f9f5;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+	  
+.mnemonic-words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;       
+}
+	  
+.mnemonic-word {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-weight: 500;
+    position: relative;
+}
+	  
+.mnemonic-word span {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+	font-size: 10px;
+    background: var(--primary);
+    color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+	  
 /* Hide */
 .hidden {
 	display:none;
@@ -312,6 +354,26 @@
 			<!-- Step 3: Completion -->
             <div id="completionStep" class="hidden">
 				<div class="buttons">
+					<div class="mnemonic-container">
+                    <h3 style="margin-top: 0;">Your Recovery Phrase</h3>
+                    <div class="mnemonic-words" id="mnemonicPhrase">
+                        <!-- Will be filled by JavaScript -->
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button id="copyMnemonic" class="secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px;">
+                                <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM8 21V7H19V21H8Z" fill="#4CAF50"/>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                        <button id="downloadMnemonic" class="secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px;">
+                                <path d="M19 9H15V3H9V9H5L12 16L19 9ZM5 18V20H19V18H5Z" fill="#4CAF50"/>
+                            </svg>
+                            <span>Download</span>
+                        </button>
+                    </div>
 					<button id="backToAccount">Back</button>
 					<button id="goToDashboard">Complete</button>
 				</div>
