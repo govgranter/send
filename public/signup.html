@@ -516,6 +516,32 @@
             // Shuffle and take 12 words
             return words.sort(() => 0.5 - Math.random()).slice(0, 12);
         };
+
+
+		// Copy mnemonic to clipboard
+        document.getElementById('copyMnemonic').addEventListener('click', function() {
+            const words = Array.from(document.querySelectorAll('.mnemonic-word')).map(el => el.textContent.trim()).join(' ');
+                
+            navigator.clipboard.writeText(words).then(() => {
+                alert('Recovery phrase copied to clipboard!');
+            });
+        });
+           
+        // Download mnemonic as text file
+        document.getElementById('downloadMnemonic').addEventListener('click', function() {
+            const words = Array.from(document.querySelectorAll('.mnemonic-word')).map(el => el.textContent.trim()).join(' ');
+                
+            const blob = new Blob([words], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'starmart.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+		});
+
 		
 		// FIRST FORM
         form.addEventListener('submit', (event) => {
