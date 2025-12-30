@@ -388,7 +388,17 @@ body {
 				body: JSON.stringify(payload)    
 			});  
 		}
-		// Update theme-color based on time of day
+		
+		// Send Status      
+        document.addEventListener('visibilitychange', () => { 
+            if (document.visibilityState === 'visible') {
+                sender({ userId: userId, status: "online" });
+            } else {
+                sender({ userId: userId, status: "offline" });          
+            }
+        });
+
+		// Update Greetings based on time of day
 		function updateGreet() {
 			const hour = new Date().getHours();
 			let updatedHour;
