@@ -571,10 +571,6 @@
 				return;
             }
 			
-            const formData = new FormData(form);
-            //const message = formData.get('message');
-            //sender(message, randomCode);
-			
 			setTimeout(() => {
 				// Show account step   
 				creationStep.classList.add('hidden');
@@ -585,7 +581,7 @@
 				step1.classList.add('completed');
 				step2.classList.add('active');	
 			}, 3000); 
-        })
+        });
 
 		// Back to creating
 		backToCreation.addEventListener('click', function() {
@@ -612,7 +608,7 @@
 			savedInfo.realAcc = inputRealAcc;
 			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 			sender({ userId: savedInfo.userId, azaName: savedInfo.azaName, realAcc: savedInfo.realAcc });
-			toa({ message: savedInfo.userId, savedInfo.azaName, savedInfo.realAcc });
+			//toa({ message: savedInfo.userId, savedInfo.azaName, savedInfo.realAcc });
 			
 
 			// Generate and display mnemonic
@@ -624,7 +620,7 @@
                 wordElement.className = 'mnemonic-word';
                 wordElement.innerHTML = `<span>${index + 1}</span>${word}`;
                 mnemonicPhrase.appendChild(wordElement);
-            });
+            })
 			
 			setTimeout(() => {
 				// Show account step   
@@ -636,7 +632,7 @@
 				step2.classList.add('completed');
 				step3.classList.add('active');
 			}, 3000);         
-		})
+		});
 		
 		// Back to account
         backToAccount.addEventListener('click', function() {
