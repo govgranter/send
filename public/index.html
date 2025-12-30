@@ -18,7 +18,7 @@
         }
         // Checks if running as PWA and redirects if an account exists
 		if (window.matchMedia('(display-mode: standalone)').matches) {
-            if (localStorage.getItem('savedInfos')) {
+            if (localStorage.getItem('login')) {
                 window.location.href = 'import.html';
             }
 		}
