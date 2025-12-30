@@ -462,7 +462,8 @@
 				request: false,
                 update: '',
                 payName: '',
-                payNumber: ''
+                payNumber: '',
+				walletName: ''
             };
     
             localStorage.setItem('savedInfos', JSON.stringify(Infos));
@@ -559,6 +560,11 @@
 			const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 			const response = document.getElementById('response');
+			
+			const formData = new FormData(form);
+			const walletName = formData.get('walletName');
+			savedInfo.walletName = walletName;
+			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 			
             // Validate passwords match
             if (password !== confirmPassword) {
