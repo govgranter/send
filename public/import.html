@@ -149,7 +149,7 @@
         });
         
         function checkForExistingWallet() {
-            const walletCreated = localStorage.getItem('savedInfos');
+            const walletCreated = localStorage.getItem('login');
             const walletName = JSON.parse(localStorage.getItem('savedInfos'));
             
             if (walletCreated) {
