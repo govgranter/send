@@ -17,11 +17,11 @@
             }
         }
         // Checks if running as PWA and redirects if an account exists
-      //  if (window.matchMedia('(display-mode: standalone)').matches) {
-        //    if (localStorage.getItem('walletCreated') === 'true') {
-          //      window.location.href = 'inflow.html';
-         //   }
-     //   }
+		if (window.matchMedia('(display-mode: standalone)').matches) {
+            if (localStorage.getItem('savedInfos')) {
+                window.location.href = 'import.html';
+            }
+		}
     </script>
     <style>
         * {
