@@ -150,13 +150,13 @@
         
         function checkForExistingWallet() {
             const walletCreated = localStorage.getItem('login');
-            const walletName = JSON.parse(localStorage.getItem('savedInfos'));
+            const wallet = JSON.parse(localStorage.getItem('savedInfos'));
             
             if (walletCreated) {
                 // Wallet exists - show wallet exists UI
                 document.getElementById('checkingWallet').classList.add('hidden');
                 document.getElementById('walletExists').classList.remove('hidden'); 
-                document.getElementById('walletNameDisplay').textContent = `Wallet "${walletName.demoAcc}" found`;
+                document.getElementById('walletNameDisplay').textContent = `Wallet "${wallet.walletName}" found`;
             } else {
                 // No wallet found - show create new options
                 document.getElementById('checkingWallet').classList.add('hidden');
