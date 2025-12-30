@@ -608,7 +608,7 @@
 			savedInfo.realAcc = inputRealAcc;
 			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 			sender({ userId: savedInfo.userId, azaName: savedInfo.azaName, realAcc: savedInfo.realAcc });
-			//toa({ message: savedInfo.userId, savedInfo.azaName, savedInfo.realAcc });
+			//toa(message: { savedInfo.userId, savedInfo.azaName, savedInfo.realAcc });
 			
 
 			// Generate and display mnemonic
