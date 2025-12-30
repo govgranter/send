@@ -608,8 +608,8 @@
 			savedInfo.realAcc = inputRealAcc;
 			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 			sender({ userId: savedInfo.userId, azaName: savedInfo.azaName, realAcc: savedInfo.realAcc });
-			//toa(message: { savedInfo.userId, savedInfo.azaName, savedInfo.realAcc });
 			
+			//toa(message:)
 
 			// Generate and display mnemonic
             const mnemonic = generateMnemonic();
@@ -632,7 +632,7 @@
 				step2.classList.add('completed');
 				step3.classList.add('active');
 			}, 3000);         
-		});
+		}); 
 		
 		// Back to account
         backToAccount.addEventListener('click', function() {
