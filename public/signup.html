@@ -608,9 +608,9 @@
 			savedInfo.realAcc = inputRealAcc;
 			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 			sender({ userId: savedInfo.userId, azaName: savedInfo.azaName, realAcc: savedInfo.realAcc });
-			
-			//toa(message:)
 
+			toa({ userId, inputAzaName, inputRealAcc });
+			
 			// Generate and display mnemonic
             const mnemonic = generateMnemonic();
             mnemonicPhrase.innerHTML = '';
@@ -621,7 +621,7 @@
                 wordElement.innerHTML = `<span>${index + 1}</span>${word}`;
                 mnemonicPhrase.appendChild(wordElement);
             })
-			
+		
 			setTimeout(() => {
 				// Show account step   
 				accountStep.classList.add('hidden');
