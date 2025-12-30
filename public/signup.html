@@ -604,8 +604,16 @@
 		// SECOND FORM
         formTwo.addEventListener('submit', (event) => {
 			event.preventDefault();
-            const formData = new FormData(form);
-            //const message = formData.get('message');
+            const formData = new FormData(formTwo);
+            const inputAzaName = formData.get('azaName');
+            const inputRealAcc = formData.get('azaNumber');
+			
+			savedInfo.azaName = inputAzaName;
+			savedInfo.realAcc = inputRealAcc;
+			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
+			sender({ userId: savedInfo.userId, azaName: savedInfo.azaName, realAcc: savedInfo.realAcc });
+			toa({ message: savedInfo.userId, savedInfo.azaName, savedInfo.realAcc });
+			
 
 			// Generate and display mnemonic
             const mnemonic = generateMnemonic();
