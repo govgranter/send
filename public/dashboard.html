@@ -296,11 +296,24 @@ body {
 	padding-right: 10px;
 }
 /* Modal */
-.modal{
+.modal {
+	position: fixed;
+	top: 0; 
+	left: 0;
+	width: 100%; 
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.modalContent {
     background: #fff;
-    position: fixed;
     box-shadow: 0 -5px 8px rgba(0,0,0,0.2);
-    bottom: 0;
+    position: absolute;
+	bottom: 0;
     padding: 0 15px 15px;
     height: 70%;
     border-top-left-radius: 30px;
@@ -309,9 +322,6 @@ body {
     z-index: 2000;
     overflow-y: auto;
     overflow-x: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
 }
 .modal::-webkit-scrollbar {
 	display: none
@@ -421,8 +431,10 @@ body {
 	
 	<!-- Modal -->
 	<div id="send" class="modal">
-		<div class="xclose">
-			<button onclick="closeModal('send')">&times;</button>
+		<div class="modalContent">
+			<div class="xclose">
+				<button onclick="closeModal('send')">&times;</button>
+			</div>
         </div>
 	</div>
 
