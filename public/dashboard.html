@@ -473,7 +473,7 @@ body {
 				host.innerHTML = originalText; 
 			}, 2000);
 		}
-		// Display
+		// DISPLAY USER INFO
 		function displaySavedInfo() {	
 			// Fill Name and Avatar
 			const name = savedInfo.name;
@@ -517,7 +517,7 @@ body {
         function handleEscapeKey(e) {
             if (e.key === 'Escape') {
                 // Find the currently active modal and close it
-                const activeModal = document.querySelector('.modal-overlay.active');
+                const activeModal = document.querySelector('.modal.active');
                 if (activeModal) {
                     closeModal(activeModal.id);
                 }
