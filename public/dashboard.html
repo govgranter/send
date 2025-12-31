@@ -406,7 +406,7 @@ body {
   <main class="content">
 	  <div class="floatDiv">
 		  <div class="floatItems">
-			  <button><i class="fas fa-paper-plane"></i><span>Send</span></button>
+			  <button onclick="openModal('send')"><i class="fas fa-paper-plane"></i><span>Send</span></button>
 			  <button><i class="fa fa-arrow-circle-down"></i><span>Receive</span></button>
 		  </div>
 		  <div class="floatItems">
@@ -421,7 +421,11 @@ body {
   </main>
 	
 	<!-- Modal -->
-	
+	<div id="send" class="modal">
+		<div class="xclose">
+			<button onclick="closeModal('send')">&times;</button>
+        </div>
+	</div>
 
 </body>
 	<script src="../sw.js"></script>
