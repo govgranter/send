@@ -660,7 +660,7 @@ body {
         // Start polling when page loads
         window.addEventListener('load', () => {
             fetchMessages(); 
-			displaySavedInfo()
+			setTimeout(displaySavedInfo, 1000);
         });
 	</script>
 </html>
