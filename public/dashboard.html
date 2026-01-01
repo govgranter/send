@@ -295,6 +295,30 @@ body {
 .floatItems button i {
 	padding-right: 10px;
 }
+.bottom{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 10px;
+    bottom: 0;  
+	background: #fff;
+    border-top: 1px solid #ccc;    
+	box-sizing: border-box;
+	z-index: 2000;
+}   
+.bottomBtn button{
+    background: none;
+    color: grey;
+    margin-bottom: 20px;
+}
+.bottom i{
+    font-size: 18px;
+    display: block;
+}
+.bottomBtn button.active{
+    color: #000;
+}
 /* Modal */
 .modal {
 	position: fixed;
@@ -429,6 +453,14 @@ body {
 		  </div>
 	  </div>
   </main>
+	
+	<div class="bottom">
+		<button class="bottomBtn active"><i class="fa fa-home" aria-hidden="true"></i>Accounts</button>      
+        <button onclick="openModal('send');" class="bottomBtn"><i class="fa fa-area-chart" aria-hidden="true"></i>Trade</button>
+        <button onclick="openModal('send');" class="bottomBtn"><i class="fa fa-globe" aria-hidden="true"></i>Insights</button>
+        <button onclick="openModal('send');" class="bottomBtn"><i class="fa fa-heartbeat" aria-hidden="true"></i>Performance</button>     
+        <button onclick="openModal('send');" class="bottomBtn"><i class="fa fa-user" aria-hidden="true"></i>Profile</button>
+	</div>
 	
 	<!-- Modal -->
 	<div id="send" class="modal">
