@@ -402,13 +402,13 @@ body {
 	</button>
     <h1><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>Starmart</strong></h1>
     <ul>
-      <li><button class="active"><i class="fas fa-wallet"></i><span>Overview</span></button></li>
-      <li><button><i class="fas fa-paper-plane"></i><span>Send</span></button></li>
-      <li><button><i class="fa fa-arrow-circle-down"></i><span>Receive</span></button></li>
-      <li><button><i class="fa fa-university"></i><span>Deposit</span></button></li>
-      <li><button><i class="fa fa-envelope"></i><span>Request</span></button></li>
-      <li><button><i class="fa fa-user"></i><span>Profile</span></button></li>
-      <li><button>More</button></li>
+      <li><button onclick="toggleSidebar();"class="active"><i class="fas fa-wallet"></i><span>Overview</span></button></li>
+      <li><button onclick="toggleSidebar(); openModal('send');"><i class="fas fa-paper-plane"></i><span>Send</span></button></li>
+      <li><button onclick="toggleSidebar(); openModal('receive');"><i class="fa fa-arrow-circle-down"></i><span>Receive</span></button></li>
+      <li><button onclick="toggleSidebar(); openModal('deposit');"><i class="fa fa-university"></i><span>Deposit</span></button></li>
+      <li><button onclick="toggleSidebar(); openModal('request');"><i class="fa fa-envelope"></i><span>Request</span></button></li>
+      <li><button onclick="toggleSidebar(); openModal('profile');"><i class="fa fa-user"></i><span>Profile</span></button></li>
+      <li><button onclick="toggleSidebar(); openModal('logout');">Logout</button></li>
     </ul>
   </aside>
 
@@ -417,14 +417,14 @@ body {
 	  <div class="floatDiv">
 		  <div class="floatItems">
 			  <button onclick="openModal('send')"><i class="fas fa-paper-plane"></i><span>Send</span></button>
-			  <button><i class="fa fa-arrow-circle-down"></i><span>Receive</span></button>
+			  <button onclick="openModal('receive')"><i class="fa fa-arrow-circle-down"></i><span>Receive</span></button>
 		  </div>
 		  <div class="floatItems">
-			  <button><i class="fa fa-university"></i><span>Deposit</span></button>
-			  <button><i class="fa fa-envelope"></i><span>Request</span></button>
+			  <button onclick="openModal('deposit')"><i class="fa fa-university"></i><span>Deposit</span></button>
+			  <button onclick="openModal('request')"><i class="fa fa-envelope"></i><span>Request</span></button>
 		  </div>
 		  <div class="floatItems">
-			  <button><i class="fa fa-user"></i><span>Profile</span></button>
+			  <buttonbutton onclick="openModal('profile')"><i class="fa fa-user"></i><span>Profile</span></button>
 			  <button onclick="window.location.reload()"><i class="fa fa-refresh" aria-hidden="true"></i><span>Refresh</span></button>
 		  </div>
 	  </div>
