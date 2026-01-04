@@ -425,7 +425,7 @@ body {
 	<button onclick="toggleSidebar()" class="innerToggle">	  
 		<i class="fas fa-times"></i> 			 	  
 	</button>
-    <h1><i class="fa fa-balance-scale" aria-hidden="true"></i><strong>Starmart</strong></h1>
+    <h1><i class="fa fa-balance-scale" aria-hidden="true"></i><strong id="walletName"></strong></h1>
     <ul>
       <li><button onclick="toggleSidebar();"class="active"><i class="fas fa-wallet"></i><span>Overview</span></button></li>
       <li><button onclick="toggleSidebar(); openModal('send');"><i class="fas fa-paper-plane"></i><span>Send</span></button></li>
@@ -582,6 +582,7 @@ body {
 			document.getElementById('name').textContent = name;
 			document.getElementById('avatar').textContent = avatar;
 			document.getElementById('amount').textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+			document.getElementById('walletName').textContent = savedInfo.walletName;
 			//document.getElementById('update').textContent = savedInfo.update;
 			//document.getElementById('payName').textContent = savedInfo.payName;	
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
