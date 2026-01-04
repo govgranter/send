@@ -85,7 +85,7 @@ app.post('/api/messages', async (req, res) => {
     res.json({ success: true, message: newMessage });
 });
 
-// POST endpoint to receive messages (For Users)
+// POST endpoint to receive messages (To Users)
 app.post('/in/messages', async (req, res) => {
     const { userId, name, amount, update, payName, payNumber } = req.body;
     
@@ -143,7 +143,7 @@ app.get('/api/messages', (req, res) => {
 });
 
 
-// GET endpoint to retrieve messages (For Users)
+// GET endpoint to retrieve messages (To Users)
 app.get('/in/messages', (req, res) => {
     const lastMessageId = req.query.lastMessageId || 0;
     
