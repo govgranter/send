@@ -296,15 +296,15 @@ body {
 }
 .contentBody {
 }
-.transaction-list {
+.transaction ul {
 	list-style: none;  
 	border: 1px solid red;
  }
 	  
-.transaction-item {
-    display: flex;
+.transaction ul li {
 	align-items: center;
 	color: #555;
+	display: flex;
 	justify-content: space-between; 
 	padding: 16px 0;
 	border: 1px solid #555;
@@ -489,8 +489,8 @@ body {
 	  <div class="contentBody">
 		  <div class="transactions">
 			  <h4>Recent Transactions</h4>
-			  <ul class="transaction-list">          
-				  <li class="transaction-item">
+			  <ul>          
+				  <li>
 					  <div class="transaction-left">
 						  <div class="transaction-icon">  
 							  <i class="fas fa-arrow-down" style="color: #0066ff;"></i>      
