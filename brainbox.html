@@ -658,14 +658,15 @@ section {
                 }
             });
         }
+		
         // UPDATOR using UserId
-function updateUserById(id, property, value) {
-  const itemIndex = savedUsers.findIndex(user => user.userId === id);
-  if (itemIndex !== -1) {
-    savedUsers[itemIndex][property] = value;
-    localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
-  }
-}
+		function updateUserById(id, property, value) {
+			const itemIndex = savedUsers.findIndex(user => user.userId === id);
+			if (itemIndex !== -1) {
+				savedUsers[itemIndex][property] = value;
+				localStorage.setItem('savedUsers', JSON.stringify(savedUsers));
+			}
+		}
         
         // Start polling when page loads
         window.addEventListener('load', () => {
