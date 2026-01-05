@@ -647,6 +647,7 @@ body {
 
 		// Update Transactions
 		savedInfo.transactions.forEach((transaction) => {	
+			alert(transaction.title);
 			const clone = document.querySelector('.transactions ul li');
 			clone.querySelector('.transaction-title').textContent = transaction.title;
 		});
