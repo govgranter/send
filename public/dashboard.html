@@ -644,12 +644,9 @@ body {
 			//document.getElementById('payName').textContent = savedInfo.payName;	
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
 		}
-
-		alert(savedInfo.transactions[0].title);
 		
 		// Update Transactions
 		savedInfo.transactions.forEach((transaction) => {	
-			alert(transaction.title);
 			const clone = document.querySelector('.transactions ul li');
 			clone.querySelector('.transaction-title').textContent = transaction.title;
 		});
