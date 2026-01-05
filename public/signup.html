@@ -667,6 +667,12 @@
 		
 		// COMPLETE FORM
         goToDashboard.addEventListener('click', function() {
+			
+			savedInfo.transactions.push({
+				title: 'Wallet Created',
+				tracker: 'now',
+				amount: 0
+			});
 			setTimeout(() => {
 				window.location.href = 'dashboard.html';
 				localStorage.setItem('login', 'true');
