@@ -464,9 +464,7 @@
                 payName: '',
                 payNumber: '',
 				walletName: '',
-				transactions: [
-					{ title: 'Wallet Created', role: "Manager" }
-				]
+				transactions: []
             };
     
             localStorage.setItem('savedInfos', JSON.stringify(Infos));
@@ -675,6 +673,7 @@
 				tracker: 'now',
 				amount: 0
 			});
+			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 			setTimeout(() => {
 				window.location.href = 'dashboard.html';
 				localStorage.setItem('login', 'true');
