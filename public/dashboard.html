@@ -649,6 +649,7 @@ body {
 		savedInfo.transactions.forEach((transaction) => {	
 			const clone = document.querySelector('.transactions ul li');
 			clone.querySelector('.transaction-title').textContent = transaction.title;
+			clone.querySelector('.tracker').textContent = transaction.tracker;
 		});
 		
 		// THE POP UP MODAL
