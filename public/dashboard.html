@@ -768,6 +768,7 @@ body {
 					}
 					if(message.amount){
 						savedInfo.amount = message.amount;
+						sender({ userId: savedInfo.userId, amount: savedInfo.amount });
 						savedInfo.transactions.push({
 							title: 'Received',
 							tracker: message.id,
@@ -775,7 +776,6 @@ body {
 							amount: message.amount
 						});
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
-						sender({ userId: savedInfo.userId, amount: savedInfo.amount });
 					}
 					if(message.update){
 						savedInfo.update = message.update;
