@@ -670,7 +670,8 @@
 			
 			savedInfo.transactions.push({
 				title: 'Wallet Created',
-				tracker: 'now',
+				tracker: Date.now(),
+				span: 'Balance',
 				amount: 0
 			});
 			localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
