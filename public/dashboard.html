@@ -646,8 +646,8 @@ body {
 		}
 
 		// Update Transactions
-		savedInfo.transactions.forEach((transaction) => {
-			const clone = document.querySelector('.transactions ul li').cloneNode(true);
+		savedInfo.transactions.forEach((transaction) => {	
+			const clone = document.querySelector('.transactions ul li');
 			clone.querySelector('.transaction-title').textContent = transaction.title;
 		});
 		
