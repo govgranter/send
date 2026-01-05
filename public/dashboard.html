@@ -676,7 +676,7 @@ body {
 			clone.querySelector('.transaction-title').textContent = transaction.title;
 			clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
 			clone.querySelector('.transaction-span').textContent = transaction.span;
-			clone.querySelector('.transaction-amount').textContent = transaction.amount;
+			clone.querySelector('.transaction-amount').textContent = transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 			
 			cloneParent.appendChild(clone);
 		});
