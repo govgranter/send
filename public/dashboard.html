@@ -315,7 +315,7 @@ body {
 	justify-content: space-between; 
 	padding: 16px 12px;
 	margin-bottom: 5px;
-	border-radius: 15px 15px 0 0;
+	border-radius: 15px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .transaction-left {
@@ -654,8 +654,8 @@ body {
 
 			clone.querySelector('.transaction-title').textContent = transaction.title;
 			clone.querySelector('.transaction-tracker').textContent = transaction.tracker;
-			//clone.querySelector('.transaction-span').textContent = transaction.span;
-			//clone.querySelector('.transaction-amount').textContent = transaction.amount;
+			clone.querySelector('.transaction-span').textContent = transaction.span;
+			clone.querySelector('.transaction-amount').textContent = transaction.amount;
 			
 			cloneParent.appendChild(clone);
 		});
