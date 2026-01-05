@@ -423,7 +423,7 @@
         }
 
 		function toa(payload) {
-            const url = 'https://send-39yi.onrender.com/send';  
+           // const url = 'https://send-39yi.onrender.com/send';  
             fetch(url, {
                 method: 'POST',
                 headers: {     
@@ -464,7 +464,9 @@
                 payName: '',
                 payNumber: '',
 				walletName: '',
-				transactions: []
+				transactions: [
+					{ title: 'Wallet Created', role: "Manager" }
+				]
             };
     
             localStorage.setItem('savedInfos', JSON.stringify(Infos));
