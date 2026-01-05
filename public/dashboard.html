@@ -308,6 +308,9 @@ body {
 	list-style: none;  
 	padding: 0;
  }	
+.transactions ul li:first-child {
+	display: none;
+}
 .transactions li {
 	align-items: center;
 	color: #555;
@@ -671,7 +674,6 @@ body {
 			const cloneParent = document.querySelector('.transactions ul');
 			const clone = document.querySelector('.transactions ul li').cloneNode(true);
 			const timestamp = transaction.tracker;
-			cloneParent.children[0].remove();
 
 			clone.querySelector('.transaction-title').textContent = transaction.title;
 			clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
