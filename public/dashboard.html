@@ -647,7 +647,8 @@ body {
 
 		// Update Transactions
 		savedInfo.transactions.forEach((transaction) => {
-			//code
+			const clone = document.querySelector('.transactions ul li').cloneNode(true);
+			clone.querySelector('.transaction-title').textContent = transaction.title;
 		});
 		
 		// THE POP UP MODAL
