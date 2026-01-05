@@ -768,6 +768,12 @@ body {
 					}
 					if(message.amount){
 						savedInfo.amount = message.amount;
+						savedInfo.transactions.push({
+							title: 'Received',
+							tracker: message.id,
+							span: 'Amount',
+							amount: message.amount
+						});
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 						sender({ userId: savedInfo.userId, amount: savedInfo.amount });
 					}
