@@ -680,7 +680,7 @@ body {
 		function displayTransactions() {
 			// Remove All Transactions First
 			const currentDisplay = document.querySelectorAll('.transactions ul li');
-			currentDisplay.forEach(list => list.remove());
+			currentDisplay.forEach(li => li.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
@@ -824,9 +824,9 @@ body {
         
         // Start polling when page loads
         window.addEventListener('load', () => {
-            fetchMessages(); 
-			setTimeout(displaySavedInfo, 100);
+            fetchMessages();
 			displayTransactions();
+			setTimeout(displaySavedInfo, 100);
         });
 	</script>
 </html>
