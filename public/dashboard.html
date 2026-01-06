@@ -679,8 +679,8 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const currentDisplay = document.querySelector('.transactions ul');
-			currentDisplay.innerHTML = '';
+			const currentDisplay = document.querySelectorAll('.transactions ul li');
+			currentDisplay.forEach(li => li.innerHTML = '');
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
