@@ -500,9 +500,9 @@ body {
 	  </div>
 	  <!--  -->
 	  <div class="contentBody">
-		  <div class="transactions">
+		  <div class="transactions" id="lists">
 			  <h4>Recent Transactions</h4>
-			  <ul id="lists">          
+			  <ul>          
 				  <li>
 					  <div class="transaction-left">
 						  <div class="transaction-icon">  
@@ -679,13 +679,13 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const currentDisplay = document.querySelectorAll('#lists li');
+			const currentDisplay = document.querySelectorAll('#lists ul li');
 			currentDisplay.forEach(li => li.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
-				const cloneParent = document.querySelector('.transactions ul');
-				const clone = document.querySelector('.transactions ul li').cloneNode(true);
+				const cloneParent = document.querySelector('#list ul');
+				const clone = document.querySelector('#list ul li').cloneNode(true);
 				const timestamp = transaction.tracker;
 
 				clone.querySelector('.transaction-title').textContent = transaction.title;	
