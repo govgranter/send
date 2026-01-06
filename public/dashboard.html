@@ -683,9 +683,12 @@ body {
 			const timestamp = transaction.tracker;
 
 			clone.querySelector('.transaction-title').textContent = transaction.title;
-			setInterval(() => {
+			
+			const updateTracker = () => {
 				clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
-			}, 2000);
+			};
+			updateTracker();
+			setInterval(updateTracker, 4000);
 			clone.querySelector('.transaction-span').textContent = transaction.span;
 			clone.querySelector('.transaction-amount').textContent = transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 			clone.querySelector('i').classList.remove('fa-arrow-down');
