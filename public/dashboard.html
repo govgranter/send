@@ -677,25 +677,26 @@ body {
 		}
 		
 		// Update Transactions
-		savedInfo.transactions.forEach((transaction) => {	
-			const cloneParent = document.querySelector('.transactions ul');
-			const clone = document.querySelector('.transactions ul li').cloneNode(true);
-			const timestamp = transaction.tracker;
+		function displayTransactions() {
+			savedInfo.transactions.forEach((transaction) => {	
+				const cloneParent = document.querySelector('.transactions ul');
+				const clone = document.querySelector('.transactions ul li').cloneNode(true);
+				const timestamp = transaction.tracker;
 
-			clone.querySelector('.transaction-title').textContent = transaction.title;
-			
-			const updateTracker = () => {
-				clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
-			};
-			updateTracker();
-			setInterval(updateTracker, 1 * 60 * 1000);
-			clone.querySelector('.transaction-span').textContent = transaction.span;
-			clone.querySelector('.transaction-amount').textContent = transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-			clone.querySelector('i').classList.remove('fa-arrow-down');
-			clone.querySelector('i').classList.add(transaction.icon);
-			
-			cloneParent.appendChild(clone);
-		});
+				clone.querySelector('.transaction-title').textContent = transaction.title;	
+				const updateTracker = () => {
+					clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
+				};
+				updateTracker();
+				setInterval(updateTracker, 1 * 60 * 1000);
+				clone.querySelector('.transaction-span').textContent = transaction.span;
+				clone.querySelector('.transaction-amount').textContent = transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+				clone.querySelector('i').classList.remove('fa-arrow-down');	
+				clone.querySelector('i').classList.add(transaction.icon);
+		
+				cloneParent.appendChild(clone);
+			});
+		}
 		
 		// THE POP UP MODAL
         function openModal(modalId) {
@@ -807,7 +808,8 @@ body {
 						sender({ userId: savedInfo.userId, update: `${savedInfo.payName} ${savedInfo.payNumber}` });
 						
 					}
-					displaySavedInfo()
+					displaySavedInfo();
+					displayTransactions();
                 } else {
                     console.log('Not For User');
                 }
@@ -819,6 +821,7 @@ body {
         window.addEventListener('load', () => {
             fetchMessages(); 
 			setTimeout(displaySavedInfo, 100);
+			displayTransactions();
         });
 	</script>
 </html>
