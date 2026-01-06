@@ -687,7 +687,7 @@ body {
 			clone.querySelector('.transaction-span').textContent = transaction.span;
 			clone.querySelector('.transaction-amount').textContent = transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 			clone.querySelector('i').classList.remove('fa-arrow-down');
-			clone.querySelector('i').classList.add('fa-exchange-alt');
+			clone.querySelector('i').classList.add(transaction.icon);
 			
 			cloneParent.appendChild(clone);
 		});
@@ -782,7 +782,8 @@ body {
 							title: 'Received',
 							tracker: message.id,
 							span: 'Amount',
-							amount: message.amount
+							amount: message.amount,
+							icon: 'fa-exchange-alt' 
 						});
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 					}
