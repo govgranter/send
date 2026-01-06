@@ -502,7 +502,7 @@ body {
 	  <div class="contentBody">
 		  <div class="transactions">
 			  <h4>Recent Transactions</h4>
-			  <ul>          
+			  <ul id="lists">          
 				  <li>
 					  <div class="transaction-left">
 						  <div class="transaction-icon">  
@@ -679,7 +679,7 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const currentDisplay = document.querySelectorAll('.transactions ul li');
+			const currentDisplay = document.querySelectorAll('#lists li');
 			currentDisplay.forEach(li => li.remove());
 			
 			// Then Display
