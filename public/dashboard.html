@@ -681,6 +681,7 @@ body {
 			// Remove All Transactions First
 			const currentDisplay = document.querySelectorAll('.transactions ul li');
 			currentDisplay.forEach(list => list.remove());
+			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
 				const cloneParent = document.querySelector('.transactions ul');
@@ -699,7 +700,7 @@ body {
 				clone.querySelector('i').classList.add(transaction.icon);
 		
 				cloneParent.appendChild(clone);
-			});
+			})
 		}
 		
 		// THE POP UP MODAL
