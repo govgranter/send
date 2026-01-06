@@ -679,9 +679,8 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			//const lists = document.querySelector('.transactions ul');
-			//const currentDisplay = lists.querySelectorAll('li');
-			//currentDisplay.forEach(list => list.remove());
+			const currentDisplay = document.querySelectorAll('.transactions ul li');
+			currentDisplay.forEach(list => list.remove());
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
 				const cloneParent = document.querySelector('.transactions ul');
