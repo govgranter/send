@@ -679,11 +679,12 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const cloneParent = document.querySelector('.transactions ul');
-			const currentDisplay = cloneParent.querySelectorAll('li');
-			currentDisplay.forEach(display => display.remove());
+			const lists = document.querySelector('.transactions ul');
+			const currentDisplay = lists.querySelectorAll('li');
+			currentDisplay.forEach(list => list.remove());
 			// Then Display
-			savedInfo.transactions.forEach((transaction) => {	
+			savedInfo.transactions.forEach((transaction) => {
+				const cloneParent = document.querySelector('.transactions ul');
 				const clone = document.querySelector('.transactions ul li').cloneNode(true);
 				const timestamp = transaction.tracker;
 
