@@ -680,7 +680,7 @@ body {
 		function displayTransactions() {
 			// Remove All Transactions First
 			const tranClear = document.querySelectorAll('.lists');
-			tranClear.forEach(li => li.remove());
+			tranClear.remove();
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
