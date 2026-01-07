@@ -679,11 +679,7 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const tranClear = document.querySelectorAll('.lists');
-			tranClear.forEach(tran => {
-				alert('works');
-				tran.textContent = 'works';
-			});
+			const tranClear = document.querySelectorAll('.lists').remove();
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
