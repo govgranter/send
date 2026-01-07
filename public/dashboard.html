@@ -500,7 +500,7 @@ body {
 	  </div>
 	  <!--  -->
 	  <div class="contentBody">
-		  <div class="transactions">
+		  <div class="transactions" id="lists">
 			  <h4>Recent Transactions</h4>
 			  <ul>          
 				  <li>
@@ -680,7 +680,7 @@ body {
 		function displayTransactions() {
 			// Remove All Transactions First
 			const tranClear = document.querySelectorAll('.transactions ul li');
-			tranClear.forEach(li => li.remove());
+			//tranClear.forEach(li => li.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
