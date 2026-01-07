@@ -685,8 +685,9 @@ body {
 			const allLists = document.getElementsByClassName('lists');
 			
 			allLists.forEach((li) => { 
+				alert('works');
 				li.style.display = 'none'; 
-			});
+			})
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
