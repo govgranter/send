@@ -500,10 +500,10 @@ body {
 	  </div>
 	  <!--  -->
 	  <div class="contentBody">
-		  <div class="transactions" id="lists">
+		  <div class="transactions">
 			  <h4>Recent Transactions</h4>
 			  <ul>          
-				  <li>
+				  <li class="lists">
 					  <div class="transaction-left">
 						  <div class="transaction-icon">  
 							  <i class="fas fa-arrow-down" style="color: #0066ff;"></i>      
@@ -679,8 +679,8 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const tranClear = document.querySelectorAll('.transactions ul li');
-			//tranClear.forEach(li => li.remove());
+			const tranClear = document.querySelectorAll('.lists');
+			tranClear.forEach(li => li.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
