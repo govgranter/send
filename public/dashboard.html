@@ -682,12 +682,12 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const allLists = document.getElementsByClassName('lists');
+			const allLists = document.querySelectorAll('.lists');
 			
 			allLists.forEach((li) => { 
 				alert('works');
 				li.style.display = 'none'; 
-			})
+			});
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
