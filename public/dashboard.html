@@ -677,8 +677,8 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Hide Current Display
-			//const cloneDivs = document.querySelectorAll('.list');
-			//cloneDivs.forEach(div => div.remove());
+			const cloneDivs = cloneParent.querySelectorAll('.list');
+			cloneDivs.forEach(div => div.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
