@@ -515,7 +515,7 @@ body {
 					  </div>       
 					  <div class="transaction-right">       
 						  <div style="font-size: 15px; font-weight: 700;" class="transaction-span"></div>
-						  <div style="font-size: 14px; color: #555; color: #0066ff;">&#8358; <span class="transaction-amount"></span></div>
+						  <div style="font-size: 14px; color: #0066ff;">&#8358; <span class="transaction-amount"></span></div>
 					  </div> 
 				  </li>
 			  </ul>
@@ -675,12 +675,12 @@ body {
 			//document.getElementById('payName').textContent = savedInfo.payName;	
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
 		}
-		
+		const allLists = document.getElementById('lists');
+		allLists.innerHTML = 'Hey';
 		// Update Transactions
 		function displayTransactions() {
-			// Remove All Transactions First
-			const allLists = document.getElementById('lists');
-			allLists.innerHTML = '';
+			// Hide Current Display
+			
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
