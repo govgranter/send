@@ -676,8 +676,8 @@ body {
 		function displayTransactions() {
 			// Hide Current Display
 			const cloneParent = document.querySelector('.all-lists');
-			const cloneDivs = document.querySelector('.list');
-			//cloneParent.children[0].remove();
+			const cloneDivs = document.querySelectorAll('.list');
+			cloneParent.children[0].remove();
 			//cloneDivs.forEach(div => div.remove());
 			
 			// Then Display
