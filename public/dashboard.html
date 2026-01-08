@@ -498,7 +498,7 @@ body {
 	  <div class="contentBody">
 		  <div class="transactions">
 			  <h4>Recent Transactions</h4>
-			  <div class="all-lists">
+			  <div id="lists" class="all-lists">
 				  <div class="list">
 					  <div class="transaction-left">
 						  <div class="transaction-icon">  
@@ -675,14 +675,14 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Hide Current Display
-			const cloneParent = document.querySelector('.all-lists');
+			const cloneParent = document.getElementById('lists');
 			const cloneDivs = document.querySelectorAll('.list');
 			cloneParent.children[0].remove();
 			//cloneDivs.forEach(div => div.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
-				const clone = document.querySelector('.list').cloneNode(true);
+				const clone = cloneParent.querySelector('.list').cloneNode(true);
 				const timestamp = transaction.tracker;
 
 				clone.querySelector('.transaction-title').textContent = transaction.title;	
