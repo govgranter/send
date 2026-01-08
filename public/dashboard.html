@@ -502,8 +502,8 @@ body {
 	  <div class="contentBody">
 		  <div class="transactions">
 			  <h4>Recent Transactions</h4>
-			  <ul>          
-				  <li class="lists">
+			  <ul id="lists">          
+				  <li>
 					  <div class="transaction-left">
 						  <div class="transaction-icon">  
 							  <i class="fas fa-arrow-down" style="color: #0066ff;"></i>      
@@ -679,12 +679,8 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Remove All Transactions First
-			const allLists = document.querySelectorAll('.lists');
-			
-			allLists.forEach((li) => { 
-				alert('works');
-				li.style.display = 'none'; 
-			});
+			const allLists = document.getElementById('lists');
+			allLists.innerHTML = '';
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
