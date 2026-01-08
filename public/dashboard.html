@@ -671,14 +671,14 @@ body {
 			//document.getElementById('payName').textContent = savedInfo.payName;	
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
 		}
-		
+
+		const cloneParent = document.getElementById('lists');
+		cloneParent.children[0].remove();
 		// Update Transactions
 		function displayTransactions() {
 			// Hide Current Display
-			const cloneParent = document.getElementById('lists');
-			const cloneDivs = document.querySelectorAll('.list');
-			//cloneParent.children[0].remove();
-			cloneDivs.forEach(div => div.remove());
+			//const cloneDivs = document.querySelectorAll('.list');
+			//cloneDivs.forEach(div => div.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
