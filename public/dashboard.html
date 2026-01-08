@@ -305,14 +305,10 @@ body {
 	padding-left: 15px;
 	font-size: 14px;
 }
-.transactions ul {
-	list-style: none;  
+.all-lists {;  
 	padding: 0;
  }	
-.transactions ul li:first-child {
-	display: none;
-}
-.transactions li {
+.transactions .list {
 	align-items: center;
 	color: #555;
 	display: flex;
@@ -502,8 +498,8 @@ body {
 	  <div class="contentBody">
 		  <div class="transactions">
 			  <h4>Recent Transactions</h4>
-			  <ul id="lists">          
-				  <li>
+			  <div class="all-lists">
+				  <div class="list">
 					  <div class="transaction-left">
 						  <div class="transaction-icon">  
 							  <i class="fas fa-arrow-down" style="color: #0066ff;"></i>      
@@ -517,8 +513,8 @@ body {
 						  <div style="font-size: 15px; font-weight: 700;" class="transaction-span"></div>
 						  <div style="font-size: 14px; color: #0066ff;">&#8358; <span class="transaction-amount"></span></div>
 					  </div> 
-				  </li>
-			  </ul>
+				  </div>
+			  </div>
 		  </div>
 	  </div>
   </main>
@@ -680,12 +676,14 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Hide Current Display
-			
+			const cloneParent = document.querySelector('.all-lists');
+			const cloneDivs = document.querySelector('.list');
+			cloneParent.children[0].remove();
+			cloneDivs.forEach(div => div.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
-				const cloneParent = document.querySelector('.transactions ul');
-				const clone = document.querySelector('.transactions ul li').cloneNode(true);
+				const clone = document.querySelector('.list').cloneNode(true);
 				const timestamp = transaction.tracker;
 
 				clone.querySelector('.transaction-title').textContent = transaction.title;	
