@@ -546,8 +546,7 @@ body {
 		const cloneTemplate = cloneParent.querySelector('.list');
 		const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
 		const userId = savedInfo.userId;
-		cloneParent.innerHTML = '';
-		//cloneParent.children[0].remove();
+		cloneParent.children[0].remove();
 		
 		// SENDER
 		function sender(payload) {
