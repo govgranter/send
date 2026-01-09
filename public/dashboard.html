@@ -542,8 +542,11 @@ body {
 	<script src="../sw.js"></script>
 	<script>
 		// Get savedInfo & userId
+		const cloneParent = document.getElementById('lists');
+		const cloneTemplate = cloneParent.querySelector('.list');
 		const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
 		const userId = savedInfo.userId;
+		cloneParent.children[0].remove();
 		
 		// SENDER
 		function sender(payload) {
@@ -668,8 +671,6 @@ body {
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
 		}
 
-		const cloneParent = document.getElementById('lists');
-		cloneParent.children[0].remove();
 		// Update Transactions
 		function displayTransactions() {
 			// Hide Current Display
@@ -678,7 +679,7 @@ body {
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
-				const clone = cloneParent.querySelector('.list').cloneNode(true);
+				const clone = cloneTemplate.cloneNode(true);
 				const timestamp = transaction.tracker;
 
 				clone.querySelector('.transaction-title').textContent = transaction.title;	
