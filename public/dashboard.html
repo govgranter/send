@@ -674,14 +674,14 @@ body {
 		// Update Transactions
 		function displayTransactions() {
 			// Hide Current Display
-			//const cloneDivs = cloneParent.querySelectorAll('.list');
-			//cloneDivs.forEach(div => div.remove());
+			const cloneDivs = cloneParent.querySelectorAll('.list');
+			cloneDivs.forEach(div => div.remove());
 			
 			// Then Display
 			savedInfo.transactions.forEach((transaction) => {
 				const clone = cloneTemplate.cloneNode(true);
+				
 				const timestamp = transaction.tracker;
-
 				clone.querySelector('.transaction-title').textContent = transaction.title;	
 				const updateTracker = () => {
 					clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
