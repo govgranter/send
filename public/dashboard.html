@@ -296,19 +296,17 @@ body {
 }
 .contentBody {
 	margin-bottom: 85px;
-}
-.transactions {
 	width: 96%;
 	margin: auto;
 }
-.transactions h4 {
+.contentBody h4 {
 	padding-left: 15px;
 	font-size: 14px;
 }
 .all-lists {;  
 	padding: 0;
  }	
-.transactions .list {
+.list {
 	align-items: center;
 	color: #555;
 	display: flex;
@@ -495,28 +493,26 @@ body {
 		  </div>
 	  </div>
 	  <!--  -->
-	  <div class="contentBody">
-		  <div class="transactions">
-			  <h4>Recent Transactions</h4>
-			  <div id="lists" class="all-lists">
-				  <div class="list">
-					  <div class="transaction-left">
-						  <div class="transaction-icon">  
-							  <i class="fas fa-arrow-down" style="color: #0066ff;"></i>      
-						  </div>  
-						  <div>
-							  <div class="transaction-title" style="font-size: 15px; font-weight: 700;"></div>
-							  <div style="font-size: 14px; color: #555;" class="transaction-tracker"></div>       
-						  </div>      
-					  </div>       
-					  <div class="transaction-right">       
-						  <div style="font-size: 15px; font-weight: 700;" class="transaction-span"></div>
-						  <div style="font-size: 14px; color: #0066ff;">&#8358; <span class="transaction-amount"></span></div>
-					  </div> 
-				  </div>
-			  </div>
-		  </div>
-	  </div>
+	  <section class="contentBody">
+			<h4>Recent Transactions</h4>
+			<div id="lists">
+				<div class="list">
+					<div class="transaction-left">
+						<div class="transaction-icon">  
+							<i class="fas fa-arrow-down" style="color: #0066ff;"></i>      
+						</div>  
+						<div>
+							<div class="transaction-title" style="font-size: 15px; font-weight: 700;"></div>
+							<div style="font-size: 14px; color: #555;" class="transaction-tracker"></div>       
+						</div>      
+					</div>       
+					<div class="transaction-right">       
+						<div style="font-size: 15px; font-weight: 700;" class="transaction-span"></div>
+						<div style="font-size: 14px; color: #0066ff;">&#8358; <span class="transaction-amount"></span></div>
+					</div> 
+				</div>
+			</div>
+	  </section>
   </main>
 	
 	<!-- Bottom Buttons -->
