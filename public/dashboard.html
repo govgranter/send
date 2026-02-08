@@ -298,16 +298,20 @@ body {
 	width: 96%;
 	margin: auto;
 }
-.contentBody h4 {
+.viewAll {
+	display: flex;
+	justify-content: space-between;
+}
+.viewAll h4 {
 	padding-left: 15px;
 	font-size: 14px;
 }
-#viewAll {
-	text-align: right;
+.viewAll button{
 	background: transparent;
 	border: none;
 	color: #0066ff;
 	font-size: 12px;
+	padding-right: 5px;
 }
 #lists {;  
 	padding: 0;
@@ -503,8 +507,10 @@ body {
 	  </div>
 	  <!--  -->
 	  <section class="contentBody">
-			<h4>Recent Transactions</h4>
-			<button id="viewAll">View all</button>
+			<div class="viewAll">
+				<h4>Recent Transactions</h4>
+				<button>View all</button>
+			</div>
 			<div id="lists">
 				<div class="list">
 					<div class="transaction-left">
