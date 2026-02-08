@@ -474,7 +474,6 @@ body {
     <h1><i class="fa fa-balance-scale" aria-hidden="true"></i><strong id="walletName"></strong></h1>
     <ul>
       <li><button onclick="toggleSidebar();"class="active"><i class="fas fa-wallet"></i><span>Overview</span></button></li>
-      <li><button onclick="toggleSidebar(); openModal('transfer');"><i class="fa fa-arrow-circle-up"></i><span>Transfer</span></button></li>
       <li><button onclick="toggleSidebar(); openModal('withdraw');"><i class="fas fa-paper-plane"></i><span>Withdraw</span></button></li>
       <li><button onclick="toggleSidebar(); openModal('deposit');"><i class="fa fa-university"></i><span>Deposit</span></button></li>
       <li><button onclick="toggleSidebar(); openModal('history');"><i class="fas fa-exchange-alt"></i><span>History</span></button></li>
@@ -488,12 +487,8 @@ body {
   <main class="content">
 	  <div class="floatDiv">
 		  <div class="floatItems">
-			  <button onclick="openModal('transfer')"><i class="fa fa-arrow-circle-up"></i><span>Transfer</span></button>
-			  <button onclick="openModal('withdraw')"><i class="fas fa-paper-plane"></i><span>Withdraw</span></button>
-		  </div>
-		  <div class="floatItems">
 			  <button onclick="openModal('deposit')"><i class="fa fa-university"></i><span>Deposit</span></button>
-			  <button onclick="openModal('request')"><i class="fa fa-envelope"></i><span>Request</span></button>
+			  <button onclick="openModal('withdraw')"><i class="fas fa-paper-plane"></i><span>Withdraw</span></button>
 		  </div>
 		  <div class="floatItems">
 			  <button onclick="openModal('profile')"><i class="fa fa-user"></i><span>Profile</span></button>
@@ -526,10 +521,10 @@ body {
 	<!-- Bottom Buttons -->
 	<div class="bottom">
 		<button class="bottomBtn active"><i class="fa fa-home" aria-hidden="true"></i>Account</button>
-        <button onclick="openModal('transfer');" class="bottomBtn"><i class="fa fa-arrow-circle-up"></i>Transfer</button>      
-        <button onclick="openModal('send');" class="bottomBtn"><i class="fas fa-exchange-alt"></i>History</button>  
+        <button onclick="openModal('deposit');" class="bottomBtn"><i class="fa fa-university"></i></i>Deposit</button>      
+        <button onclick="openModal('history');" class="bottomBtn"><i class="fas fa-exchange-alt"></i>History</button>  
         <button onclick="openModal('withdraw');" class="bottomBtn"><i class="fas fa-paper-plane"></i>Withdraw</button>   
-        <button onclick="openModal('send');" class="bottomBtn"><i class="fa fa-user"></i>Profile</button>
+        <button onclick="openModal('profile');" class="bottomBtn"><i class="fa fa-user"></i>Profile</button>
 	</div>
 	
 	<!-- Withdraw Modal -->
