@@ -803,7 +803,7 @@ body {
 				const cloneSec = cloneTemplateSec.cloneNode(true);
 				
 				const timestamp = history.tracker;
-				cloneSec.querySelector('.transaction-title').textContent = transaction.title;	
+				cloneSec.querySelector('.transaction-title').textContent = history.title;	
 				const updateTracker = () => {
 					cloneSec.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
 				};
