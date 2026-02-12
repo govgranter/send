@@ -432,7 +432,6 @@ body {
 }
 /* History Modal */
 #historyList {
-	border: 1px solid red;
 	width: 100%;
 }
   </style>
@@ -772,6 +771,30 @@ body {
 
 		// Update Transactions
 		function displayTransactions() {
+			
+			// Hide Current Display for Full
+			const cloneDivSec = cloneParentSec.querySelectorAll('.list');
+			cloneDivSec.forEach(div => div.remove());
+			
+			// Then Display for Full
+			savedInfo.transactions.forEach((transactions) => {
+				const cloneSec = cloneTemplateSec.cloneNode(true);
+				
+				const timestamp = transactions.tracker;
+				clone.querySelector('.transaction-title').textContent = transactions.title;	
+				const updateTracker = () => {
+					clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
+				};
+				updateTracker();
+				setInterval(updateTracker, 1 * 60 * 1000);
+				clone.querySelector('.transaction-span').textContent = transactions.span;
+				clone.querySelector('.transaction-amount').textContent = transactions.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+				clone.querySelector('i').classList.remove('fa-arrow-down');	
+				clone.querySelector('i').classList.add(transactions.icon);
+		
+				cloneParentSec.appendChild(clone);
+			});
+			
 			// Hide Current Display
 			const cloneDivs = cloneParent.querySelectorAll('.list');
 			cloneDivs.forEach(div => div.remove());
