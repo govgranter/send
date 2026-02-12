@@ -799,7 +799,7 @@ body {
 				cloneParent.appendChild(clone);
 			});
 			// Then Display Full History
-			savedInfo.transactions[::-1].forEach((history) => {
+			savedInfo.transactions.slice().reverse().forEach((history) => {
 				const cloneSec = cloneTemplateSec.cloneNode(true);
 				
 				const timestamp = history.tracker;
