@@ -640,9 +640,12 @@ body {
 		// Get savedInfo & userId
 		const cloneParent = document.getElementById('lists');
 		const cloneTemplate = cloneParent.querySelector('.list');
+		const cloneParentSec = document.getElementById('historyLists');
+		const cloneTemplateSec = cloneParentSec.querySelector('.list');
 		const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
 		const userId = savedInfo.userId;
 		cloneParent.children[0].remove();
+		cloneParentSec.children[0].remove();
 		
 		// SENDER
 		function sender(payload) {
