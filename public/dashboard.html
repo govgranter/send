@@ -780,7 +780,7 @@ body {
 			const cloneDivs = cloneParent.querySelectorAll('.list');
 			cloneDivs.forEach(div => div.remove());
 			
-			// Then Display
+			// Then Display Recent Transaction
 			savedInfo.transactions.slice(-2).forEach((transaction) => {
 				const clone = cloneTemplate.cloneNode(true);
 				
@@ -797,6 +797,24 @@ body {
 				clone.querySelector('i').classList.add(transaction.icon);
 		
 				cloneParent.appendChild(clone);
+			});
+			// Then Display Full History
+			savedInfo.transactions.forEach((history) => {
+				const cloneSec = cloneTemplateSec.cloneNode(true);
+				
+				const timestamp = history.tracker;
+				cloneSec.querySelector('.transaction-title').textContent = transaction.title;	
+				const updateTracker = () => {
+					cloneSec.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
+				};
+				updateTracker();
+				setInterval(updateTracker, 1 * 60 * 1000);
+				cloneSec.querySelector('.transaction-span').textContent = history.span;
+				cloneSec.querySelector('.transaction-amount').textContent = history.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+				cloneSec.querySelector('i').classList.remove('fa-arrow-down');	
+				cloneSec.querySelector('i').classList.add(history.icon);
+		
+				cloneParentSec.appendChild(cloneSec);
 			});
 		}
 		
