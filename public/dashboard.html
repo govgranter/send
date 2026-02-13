@@ -400,7 +400,8 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
 }
-.popup.modalContent {
+.popup {
+	position: absolute;
 	height: 50%;
 	top: 50%;
 	bottom: auto;
@@ -640,8 +641,8 @@ body {
 	</div>
 
 	<!-- Logout Popup -->
-	<div id="logout" class="popup modal">
-		<div class="modalContent">
+	<div id="logout" class="modal">
+		<div class="modalContent popup">
 			<div class="xclose">
 				<button onclick="closeModal('logout')">&times;</button>
 			</div>
@@ -657,8 +658,8 @@ body {
 	</div>
 
 	<!-- Delete Popup -->
-	<div id="delete" class="popup modal">
-		<div class="modalContent">
+	<div id="delete" class="modal">
+		<div class="modalContent popup">
 			<div class="xclose">
 				<button onclick="closeModal('delete')">&times;</button>
 			</div>
