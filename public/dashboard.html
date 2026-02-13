@@ -400,6 +400,9 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
 }
+.popup.modalContent {
+	bottom: ;
+}
 .modalContent::-webkit-scrollbar {
 	display: none
 }
@@ -548,6 +551,23 @@ body {
         <button onclick="openModal('withdraw');" class="bottomBtn"><i class="fas fa-paper-plane"></i>Withdraw</button>   
         <button onclick="openModal('profile');" class="bottomBtn"><i class="fa fa-user"></i>Profile</button>
 	</div>
+
+	<!-- Deposit Modal -->
+	<div id="deposit" class="modal">
+		<div class="modalContent">
+			<div class="xclose">
+				<button onclick="closeModal('deposit')">&times;</button>
+			</div>
+			<div class="modalBody">
+				<div class="modalTitle">
+					<h4>Deposit</h4>
+				</div>
+				<div class="modalText">
+					<p></p>
+				</div>
+			</div>
+        </div>
+	</div>
 	
 	<!-- Withdraw Modal -->
 	<div id="withdraw" class="modal">
@@ -558,23 +578,6 @@ body {
 			<div class="modalBody">
 				<div class="modalTitle">
 					<h4>Withdraw</h4>
-				</div>
-				<div class="modalText">
-					<p></p>
-				</div>
-			</div>
-        </div>
-	</div>
-	
-	<!-- Deposit Modal -->
-	<div id="deposit" class="modal">
-		<div class="modalContent">
-			<div class="xclose">
-				<button onclick="closeModal('deposit')">&times;</button>
-			</div>
-			<div class="modalBody">
-				<div class="modalTitle">
-					<h4>Deposit</h4>
 				</div>
 				<div class="modalText">
 					<p></p>
@@ -628,6 +631,40 @@ body {
 							</div> 
 						</div>
 					</div>
+				</div>
+			</div>
+        </div>
+	</div>
+
+	<!-- Logout Popup -->
+	<div id="logout" class="modal popup">
+		<div class="modalContent">
+			<div class="xclose">
+				<button onclick="closeModal('deposit')">&times;</button>
+			</div>
+			<div class="modalBody">
+				<div class="modalTitle">
+					<h4>Deposit</h4>
+				</div>
+				<div class="modalText">
+					<p></p>
+				</div>
+			</div>
+        </div>
+	</div>
+
+	<!-- Delete Popup -->
+	<div id="delete" class="modal popup">
+		<div class="modalContent">
+			<div class="xclose">
+				<button onclick="closeModal('deposit')">&times;</button>
+			</div>
+			<div class="modalBody">
+				<div class="modalTitle">
+					<h4>Deposit</h4>
+				</div>
+				<div class="modalText">
+					<p></p>
 				</div>
 			</div>
         </div>
