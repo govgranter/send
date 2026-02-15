@@ -442,6 +442,12 @@ body {
 .modalTitle h4 {
 	font-size: 22px;
 }
+/* Deposit Modal */
+  
+/* Withdraw Modal */
+	  
+/* Profile Modal */
+	  
 /* History Modal */
 #historyList {
 	width: 100%;
@@ -572,7 +578,13 @@ body {
 					<h4>Deposit</h4>
 				</div>
 				<div class="modalText">
-					<p></p>
+					<form method="POST">
+						<label for="amountDE">Amount</label>
+						<br>
+						<input id="amountDE" type="number" inputmode="numeric" placeholder="Enter amount to Deposit">
+						
+						<button>PROCEED</button>
+					</form>
 				</div>
 			</div>
         </div>
@@ -589,7 +601,13 @@ body {
 					<h4>Withdraw</h4>
 				</div>
 				<div class="modalText">
-					<p></p>
+					<form method="POST">
+						<label for="amountWI">Amount</label>
+						<br>
+						<input id="amountWI" type="number" inputmode="numeric" placeholder="Enter amount to Withdraw">
+						
+						<button>PROCEED</button>
+					</form>
 				</div>
 			</div>
         </div>
