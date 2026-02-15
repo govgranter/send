@@ -945,11 +945,11 @@ body {
 		const deleteAccount = document.getElementById('deleteBtn');
 
 		logout.addEventListener('click', () => {
-			//localStorage
-			window.location.href = 'index.html';
+			localStorage.setItem('login', 'false');
+			window.location.href = 'import.html';
 		});
 		deleteAccount.addEventListener('click', () => {
-			//localStora
+			localStorage.clear();
 			window.location.href = 'index.html';
 		});
 		
