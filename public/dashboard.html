@@ -676,7 +676,7 @@ body {
 				<div class="modalText">
 					<div class="popupNote">
 						<p>You are about to logout of your account. Click the "&times;" at the popup top right corner to Cancel. Else click PROCEED to Logout.</p>
-						<button>PROCEED</button>
+						<button id="logoutBtn">PROCEED</button>
 					</div>
 				</div>
 			</div>
@@ -696,7 +696,7 @@ body {
 				<div class="modalText">
 					<div class="popupNote">
 						<p>You are about to permanently delete your account. Please note that this cannot be undone. Click the "&times;" at the popup top right corner to Cancel. Else click PROCEED to continue.</p>
-						<button>PROCEED</button>
+						<button id="deleteBtn">PROCEED</button>
 					</div>
 				</div>
 			</div>
@@ -940,6 +940,18 @@ body {
                 modal.removeEventListener('click', handleOutsideClick);
 			});
 		}	
+		// Logout and Delete
+		const logout = document.getElementById('logoutBtn'); 
+		const deleteAccount = document.getElementById('deleteBtn');
+
+		logout.addEventListener('click', () => {
+			//localStorage
+			window.location.href = 'index.html';
+		});
+		deleteAccount.addEventListener('click', () => {
+			//localStora
+			window.location.href = 'index.html';
+		});
 		
         // Function to fetch and extract new messages
         async function fetchMessages() {
