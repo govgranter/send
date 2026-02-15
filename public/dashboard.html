@@ -860,6 +860,9 @@ body {
 					clone.querySelector('.transaction-tracker').textContent = formatTimeAgo(timestamp ? parseInt(timestamp) : null);
 				};
 				updateTracker();
+				document.addEventListener('visibilitychange', () => {
+					if (!document.hidden) updateTracker();
+				});
 				setInterval(updateTracker, 1 * 60 * 1000);
 				clone.querySelector('.transaction-span').textContent = transaction.span;
 				clone.querySelector('.transaction-amount').textContent = transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
