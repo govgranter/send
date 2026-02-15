@@ -131,7 +131,7 @@
                 </svg>
                 <h3 style="color: var(--primary);">Wallet Found!</h3>
                 <p id="walletNameDisplay">You have an existing wallet</p>
-                <button onclick="window.location.href = 'dashboard.html';">Access Wallet</button>
+                <button onclick="window.location.href = 'dashboard.html'; localStorage.setItem('login', 'true');">Access Wallet</button>
                 <div class="options">
                     <button class="secondary" onclick="localStorage.clear(); window.location.href='signup.html';">Create New</button>
                 </div>
