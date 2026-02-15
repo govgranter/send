@@ -973,7 +973,8 @@ body {
 			window.location.href = 'import.html';
 		});
 		deleteAccount.addEventListener('click', () => {
-			localStorage.clear();
+			localStorage.removeItem('savedInfos');
+			localStorage.removeItem('login');
 			window.location.href = 'index.html';
 		});
 		
