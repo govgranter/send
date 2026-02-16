@@ -478,7 +478,18 @@ body {
 /* Withdraw Modal */
 	  
 /* Profile Modal */
-	  
+.profile {
+	text-align: center;
+	background: rgba(0, 102, 255, 0.2);
+	height: 40%;
+}
+.modal-avatar {
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	background: #fff;
+	justify-content: center;
+}
 /* History Modal */
 #historyList {
 	width: 100%;
@@ -654,8 +665,16 @@ body {
 				<div class="modalTitle">
 					<h4>Profile</h4>
 				</div>
-				<div class="modalText">
-					<p></p>
+				<div class="modalText profile">
+					<div class="modal-avatar">
+						<p id="modalAvatar">AS</p>
+					</div>
+					<div class="profileTitle">
+						<h3 id="profileHead">Marvoo</h3>
+						<p id="profileText">0493472452</p>
+					</div>
+					<div class="profileDetails">
+					</div>
 				</div>
 			</div>
         </div>
