@@ -472,8 +472,8 @@ body {
 	display: block;
 	margin: 30px auto;
 }
-.show {
-	display: block:
+.hide {
+	display: none:
 }
 /* Deposit Modal */
   
@@ -637,11 +637,11 @@ body {
 						</form>
 					</div>
 				
-					<div id="deposit-mid">
+					<div id="deposit-mid" class="hide">
 						<p>This is the mid</p>
 					</div>
 					
-					<div id="deposit-Final">
+					<div id="deposit-Final" class="hide">
 						<p>This is the Final</p>
 					</div>
 				</div>
@@ -660,13 +660,23 @@ body {
 					<h4>Withdraw</h4>
 				</div>
 				<div class="modalText">
-					<form method="POST">
-						<label for="amountWI">Amount</label>
-						<br>
-						<input id="amountWI" type="number" inputmode="numeric" placeholder="Enter amount to Withdraw">
-						
-						<button>PROCEED</button>
-					</form>
+					<div id="withdraw-fore">
+						<form method="POST">
+							<label for="amountWI">Amount</label>
+							<br>
+							<input id="amountWI" type="number" inputmode="numeric" placeholder="Enter amount to Withdraw">
+							
+							<button>PROCEED</button>
+						</form>
+					</div>
+					
+					<div id="withdraw-mid" class="hide">
+						<p>This is the mid</p>
+					</div>
+					
+					<div id="withdraw-Final" class="hide">
+						<p>This is the Final</p>
+					</div>
 				</div>
 			</div>
         </div>
@@ -682,15 +692,25 @@ body {
 				<div class="modalTitle">
 					<h4>Profile</h4>
 				</div>
-				<div class="modalText profile">
-					<div class="modal-avatar">
-						<p id="modalAvatar">AS</p>
+				<div class="modalText">
+					<div id="profile-fore">
+						<div class="profile">
+							<div class="modal-avatar">
+								<p id="modalAvatar">AS</p>
+							</div>
+							<div class="profileTitle">
+								<h3 id="profileHead">Marvoo</h3>
+								<p id="profileText">0493472452</p>
+							</div>
+							<button><i class="fa fa-pencil-square"></i></button>
+						</div>
+						<div class="profile-details">
+							<label>Name</label>
+						</div>
 					</div>
-					<div class="profileTitle">
-						<h3 id="profileHead">Marvoo</h3>
-						<p id="profileText">0493472452</p>
-					</div>
-					<div class="profileDetails">
+					
+					<div id="profile-final" class="hide">
+						<p>This is profile Final</p>
 					</div>
 				</div>
 			</div>
