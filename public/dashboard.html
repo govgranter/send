@@ -472,7 +472,9 @@ body {
 	display: block;
 	margin: 30px auto;
 }
-
+.show {
+	display: block:
+}
 /* Deposit Modal */
   
 /* Withdraw Modal */
@@ -498,6 +500,7 @@ body {
 #historyList {
 	width: 100%;
 }
+
   </style>
 </head>
 <body>	
@@ -624,13 +627,23 @@ body {
 					<h4>Deposit</h4>
 				</div>
 				<div class="modalText">
-					<form method="POST">
-						<label for="amountDE">Amount</label>
-						<br>
-						<input id="amountDE" type="number" inputmode="numeric" placeholder="Enter amount to Deposit">
-						
-						<button>PROCEED</button>
-					</form>
+					<div id="deposit-fore">
+						<form method="POST">
+							<label for="amountDE">Amount</label>
+							<br>
+							<input id="amountDE" type="number" inputmode="numeric" placeholder="Enter amount to Deposit">
+							
+							<button>PROCEED</button>
+						</form>
+					</div>
+				
+					<div id="deposit-mid">
+						<p>This is the mid</p>
+					</div>
+					
+					<div id="deposit-Final">
+						<p>This is the Final</p>
+					</div>
 				</div>
 			</div>
         </div>
