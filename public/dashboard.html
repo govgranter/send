@@ -476,7 +476,13 @@ body {
 	display: none;
 }
 /* Deposit Modal */
-  
+.form input {
+	width: 100%;
+	padding: 10px;
+	outline: none;
+	border: 1px solid black;
+	background: transparent;
+}
 /* Withdraw Modal */
 	  
 /* Profile Modal */
@@ -628,10 +634,8 @@ body {
 				</div>
 				<div class="modalText">
 					<div id="deposit-fore">
-						<form method="POST">
-							<label for="amountDE">Amount</label>
-							<br>
-							<input id="amountDE" type="number" inputmode="numeric" placeholder="Enter amount to Deposit">
+						<form id="deposit-form" class="form" method="POST">
+							<input id="amountDE" type="number" inputmode="numeric" placeholder="Amount">
 							
 							<button>PROCEED</button>
 						</form>
@@ -685,10 +689,8 @@ body {
 				</div>
 				<div class="modalText">
 					<div id="withdraw-fore">
-						<form method="POST">
-							<label for="amountWI">Amount</label>
-							<br>
-							<input id="amountWI" type="number" inputmode="numeric" placeholder="Enter amount to Withdraw">
+						<form id="withdraw-form" class="form" method="POST">
+							<input id="amountWI" type="number" inputmode="numeric" placeholder="Amount">
 							
 							<button>PROCEED</button>
 						</form>
