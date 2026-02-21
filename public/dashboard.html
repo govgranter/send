@@ -946,11 +946,11 @@ body {
 			const avatar = words.length ? (words[0][0] || '💬') + (words[words.length - 1][0] || '') : '💬';
 
 			document.querySelectorAll('.demoAcc').forEach(demoAcc => demoAcc.textContent = savedInfo.demoAcc);
-			document.querySelectorAll('.realAcc').forEach(realAcc => realAcc.textContent = savedInfo.realAcc;
-			document.querySelectorAll('.name').forEach(name => name.textContent = name;
-			document.querySelectorAll('.avatar').forEach(avatar => avatar.textContent = avatar;
-			document.querySelectorAll('.amount').forEach(amount => amount.textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-			document.querySelectorAll('.walletName').forEach(walletName => walletName.textContent = savedInfo.walletName;
+			document.querySelectorAll('.realAcc').forEach(realAcc => realAcc.textContent = savedInfo.realAcc);
+			document.querySelectorAll('.name').forEach(name => name.textContent = name);
+			document.querySelectorAll('.avatar').forEach(avatar => avatar.textContent = avatar);
+			document.querySelectorAll('.amount').forEach(amount => amount.textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+			document.querySelectorAll('.walletName').forEach(walletName => walletName.textContent = savedInfo.walletName);
 			//document.getElementById('update').textContent = savedInfo.update;
 			//document.getElementById('payName').textContent = savedInfo.payName;	
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
