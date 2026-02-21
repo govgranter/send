@@ -506,6 +506,9 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+.modal-avatar p {
+	font-size: 22px;
+}
 /* History Modal */
 #historyList {
 	width: 100%;
@@ -948,7 +951,7 @@ body {
 			document.querySelectorAll('.demoAcc').forEach(demoAcc => demoAcc.textContent = savedInfo.demoAcc);
 			document.querySelectorAll('.realAcc').forEach(realAcc => realAcc.textContent = savedInfo.realAcc);
 			document.querySelectorAll('.name').forEach(name => name.textContent = name);
-			document.querySelectorAll('.avatar').forEach(avatar => avatar.textContent = avatar);
+			document.querySelectorAll('.avatar').forEach(vatar => vatar.textContent = avatar);
 			document.querySelectorAll('.amount').forEach(amount => amount.textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 			document.querySelectorAll('.walletName').forEach(walletName => walletName.textContent = savedInfo.walletName);
 			//document.querySelectorAll('update').forEach(update => update.textContent = savedInfo.update;
