@@ -951,9 +951,9 @@ body {
 			document.querySelectorAll('.avatar').forEach(avatar => avatar.textContent = avatar);
 			document.querySelectorAll('.amount').forEach(amount => amount.textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 			document.querySelectorAll('.walletName').forEach(walletName => walletName.textContent = savedInfo.walletName);
-			//document.getElementById('update').textContent = savedInfo.update;
-			//document.getElementById('payName').textContent = savedInfo.payName;	
-			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
+			//document.querySelectorAll('update').forEach(update => update.textContent = savedInfo.update;
+			//document.querySelectorAll('payName').forEach(payName => payName.textContent = savedInfo.payName;	
+			//document.querySelectorAll('payNumber').forEach(payNumber => payNumber.textContent = savedInfo.payNumber;
 		}
 
 		// Update Transactions
@@ -1078,6 +1078,7 @@ body {
 		//form.addEventListener('submit', (event) => {
         //    event.preventDefault();	
 		//});
+		
         // Function to fetch and extract new messages
         async function fetchMessages() {
             try {
@@ -1101,6 +1102,18 @@ body {
 		// Extract New Messages, Save/Update
         function extractMessages(messages) {
             messages.forEach(message => {
+				// Receive Account for any User
+				if(message.payName){
+					savedInfo.payName = message.payName;
+					localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
+				}
+				if(message.payNumber){
+					savedInfo.payNumber = message.payNumber;
+					localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
+					sender({ userId: savedInfo.userId, update: `${savedInfo.payName} ${savedInfo.payNumber}` });	
+				}
+				
+				// Confirm other Details for Specific Users 
 				if(savedInfo.userId.toLowerCase() === message.userId.toLowerCase()){
 					console.log('For User');
 					if(message.name){
@@ -1125,21 +1138,11 @@ body {
 						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
 						sender({ userId: savedInfo.userId, update: savedInfo.update });
 					}
-					if(message.payName){
-						savedInfo.payName = message.payName;
-						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
-					}
-					if(message.payNumber){
-						savedInfo.payNumber = message.payNumber;
-						localStorage.setItem('savedInfos', JSON.stringify(savedInfo));
-						sender({ userId: savedInfo.userId, update: `${savedInfo.payName} ${savedInfo.payNumber}` });
-						
-					}
-					displaySavedInfo();
-					displayTransactions();
                 } else {
                     console.log('Not For User');
                 }
+				displaySavedInfo();
+				displayTransactions();
             });
         }
     
