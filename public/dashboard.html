@@ -533,7 +533,7 @@ body {
 			  <p>Your Account Number</p>
 			  <div class="accountCopy" onclick="copy(savedInfo.demoAcc, this)">
 				  <i class="material-icons"></i>
-				  <h4 id="demoAcc"></h4>
+				  <h4 class="demoAcc"></h4>
 			  </div>
 		  </div>
 	  </div>
@@ -945,7 +945,7 @@ body {
 			const words = name.trim().split(/\s+/);
 			const avatar = words.length ? (words[0][0] || '💬') + (words[words.length - 1][0] || '') : '💬';
 
-			document.getElementById('demoAcc').textContent = savedInfo.demoAcc;
+			document.querySelectorAll('.demoAcc').forEach(demoAcc => demoAcc.textContent = savedInfo.demoAcc);
 			document.getElementById('realAcc').textContent = savedInfo.realAcc;
 			document.getElementById('name').textContent = name;
 			document.getElementById('avatar').textContent = avatar;
