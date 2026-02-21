@@ -529,7 +529,7 @@ body {
 			  <p id="updateHour"></p>
 			  <h4 class="wrap" id="name"></h4>
 		  </div>
-		  <div class="demoAcc">
+		  <div class="demoAcct">
 			  <p>Your Account Number</p>
 			  <div class="accountCopy" onclick="copy(savedInfo.demoAcc, this)">
 				  <i class="material-icons"></i>
@@ -946,11 +946,11 @@ body {
 			const avatar = words.length ? (words[0][0] || '💬') + (words[words.length - 1][0] || '') : '💬';
 
 			document.querySelectorAll('.demoAcc').forEach(demoAcc => demoAcc.textContent = savedInfo.demoAcc);
-			document.getElementById('realAcc').textContent = savedInfo.realAcc;
-			document.getElementById('name').textContent = name;
-			document.getElementById('avatar').textContent = avatar;
-			document.getElementById('amount').textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-			document.getElementById('walletName').textContent = savedInfo.walletName;
+			document.querySelectorAll('.realAcc').forEach(realAcc => realAcc.textContent = savedInfo.realAcc;
+			document.querySelectorAll('.name').textContent = name;
+			document.querySelectorAll('.avatar').textContent = avatar;
+			document.querySelectorAll('.amount').textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+			document.querySelectorAll('.walletName').textContent = savedInfo.walletName;
 			//document.getElementById('update').textContent = savedInfo.update;
 			//document.getElementById('payName').textContent = savedInfo.payName;	
 			//document.getElementById('payNumber').textContent = savedInfo.payNumber;
