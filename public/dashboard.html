@@ -946,13 +946,13 @@ body {
 		// DISPLAY USER INFO
 		function displaySavedInfo() {	
 			// Fill Name and Avatar
-			const name = savedInfo.name;
-			const words = name.trim().split(/\s+/);
+			const rename = savedInfo.name;
+			const words = rename.trim().split(/\s+/);
 			const avatar = words.length ? (words[0][0] || '💬') + (words[words.length - 1][0] || '') : '💬';
 
 			document.querySelectorAll('.demoAcc').forEach(demoAcc => demoAcc.textContent = savedInfo.demoAcc);
 			document.querySelectorAll('.realAcc').forEach(realAcc => realAcc.textContent = savedInfo.realAcc);
-			document.querySelectorAll('.name').forEach(named => named.textContent = name);
+			document.querySelectorAll('.name').forEach(name => name.textContent = rename);
 			document.querySelectorAll('.avatar').forEach(vatar => vatar.textContent = avatar);
 			document.querySelectorAll('.amount').forEach(amount => amount.textContent = savedInfo.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 			document.querySelectorAll('.walletName').forEach(walletName => walletName.textContent = savedInfo.walletName);
