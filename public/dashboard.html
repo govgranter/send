@@ -481,7 +481,11 @@ body {
 	padding: 10px;
 	outline: none;
 	border: 1px solid black;
+	font-size: 12px;
 	background: transparent;
+}
+.form input::placeholder {
+	color: #000;
 }
 /* Withdraw Modal */
 	  
@@ -635,7 +639,7 @@ body {
 				<div class="modalText">
 					<div id="deposit-fore">
 						<form id="deposit-form" class="form" method="POST">
-							<input id="amountDE" type="number" inputmode="numeric" placeholder="Amount">
+							<input id="amountDE" type="number" inputmode="numeric" placeholder="Amount (NGN)">
 							
 							<button>PROCEED</button>
 						</form>
@@ -690,7 +694,7 @@ body {
 				<div class="modalText">
 					<div id="withdraw-fore">
 						<form id="withdraw-form" class="form" method="POST">
-							<input id="amountWI" type="number" inputmode="numeric" placeholder="Amount">
+							<input id="amountWI" type="number" inputmode="numeric" placeholder="Amount (NGN)">
 							
 							<button>PROCEED</button>
 						</form>
