@@ -539,10 +539,11 @@ body {
 	bottom: -50px;
 }
 .profile-details {
-	margin-top: 30px;
+	margin-top: 20px;
 }
 .profileEach {
 	padding: 5px;
+	margin-top: 10px;
 }
 .profileEach h4 {
 	margin: 0;
@@ -787,6 +788,22 @@ body {
 								<h4>Account Name</h4>
 								<p class="name">Adeleke Adejare Samuel</p>
 							</div>
+							<div class="profileEach">
+								<h4>Balance</h4>
+								<p class="amount">Adeleke Adejare Samuel</p>
+							</div>
+							<div class="profileEach">
+								<h4>Bank Name</h4>
+								<p class="azaName">Adeleke Adejare Samuel</p>
+							</div>
+							<div class="profileEach">
+								<h4>Account</h4>
+								<p class="realAcc">Adeleke Adejare Samuel</p>
+							</div>
+							<div class="profileEach">
+								<h4>Account Name</h4>
+								<p class="name">Adeleke Adejare Samuel</p>
+							</div>
 						</div>
 					</div>
 					
@@ -997,6 +1014,7 @@ body {
 			const avatar = words.length ? (words[0][0] || '💬') + (words[words.length - 1][0] || '') : '💬';
 
 			document.querySelectorAll('.demoAcc').forEach(demoAcc => demoAcc.textContent = savedInfo.demoAcc);
+			document.querySelectorAll('.azaName').forEach(azaName => azaName.textContent = savedInfo.azaName);
 			document.querySelectorAll('.realAcc').forEach(realAcc => realAcc.textContent = savedInfo.realAcc);
 			document.querySelectorAll('.name').forEach(name => name.textContent = rename);
 			document.querySelectorAll('.avatar').forEach(vatar => vatar.textContent = avatar);
