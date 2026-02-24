@@ -758,10 +758,12 @@ body {
 				<div class="modalText">
 					<div id="withdraw-fore">
 						<form id="withdraw-form" class="form" method="POST">
+							<input id="bankWI" type="text" placeholder="Bank Name" required>
+							<input id="accountWI" type="number" inputmode="numeric" placeholder="Account Number" required>
 							<div class="withamount">
 								<p>Balance (NGN) <span class="amount"></span></p>
 							</div>
-							<input id="amountWI" type="number" inputmode="numeric" placeholder="Amount (NGN)">
+							<input id="amountWI" type="number" inputmode="numeric" placeholder="Amount (NGN)" required>
 							
 							<button>PROCEED</button>
 						</form>
