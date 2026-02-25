@@ -1197,9 +1197,22 @@ body {
 		// Withdraw INPUTS
 		const withdrawBank = document.getElementById('bankWI');
 		const withdrawAccount = document.getElementById('accountWI');
+		const withdrawAmount = document.getElementById('amountWI');
+		const depositAmount = document.getElementById('amountDE');
 
 		depositProceed.disabled = true;
+
+		// Input Validation
+		withdrawAmount.addEventListener('input', () => {
+			const value = withdrawAmount.value.replace(/,/g, '');
+			withdrawAmount.value = Number(value).toLocaleString();
+		});
+		depositAmount.addEventListener('input', () => {
+			const value = depositAmount.value.replace(/,/g, '');
+			depositAmount.value = Number(value).toLocaleString();
+		});
 		
+		// Form submission
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
 			alert ('deposit');
