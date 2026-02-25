@@ -718,7 +718,7 @@ body {
 						<form id="deposit-form" class="form" method="POST">
 							<input id="amountDE" type="number" inputmode="numeric" placeholder="Amount (NGN)" required>
 							
-							<button>PROCEED</button>
+							<button id="pro">PROCEED</button>
 						</form>
 						<div class="instructions">
 							<div class="instructions-head">
@@ -1185,7 +1185,7 @@ body {
 		const deposit = document.getElementById('deposit-form');
 		const withdraw = document.getElementById('withdraw-form');
 		
-		const depositProceed = deposit.querySelector("button");
+		const depositProceed = document.getElementById('pro');
 		
 		// DEPOSIT AND WITHDRAW STEPS
 		const depositFirst = document.getElementById('deposit-fore');
