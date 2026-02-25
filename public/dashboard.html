@@ -1184,6 +1184,9 @@ body {
 		// Modal forms submit
 		const deposit = document.getElementById('deposit-form');
 		const withdraw = document.getElementById('withdraw-form');
+		
+		const depositProceed = deposit.querySelector("button");
+		
 		// DEPOSIT AND WITHDRAW STEPS
 		const depositFirst = document.getElementById('deposit-fore');
 		const depositSecond = document.getElementById('deopsit-mid');
@@ -1194,6 +1197,8 @@ body {
 		// Withdraw INPUTS
 		const withdrawBank = document.getElementById('bankWI');
 		const withdrawAccount = document.getElementById('accountWI');
+
+		depositProceed.disabled = true;
 		
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
