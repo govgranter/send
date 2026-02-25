@@ -464,6 +464,11 @@ body {
 	font-size: 12px;
 	width: 100%;
 }
+.modalText button:disabled {
+	color: #333;
+	background: #333;
+	cursor: not-allowed;
+}
 .popup .modalText button {
 	border: 1px solid red;	
 	background: transparent;
@@ -763,7 +768,9 @@ body {
 				<div class="modalText">
 					<div id="withdraw-fore">
 						<form id="withdraw-form" class="form" method="POST">
+							<label>Bank Name</label><br>
 							<input id="bankWI" type="text" placeholder="Bank Name" required>
+							<label>Account Number</label><br>
 							<input id="accountWI" type="number" inputmode="numeric" placeholder="Account Number" required>
 							<div class="withamount">
 								<p>Balance (NGN) <span class="amount"></span></p>
@@ -1023,6 +1030,59 @@ body {
 			return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 		}
 
+		// THE POP UP MODAL
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                
+                // Add event listener for Escape key
+                document.addEventListener('keydown', handleEscapeKey);
+                // Add event listener for outside click
+                modal.addEventListener('click', handleOutsideClick);
+            }
+        }
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+                // Remove event listeners
+                document.removeEventListener('keydown', handleEscapeKey);
+                modal.removeEventListener('click', handleOutsideClick);
+            }
+        }
+        // Close modal with Escape key
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape') {
+                // Find the currently active modal and close it
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        }
+        // Close modal when clicking outside content
+        function handleOutsideClick(e) {
+            if (e.target === this) {
+                closeModal(this.id);
+            }
+        }
+        // Close all modals (useful for resetting state)
+        function closeAllModals() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.classList.remove('active');
+            });
+            document.body.style.overflow = 'auto';
+			
+            document.removeEventListener('keydown', handleEscapeKey);
+            modals.forEach(modal => {
+                modal.removeEventListener('click', handleOutsideClick);
+			});
+		}	
+		
 		// MAIN CODE
 		let lastMessageId = localStorage.getItem('latestId') || 0;
 
@@ -1108,58 +1168,6 @@ body {
 			});
 		}
 		
-		// THE POP UP MODAL
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-                
-                // Add event listener for Escape key
-                document.addEventListener('keydown', handleEscapeKey);
-                // Add event listener for outside click
-                modal.addEventListener('click', handleOutsideClick);
-            }
-        }
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto'; // Restore scrolling
-                // Remove event listeners
-                document.removeEventListener('keydown', handleEscapeKey);
-                modal.removeEventListener('click', handleOutsideClick);
-            }
-        }
-        // Close modal with Escape key
-        function handleEscapeKey(e) {
-            if (e.key === 'Escape') {
-                // Find the currently active modal and close it
-                const activeModal = document.querySelector('.modal.active');
-                if (activeModal) {
-                    closeModal(activeModal.id);
-                }
-            }
-        }
-        // Close modal when clicking outside content
-        function handleOutsideClick(e) {
-            if (e.target === this) {
-                closeModal(this.id);
-            }
-        }
-        // Close all modals (useful for resetting state)
-        function closeAllModals() {
-            const modals = document.querySelectorAll('.modal');
-            modals.forEach(modal => {
-                modal.classList.remove('active');
-            });
-            document.body.style.overflow = 'auto';
-			
-            document.removeEventListener('keydown', handleEscapeKey);
-            modals.forEach(modal => {
-                modal.removeEventListener('click', handleOutsideClick);
-			});
-		}	
 		// Logout and Delete
 		const logout = document.getElementById('logoutBtn'); 
 		const deleteAccount = document.getElementById('deleteBtn');
@@ -1175,6 +1183,7 @@ body {
 		});
 
 		// Modal forms
+		// const form
 		//form.addEventListener('submit', (event) => {
         //    event.preventDefault();	
 		//});
