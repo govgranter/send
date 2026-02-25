@@ -1185,7 +1185,8 @@ body {
 		const deposit = document.getElementById('deposit-form');
 		const withdraw = document.getElementById('withdraw-form');
 		
-		const depositProceed = document.getElementById('pro');
+		const depositProceed = deposit.querySelector('button');
+		const withdrawProceed = withdraw.querySelector('button');
 		
 		// DEPOSIT AND WITHDRAW STEPS
 		const depositFirst = document.getElementById('deposit-fore');
