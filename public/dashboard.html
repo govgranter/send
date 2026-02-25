@@ -1185,11 +1185,17 @@ body {
 			window.location.href = 'index.html';
 		});
 
-		// Modal forms
-		// const form
-		//form.addEventListener('submit', (event) => {
-        //    event.preventDefault();	
-		//});
+		// Modal forms submit
+		 const deposit = document.getElementById('deposit-form');
+		 const withdraw = document.getElementById('withdraw-form');
+		
+		deposit.addEventListener('submit', (event) => {
+            event.preventDefault();	
+		});
+		
+		withdraw.addEventListener('submit', (event) => {
+            event.preventDefault();	
+		});
 		
         // Function to fetch and extract new messages
         async function fetchMessages() {
