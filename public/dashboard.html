@@ -509,14 +509,14 @@ body {
 	font-size: 14px;
 	color: #0066ff;
 }
-.withamount {
+.formamount {
 	display: flex;
 	justify-content: space-between;
 }
-.withamount h4 {
+.formamount h4 {
 	font-size: 12px;
 }
-.withamount p {
+.formamount p {
 	padding-right: 10px;
 	margin: 0;
 	font-size: 12px;
@@ -722,6 +722,9 @@ body {
 				<div class="modalText">
 					<div id="deposit-fore">
 						<form id="deposit-form" class="form" method="POST">
+							<div class="formamount">
+								<h4>5,000-15,000,000</h4>
+							</div>
 							<input id="amountDE" type="text" inputmode="numeric" placeholder="Amount (NGN)" required>
 							
 							<button id="pro">PROCEED</button>
@@ -781,7 +784,7 @@ body {
 							<input id="bankWI" type="text" placeholder="Bank Name" required>
 							<label>Account Number</label><br>
 							<input id="accountWI" type="text" inputmode="numeric" placeholder="Account Number" required>
-							<div class="withamount">
+							<div class="formamount">
 								<h4>5,000-15,000,000</h4>
 								<p>Balance (NGN) <span class="amount"></span></p>
 							</div>
