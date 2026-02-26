@@ -1205,9 +1205,11 @@ body {
 		withdrawProceed.disabled = true;
 
 		// Input Validation
-		withdrawAmount.addEventListener('input', () => {
-			const value = withdrawAmount.value.replace(/,/g, '');
-			withdrawAmount.value = Number(value).toLocaleString();
+		withdrawAmount.addEventListener('input', function(e) {
+			let value = this.value.replace(/[^\d.]/g, '');
+			let parts = value.split('.');
+			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			this.value = parts.join('.');
 		});
 		depositAmount.addEventListener('input', () => {
 			const value = depositAmount.value.replace(/,/g, '');
