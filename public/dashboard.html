@@ -372,7 +372,7 @@ body {
 .bottomBtn.active {
     color: #000;
 }
-/* Modal */
+/* OVERLAY */
 .modal {
 	position: fixed;
 	top: 0; 
@@ -387,10 +387,11 @@ body {
     z-index: 2000;
     transition: all 0.3s ease;
 }
+/* MODAL */
 .modalContent {
     background: #fff;
     box-shadow: 0 -5px 8px rgba(0,0,0,0.2);
-    position: absolute;
+    position: fixed;
 	bottom: 0;
     padding: 0;
     height: 90%;
@@ -401,12 +402,13 @@ body {
 	overflow-y: hidden;
 }
 .popup {
-	position: absolute;
-	height: 50vh;
+	position: fixed;
 	top: 50%;
+	left: 50%;
+	height: auto;
+	transform: translate(-50%, -50%);
 	bottom: auto;
 	border-radius: 30px;
-	transform: translateY(-50%);
 	width: 90%;
 }
 .modal.active {
@@ -431,7 +433,6 @@ body {
 .popup .xclose {
 	text-align: right;
 }
-
 .modalBody {
 	margin-top: 40px;
 	padding: 10px 20px 0;
@@ -440,13 +441,16 @@ body {
 .modalTitle h4 {
 	font-size: 22px;
 }
+/* SCROLLABLE */
 .modalText {
+	flex: 1;       
 	overflow-y: auto;
 	background: #000;
 }
 .modalText::-webkit-scrollbar {
 	display: none;
 }
+
 .popupNote {
 	padding: 2px 10px;
 	border-radius: 10px;
