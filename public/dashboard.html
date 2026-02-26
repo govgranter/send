@@ -509,14 +509,20 @@ body {
 	font-size: 14px;
 	color: #0066ff;
 }
-/* Withdraw Modal */
+.withamount {
+	display: flex;
+	justify-content: space-between;
+}
+.withamount h4 {
+	font-size: 12px;
+}
 .withamount p {
-	text-align: right;
 	padding-right: 10px;
 	margin: 0;
 	font-size: 12px;
 	color: #0066ff;
 }
+/* Withdraw Modal */
 	  
 /* Profile Modal */	  
 .profile {
@@ -776,6 +782,7 @@ body {
 							<label>Account Number</label><br>
 							<input id="accountWI" type="text" inputmode="numeric" placeholder="Account Number" required>
 							<div class="withamount">
+								<h4>5,000-15,000,000</h4>
 								<p>Balance (NGN) <span class="amount"></span></p>
 							</div>
 							<input id="amountWI" type="text" inputmode="numeric" placeholder="Amount (NGN)" required>
