@@ -430,13 +430,7 @@ body {
 .popup .xclose {
 	text-align: right;
 }
-.scroll {
-    overflow-y: auto;
-	background: #000;
-}
-.scroll::-webkit-scrollbar {
-	display: none
-}
+
 .modalBody {
 	position: absolute;
 	top: 40px;
@@ -447,7 +441,10 @@ body {
 	font-size: 22px;
 }
 .modalText {
-	
+	overflow-y: auto;
+}
+.modalText::-webkit-scrollbar {
+	display: none;
 }
 .popupNote {
 	padding: 2px 10px;
