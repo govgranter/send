@@ -423,12 +423,18 @@ body {
 	padding: 20px 20px 10px;
     border-radius: 30px 30px 0 0;
 	background: #0066ff;
+	display: flex;
 }
 .xclose button {
 	background: none;
 	border: none;
 	font-size: 2rem;
-	color: #000;
+	color: #fff;
+}
+.xclose h4 {
+	font-size: 22px;
+	margin: 0;
+	color: #fff;
 }
 .popup .xclose {
 	text-align: right;
@@ -442,9 +448,6 @@ body {
 }
 .modalBody::-webkit-scrollbar {
 	display: none;
-}
-.modalTitle h4 {
-	font-size: 22px;
 }
 .popupNote {
 	padding: 2px 10px;
@@ -717,11 +720,10 @@ body {
 		<div class="modalContent">
 			<div class="xclose">
 				<button onclick="closeModal('deposit')">&times;</button>
+				<h4>Deposit</h4>
+			</div>
 			</div>
 			<div class="modalBody">
-				<div class="modalTitle">
-					<h4>Deposit</h4>
-				</div>
 				<div class="modalText">
 					<div id="deposit-fore">
 						<form id="deposit-form" class="form" method="POST">
@@ -775,11 +777,9 @@ body {
 		<div class="modalContent">
 			<div class="xclose">
 				<button onclick="closeModal('withdraw')">&times;</button>
+				<h4>Withdraw</h4>
 			</div>
 			<div class="modalBody">
-				<div class="modalTitle">
-					<h4>Withdraw</h4>
-				</div>
 				<div class="modalText">
 					<div id="withdraw-fore">
 						<form id="withdraw-form" class="form" method="POST">
@@ -820,11 +820,9 @@ body {
 		<div class="modalContent">
 			<div class="xclose">
 				<button onclick="closeModal('profile')">&times;</button>
+				<h4>Profile</h4>
 			</div>
 			<div class="modalBody">
-				<div class="modalTitle">
-					<h4>Profile</h4>
-				</div>
 				<div class="modalText">
 					<div id="profile-fore">
 						<div class="profile">
@@ -870,11 +868,9 @@ body {
 		<div class="modalContent">
 			<div class="xclose">
 				<button onclick="closeModal('history')">&times;</button>
+				<h4>History</h4>
 			</div>
 			<div class="modalBody">
-				<div class="modalTitle">
-					<h4>History</h4>
-				</div>
 				<div class="modalText">
 					<div id="historyList">
 						<div class="list">
@@ -902,12 +898,10 @@ body {
 	<div id="logout" class="modal">
 		<div class="modalContent popup">
 			<div class="xclose">
+				<h4 style="color: rgba(191, 43, 43, 0.9);">Logout</h4>
 				<button onclick="closeModal('logout')">&times;</button>
 			</div>
 			<div class="modalBody">
-				<div class="modalTitle">
-					<h4 style="color: rgba(191, 43, 43, 0.9);">Logout</h4>
-				</div>
 				<div class="modalText">
 					<div class="popupNote">
 						<p>You are about to logout of your account. Click the "&times;" at the popup top right corner to Cancel, else click PROCEED to Logout.</p>
@@ -922,19 +916,15 @@ body {
 	<div id="delete" class="modal">
 		<div class="modalContent popup">
 			<div class="xclose">
+				<h4 style="color: red;">Delete Wallet</h4>
 				<button onclick="closeModal('delete')">&times;</button>
 			</div>
-			<div class="scroll">
-				<div class="modalBody">
-					<div class="modalTitle">
-						<h4 style="color: red;">Delete Wallet</h4>
+			<div class="modalBody">
+				<div class="modalText del">
+					<div class="popupNote">
+						<p>You are about to permanently delete your account. Please note that this cannot be undone. Click the "&times;" at the popup top right corner to Cancel, else click PROCEED to continue.</p>
 					</div>
-					<div class="modalText del">
-						<div class="popupNote">
-							<p>You are about to permanently delete your account. Please note that this cannot be undone. Click the "&times;" at the popup top right corner to Cancel, else click PROCEED to continue.</p>
-						</div>
-						<button id="deleteBtn">PROCEED</button>
-					</div>
+					<button id="deleteBtn">PROCEED</button>
 				</div>
 			</div>
         </div>
