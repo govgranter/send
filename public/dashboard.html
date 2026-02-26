@@ -1211,9 +1211,33 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 		});
-		depositAmount.addEventListener('input', () => {
-			const value = depositAmount.value.replace(/,/g, '');
-			depositAmount.value = Number(value).toLocaleString();
+
+		let lastValue = '';
+
+		depositAmount.addEventListener('input', function(e) {
+			let raw = this.value.replace(/[^\d.]/g, '');
+			if (raw) {
+				let number = parseFloat(raw);
+
+				if (!isNaN(number)) {
+            
+					// Format with commas
+					this.value = number.toLocaleString('en-US');
+					lastValue = this.value;
+				}
+			} else {
+				this.value = '';
+				lastValue = '';
+			}
+		});
+
+		// Handle backspace/deletion
+		depositAmount.addEventListener('keydown', function(e) {
+			if (e.key === 'Backspace' && this.value === lastValue) {
+				let raw = this.value.replace(/,/g, '');
+				this.value = raw.slice(0, -1);
+				e.preventDefault();
+			}
 		});
 		
 		// Form submission
