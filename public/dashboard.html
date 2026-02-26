@@ -1222,6 +1222,7 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 		});
+		const depositValue = +depositAmount.value.replace(/,/g, '');
 		
 		withdrawAmount.addEventListener('input', function(e) {
 			let value = this.value.replace(/[^\d.]/g, '');
@@ -1229,6 +1230,7 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 		});
+		const withdrawValue = +withdrawAmount.value.replace(/,/g, '');
 		
 		// Form submission
 		deposit.addEventListener('submit', function(event) {
