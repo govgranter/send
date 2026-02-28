@@ -1214,11 +1214,11 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 			
-			//function getDepositValue() {	
-				const depositValue = +depositAmount.value.replace(/,/g, '');
-			//}
+			function getDepositValue() {	
+				return +depositAmount.value.replace(/,/g, '');
+			}
 			
-			//const depositValue = getDepositValue();
+			const depositValue = getDepositValue();
 			alert(depositValue);
 		});
 		
