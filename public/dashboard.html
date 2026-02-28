@@ -1214,11 +1214,8 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 			
-			function getDepositValue() {	
-				return +depositAmount.value.replace(/,/g, '');
-			}
-			//const depositValue = getDepositValue();
-			//alert(depositValue);
+			depositValue = +depositAmount.value.replace(/,/g, '');
+		
 		});
 		
 		withdrawAmount.addEventListener('input', function(e) {
@@ -1227,9 +1224,8 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 			
-			function getWithdrawValue() {	
-				return +withdrawAmount.value.replace(/,/g, '');
-			}
+			withdrawValue = withdrawAmount.value.replace(/,/g, '');
+			
 		});
 
 		// ENABLE BUTTONS IF AMOUNT STANDARD IS MET
