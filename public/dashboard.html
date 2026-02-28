@@ -1215,7 +1215,9 @@ body {
 			this.value = parts.join('.');
 			
 			depositValue = +depositAmount.value.replace(/,/g, '');
-		
+			if (depositValue > 10000 && depositValue < 50000000) {
+				depositProceed.disabled = false;
+			}		
 		});
 		
 		withdrawAmount.addEventListener('input', function(e) {
@@ -1225,16 +1227,10 @@ body {
 			this.value = parts.join('.');
 			
 			withdrawValue = +withdrawAmount.value.replace(/,/g, '');
-			
+			if (withdrawValue > 5000 && withdrawValue < 15000000 && withdrawValue <= savedInfo.amount) {
+				withdrawProceed.disabled = false;
+			}
 		});
-
-		// ENABLE BUTTONS IF AMOUNT STANDARD IS MET
-		if (depositValue > 10000 && depositValue < 50000000) {
-			depositProceed.disabled = false;
-		}
-		if (withdrawValue > 5000 && withdrawValue < 15000000 && withdrawValue <= savedInfo.amount) {
-			withdrawProceed.disabled = false;
-		}
 		
 		// Form submission
 		deposit.addEventListener('submit', function(event) {
