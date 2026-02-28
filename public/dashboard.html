@@ -1215,7 +1215,7 @@ body {
 			this.value = parts.join('.');
 			
 			function getDepositValue() {	
-				return parseFloat(depositAmount.value.replace(/,/g, ''));
+				return +depositAmount.value.replace(/,/g, '');
 			}
 		});
 		
