@@ -1204,8 +1204,8 @@ body {
 		const withdrawAmount = document.getElementById('amountWI');
 		const depositAmount = document.getElementById('amountDE');
 
-		depositProceed.disabled = true;
-		withdrawProceed.disabled = true;
+		//depositProceed.disabled = true;
+		//withdrawProceed.disabled = true;
 
 		// Input Validation
 		depositAmount.addEventListener('input', function(e) {
@@ -1225,16 +1225,16 @@ body {
 		const withdrawValue = +withdrawAmount.value.replace(/,/g, '');
 
 		// ENABLE BUTTONS IF AMOUNT STANDARD IS MET
-		if (depositValue > 10000 && depositValue < 50000000) {
-			depositProceed.disabled = false;
-		}
-		if (withdrawValue > 5000 && withdrawValue < 15000000 && withdrawValue <= savedInfo.amount) {
-			withdrawProceed.disabled = false;
-		}
+		//if (depositValue > 10000 && depositValue < 50000000) {
+		//	depositProceed.disabled = false;
+		//}
+		//if (withdrawValue > 5000 && withdrawValue < 15000000 && withdrawValue <= savedInfo.amount) {
+		//	withdrawProceed.disabled = false;
+		//}
 		// Form submission
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
-			alert ('deposit');
+			alert (depositValue);
 		});
 		
 		withdraw.addEventListener('submit', function(event) {
