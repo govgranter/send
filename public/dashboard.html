@@ -1213,16 +1213,18 @@ body {
 			let parts = value.split('.');
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
+			
+			const depositValue = +depositAmount.value.replace(/,/g, '');
 		});
-		const depositValue = +depositAmount.value.replace(/,/g, '');
 		
 		withdrawAmount.addEventListener('input', function(e) {
 			let value = this.value.replace(/[^\d.]/g, '');
 			let parts = value.split('.');
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
+			
+			const withdrawValue = +withdrawAmount.value.replace(/,/g, '');
 		});
-		const withdrawValue = +withdrawAmount.value.replace(/,/g, '');
 
 		// ENABLE BUTTONS IF AMOUNT STANDARD IS MET
 		//if (depositValue > 10000 && depositValue < 50000000) {
