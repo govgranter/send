@@ -1215,6 +1215,8 @@ body {
 			this.value = parts.join('.');
 			
 			const depositValue = +depositAmount.value.replace(/,/g, '');
+			
+			alert (depositValue);
 		});
 		
 		withdrawAmount.addEventListener('input', function(e) {
@@ -1236,7 +1238,6 @@ body {
 		// Form submission
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
-			alert (depositValue);
 		});
 		
 		withdraw.addEventListener('submit', function(event) {
