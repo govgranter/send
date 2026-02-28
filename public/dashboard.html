@@ -1217,9 +1217,8 @@ body {
 			function getDepositValue() {	
 				return +depositAmount.value.replace(/,/g, '');
 			}
-			
-			const depositValue = getDepositValue();
-			alert(depositValue);
+			//const depositValue = getDepositValue();
+			//alert(depositValue);
 		});
 		
 		withdrawAmount.addEventListener('input', function(e) {
@@ -1229,7 +1228,7 @@ body {
 			this.value = parts.join('.');
 			
 			function getWithdrawValue() {	
-				return parseFloat(withdrawAmount.value.replace(/,/g, ''));
+				return +withdrawAmount.value.replace(/,/g, '');
 			}
 		});
 
@@ -1244,11 +1243,13 @@ body {
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
 			const depositValue = getDepositValue();
-			alert (depositValue);
+			alert(depositValue);
 		});
 		
 		withdraw.addEventListener('submit', function(event) {
             event.preventDefault();	
+			const withdrawValue = getWithdrawValue();
+			alert(withdrawValue);
 			alert ('withdraw');
 		});
 		
