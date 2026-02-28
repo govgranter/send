@@ -1187,22 +1187,15 @@ body {
 		// Modal forms submit
 		const deposit = document.getElementById('deposit-form');
 		const withdraw = document.getElementById('withdraw-form');
-		
+		// BUTTONS
 		const depositProceed = deposit.querySelector('button');
 		const withdrawProceed = withdraw.querySelector('button');
 		
-		// DEPOSIT AND WITHDRAW STEPS
-		const depositFirst = document.getElementById('deposit-fore');
-		const depositSecond = document.getElementById('deopsit-mid');
-		const depositLast = document.getElementById('deposit-last');
-		
-		const withdrawFirst = document.getElementById('withdraw-fore');
-		const withdrawLast = document.getElementById('withdraw-last');
 		// Withdraw INPUTS
+		const depositAmount = document.getElementById('amountDE');
+		const withdrawAmount = document.getElementById('amountWI');
 		const withdrawBank = document.getElementById('bankWI');
 		const withdrawAccount = document.getElementById('accountWI');
-		const withdrawAmount = document.getElementById('amountWI');
-		const depositAmount = document.getElementById('amountDE');
 
 		// INPUT VALIDATION
 		depositProceed.disabled = true;
@@ -1231,16 +1224,27 @@ body {
 				withdrawProceed.disabled = false;
 			}
 		});
+
+		// DEPOSIT AND WITHDRAW STEPS
+		const depositFirst = document.getElementById('deposit-fore');
+		const depositSecond = document.getElementById('deopsit-mid');
+		const depositLast = document.getElementById('deposit-last');
+		const withdrawFirst = document.getElementById('withdraw-fore');
+		const withdrawLast = document.getElementById('withdraw-last');
 		
 		// FORM SUBMISSION
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
-			
+			depositFirst.classList.add('hide');
+			depositSecond.classList.remove('hide');
 		});
 		
 		withdraw.addEventListener('submit', function(event) {
             event.preventDefault();
+			withdrawFirst.classList.add('hide');
+			withdrawLast.classList.remove('hide');
 		});
+
 		
         // Function to fetch and extract new messages
         async function fetchMessages() {
