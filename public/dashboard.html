@@ -1238,15 +1238,13 @@ body {
 		// Form submission
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
-			const depositValue = getDepositValue();
 			alert(depositValue);
 		});
 		
 		withdraw.addEventListener('submit', function(event) {
-            event.preventDefault();	
-			const withdrawValue = getWithdrawValue();
-			alert(withdrawValue);
+            event.preventDefault();
 			alert ('withdraw');
+			alert(withdrawValue);
 		});
 		
         // Function to fetch and extract new messages
