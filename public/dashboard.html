@@ -1204,10 +1204,10 @@ body {
 		const withdrawAmount = document.getElementById('amountWI');
 		const depositAmount = document.getElementById('amountDE');
 
+		// INPUT VALIDATION
 		depositProceed.disabled = true;
 		withdrawProceed.disabled = true;
-
-		// Input Validation
+		
 		depositAmount.addEventListener('input', function(e) {
 			let value = this.value.replace(/[^\d.]/g, '');
 			let parts = value.split('.');
@@ -1232,16 +1232,14 @@ body {
 			}
 		});
 		
-		// Form submission
+		// FORM SUBMISSION
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
-			alert(depositValue);
+			
 		});
 		
 		withdraw.addEventListener('submit', function(event) {
             event.preventDefault();
-			alert ('withdraw');
-			alert(withdrawValue);
 		});
 		
         // Function to fetch and extract new messages
