@@ -1214,9 +1214,9 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 			
-			const depositValue = +depositAmount.value.replace(/,/g, '');
-			
-			alert (depositValue);
+			function getDepositValue() {	
+				return parseFloat(depositAmount.value.replace(/,/g, ''));
+			}
 		});
 		
 		withdrawAmount.addEventListener('input', function(e) {
@@ -1225,7 +1225,9 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 			
-			const withdrawValue = +withdrawAmount.value.replace(/,/g, '');
+			function getWithdrawValue() {	
+				return parseFloat(withdrawAmount.value.replace(/,/g, ''));
+			}
 		});
 
 		// ENABLE BUTTONS IF AMOUNT STANDARD IS MET
@@ -1238,6 +1240,8 @@ body {
 		// Form submission
 		deposit.addEventListener('submit', function(event) {
 			event.preventDefault();
+			const depositValue = getDepositValue();
+			alert (depositValue);
 		});
 		
 		withdraw.addEventListener('submit', function(event) {
