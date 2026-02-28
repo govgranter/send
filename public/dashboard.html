@@ -1217,6 +1217,9 @@ body {
 			function getDepositValue() {	
 				return +depositAmount.value.replace(/,/g, '');
 			}
+			
+			const depositValue = getDepositValue();
+			alert(depositValue);
 		});
 		
 		withdrawAmount.addEventListener('input', function(e) {
