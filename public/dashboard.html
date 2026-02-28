@@ -1224,7 +1224,7 @@ body {
 			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			this.value = parts.join('.');
 			
-			withdrawValue = withdrawAmount.value.replace(/,/g, '');
+			withdrawValue = +withdrawAmount.value.replace(/,/g, '');
 			
 		});
 
