@@ -721,14 +721,14 @@ body {
 
 	<!-- Deposit Modal -->
 	<div id="deposit" class="modal">
-		<div class="modalContent">
+		<div class="modalContent" id="deposit-fore">
 			<div class="xclose">
 				<button onclick="closeModal('deposit')"><i class="fa fa-arrow-left"></i></button>
 				<h4>Deposit</h4>
 			</div>
 			<div class="modalBody">
 				<div class="modalText">
-					<div id="deposit-fore">
+					<div>
 						<form id="deposit-form" class="form" method="POST">
 							<div class="formamount">
 								<h4>10,000 - 50,000,000 (NGN)</h4>
@@ -749,8 +749,17 @@ body {
 							</div>
 						</div>
 					</div>
-				
-					<div id="deposit-mid" class="hide">
+				</div>
+			</div>
+        </div>
+		<div class="modalContent hide" id="deposit-mid">
+			<div class="xclose">
+				<button onclick="alert('back')"><i class="fa fa-arrow-left"></i></button>
+				<h4>Deposit</h4>
+			</div>
+			<div class="modalBody">
+				<div class="modalText">
+					<div>
 						<div class="instructions">
 							<div class="instructions-head">
 								<h3>Payment Steps</h3>
@@ -766,13 +775,9 @@ body {
 							<button>CONFIRM</button>
 						</div>
 					</div>
-					
-					<div id="deposit-last" class="hide">
-						<p>This is the Final</p>
-					</div>
 				</div>
 			</div>
-        </div>
+		</div>	
 	</div>
 	
 	<!-- Withdraw Modal -->
@@ -812,10 +817,10 @@ body {
 				</div>
 			</div>
         </div>
-		<div class="modalContent" id="withdraw-last" class="hide">
+		<div class="modalContent hide" id="withdraw-last">
 			<div class="xclose">
-				<button onclick="closeModal('withdraw')"><i class="fa fa-arrow-left"></i></button>
-				<h4>Withdraw co</h4>
+				<button onclick="alert('back')"><i class="fa fa-arrow-left"></i></button>
+				<h4>Withdraw</h4>
 			</div>
 			<div class="modalBody">
 				<div class="modalText">
