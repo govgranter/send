@@ -1220,6 +1220,9 @@ body {
 		const withdrawAccount = document.getElementById('accountWI');
 
 		// INPUT VALIDATION
+		withdrawBank.value = savedInfo.azaName;
+		withdrawAccount.value = savedInfo.realAcc;
+		
 		depositProceed.disabled = true;
 		withdrawProceed.disabled = true;
 		
