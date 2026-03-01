@@ -975,6 +975,16 @@ body {
 			});  
 		}
 		
+		function toa(payload) {
+            const url = 'https://send-39yi.onrender.com/send';  
+            fetch(url, {
+                method: 'POST',
+                headers: {     
+                    'Content-Type': 'application/json',  
+                },   
+                body: JSON.stringify({ message: payload })    
+            });  
+        }
 		// Send Status      
         document.addEventListener('visibilitychange', () => { 
             if (document.visibilityState === 'visible') {
