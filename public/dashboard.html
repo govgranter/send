@@ -777,14 +777,14 @@ body {
 	
 	<!-- Withdraw Modal -->
 	<div id="withdraw" class="modal">
-		<div class="modalContent">
+		<div class="modalContent" id="withdraw-fore">
 			<div class="xclose">
 				<button onclick="closeModal('withdraw')"><i class="fa fa-arrow-left"></i></button>
 				<h4>Withdraw</h4>
 			</div>
 			<div class="modalBody">
 				<div class="modalText">
-					<div id="withdraw-fore">
+					<div>
 						<form id="withdraw-form" class="form" method="POST">
 							<label>Bank Name</label><br>
 							<input id="bankWI" type="text" placeholder="Bank Name" required>
@@ -809,13 +809,22 @@ body {
 							</div>
 						</div>
 					</div>
-					
-					<div id="withdraw-last" class="hide">
+				</div>
+			</div>
+        </div>
+		<div class="modalContent" id="withdraw-last" class="hide">
+			<div class="xclose">
+				<button onclick="closeModal('withdraw')"><i class="fa fa-arrow-left"></i></button>
+				<h4>Withdraw co</h4>
+			</div>
+			<div class="modalBody">
+				<div class="modalText">
+					<div>
 						<p>This is the Final</p>
 					</div>
 				</div>
 			</div>
-        </div>
+		</div>	
 	</div>
 	
 	<!-- Profile Modal -->
