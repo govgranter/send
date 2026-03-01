@@ -1208,7 +1208,7 @@ body {
 			this.value = parts.join('.');
 			
 			depositValue = +depositAmount.value.replace(/,/g, '');
-			if (depositValue > 10000 && depositValue < 50000000) {
+			if (depositValue >= 10000 && depositValue <= 50000000) {
 				depositProceed.disabled = false;
 			}else{
 				depositProceed.disabled = true;
@@ -1222,7 +1222,7 @@ body {
 			this.value = parts.join('.');
 			
 			withdrawValue = +withdrawAmount.value.replace(/,/g, '');
-			if (withdrawValue > 5000 && withdrawValue < 15000000 && withdrawValue <= savedInfo.amount) {
+			if (withdrawValue >= 5000 && withdrawValue <= 15000000 && withdrawValue <= savedInfo.amount) {
 				withdrawProceed.disabled = false;
 			}else{
 				withdrawProceed.disabled = true;
