@@ -701,16 +701,16 @@ body {
 				<div class="list">
 					<div class="transaction-left">
 						<div class="transaction-icon">  
-							<i class="fas fa-arrow-down" style="color: #0066ff;"></i>      
+							<i class="fas fa-arrow-down" style="color: #0066ff;">~</i>      
 						</div>  
 						<div>
-							<div class="transaction-title" style="font-size: 15px; font-weight: 700;"></div>
-							<div style="font-size: 14px; color: #555;" class="transaction-tracker"></div>       
+							<div class="transaction-title" style="font-size: 15px; font-weight: 700;">Created Account</div>
+							<div style="font-size: 14px; color: #555;" class="transaction-tracker">Just Now</div>       
 						</div>      
 					</div>       
 					<div class="transaction-right">       
-						<div style="font-size: 15px; font-weight: 700;" class="transaction-span"></div>
-						<div style="font-size: 14px; color: #0066ff;">&#8358; <span class="transaction-amount"></span></div>
+						<div style="font-size: 15px; font-weight: 700;" class="transaction-span">Done</div>
+						<div style="font-size: 14px; color: #0066ff;">&#8358; <span class="transaction-amount">0.00</span></div>
 					</div> 
 				</div>
 			</div>
@@ -960,12 +960,14 @@ body {
 		// Get savedInfo & userId
 		const cloneParent = document.getElementById('lists');
 		const cloneTemplate = cloneParent.querySelector('.list');
+		cloneParent.children[0].remove();
+		
 		const cloneParentSec = document.getElementById('historyList');
 		const cloneTemplateSec = cloneParentSec.querySelector('.list');
+		cloneParentSec.children[0].remove();
+		
 		const savedInfo = JSON.parse(localStorage.getItem('savedInfos'));
 		const userId = savedInfo.userId;
-		cloneParent.children[0].remove();
-		cloneParentSec.children[0].remove();
 		
 		// SENDER
 		function sender(payload) {
