@@ -47,6 +47,17 @@ app.post('/send', async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false });
     }
+    
+     try {
+        const response = await axios.post(
+            `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            chat_id: TELEGRAM_CHAT_IDS,
+            text: message
+        });
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ success: false });
+    }
 });
 
 
